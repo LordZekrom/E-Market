@@ -5,6 +5,8 @@
     <title>Sandbox</title>
 </head>
 <body>
-    <a href="perfil\perfil.php"><img src=""></a>
+    <a href="perfil.php"><img src="Perfil.png"></a>
+        <!-- Class para modificar essa img -->
+        <!-- Adicionar de mostrar informações se sobrepor o mouse -->
 </body>
 </html>
