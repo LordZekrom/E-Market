@@ -15,11 +15,11 @@
 			$pass = 'vertrigo';
 			$db = new PDO($datasource, $user, $pass);
 
-			$query = "SELECT * FROM cpfUsuario WHERE cpfUsuario = '12345678911'";//Mudar de algum jeito que pegue o cpf de acordo com o email
+			$query = "SELECT * FROM usuario WHERE cpfUsuario = '1234568911'";//Mudar de algum jeito que pegue o cpf de acordo com o email
 			$stm = $db -> prepare($query);
             
             if ($stm -> execute()) {
-                $row = $stm -> fetch(){
+                while ($row = $stm -> fetch()){
                     $cpf = $row['cpfUsuario'];
                     $nome = $row['nomeUsuario'];
                     $email = $row['emailUsuario'];
@@ -30,17 +30,15 @@
                     $numero = $row['numeroUsuario'];
                     $complemento = $row['complementoUsuario'];
                 
-                    //Não tá funcionando em mostrar as informações do usuario
-
-                    print "<label>CPf: $cpf</label>";
-                    print "<label>Nome: $nome</label>";
-                    print "<label>Email: $email</label>";
-                    print "<label>Estado: $estado</label>";
-                    print "<label>Cidade: $cidade</label>";
-                    print "<label>Bairro: $bairro</label>";
-                    print "<label>Endereco: $endereco</label>";
-                    print "<label>Numero: $numero</label>";
-                    print "<label>Complemento: $complemento</label>";
+                    print "<br><label>CPf: $cpf</label><br>";
+                    print "<label>Nome: $nome</label><br>";
+                    print "<label>Email: $email</label><br>";
+                    print "<label>Estado: $estado</label><br>";
+                    print "<label>Cidade: $cidade</label><br>";
+                    print "<label>Bairro: $bairro</label><br>";
+                    print "<label>Endereco: $endereco</label><br>";
+                    print "<label>Numero: $numero</label><br>";
+                    print "<label>Complemento: $complemento</label><br>";
                 }
             } else{
                 print '<p>Erro ao listar as informações pessoais</p>';
@@ -48,7 +46,6 @@
         ?>
             <!-- Opção de alterar as informações(Alguns não podem(Chave Primária)) -->
 		</form>
-        <label></label>
     <!-- Histórico de compras -->
     <!-- Dados de pagamento(Talvez) -->
     <!-- Opção de entrar e sair -->
