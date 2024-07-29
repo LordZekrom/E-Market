@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 26-Jul-2024 às 11:45
+-- Generation Time: 29-Jul-2024 às 11:30
 -- Versão do servidor: 5.7.25
 -- versão do PHP: 7.1.26
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `e_market`
 --
+CREATE DATABASE IF NOT EXISTS `e_market` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `e_market`;
 
 -- --------------------------------------------------------
 
