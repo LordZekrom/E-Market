@@ -47,6 +47,31 @@
             <!-- Opção de alterar as informações(Alguns não podem(Chave Primária)) -->
 		</form>
     <!-- Histórico de compras -->
+        <?php
+		    $datasource = 'mysql:host=localhost;dbname=e_market';
+		    $user = 'root';
+			$pass = 'vertrigo';
+			$db = new PDO($datasource, $user, $pass);
+
+			$query = "SELECT * FROM pedido WHERE cpfUsuario = '1234568911'";//Mudar de algum jeito que pegue o cpf de acordo com o email
+			$stm = $db -> prepare($query);
+            
+            if ($stm -> execute()) {
+                while ($row = $stm -> fetch()){
+                    $id = $row['idPedido'];
+                    $data = $row['dataPedido'];
+                    $hora = $row['horaPedido'];
+                    $preco = $row['precoFinal'];
+
+                    print "<br><label>ID: $id</label><br>";
+                    print "<label>Data: $data</label><br>";
+                    print "<label>Hora: $hora</label><br>";
+                    print "<label>Preco: $preco</label><br>";
+                }
+            } else{
+                print '<p>Erro ao listar o histórico de compras</p>';
+            }
+        ?>    
     <!-- Dados de pagamento(Talvez) -->
     <!-- Opção de entrar e sair -->
 </body>
