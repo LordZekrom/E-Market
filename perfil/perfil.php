@@ -57,16 +57,25 @@
 			$stm = $db -> prepare($query);
             
             if ($stm -> execute()) {
+                $encontrouPedido = false;
                 while ($row = $stm -> fetch()){
                     $id = $row['idPedido'];
                     $data = $row['dataPedido'];
                     $hora = $row['horaPedido'];
                     $preco = $row['precoFinal'];
-
+                    $status = $row['statusPedido'];
+                    $complemento = $row['complementoUsuario'];
+                    $encontrouPedido = true;
+                    
+                    if($status == 'finalizado'){            //Só vai aparecer os que estiverem finalizados
                     print "<br><label>ID: $id</label><br>";
                     print "<label>Data: $data</label><br>";
                     print "<label>Hora: $hora</label><br>";
                     print "<label>Preco: $preco</label><br>";
+                    }
+                }
+                if($encontrouPedido == false){
+                    print "<br><label>Não foi feita nenhuma compra</label><br>";
                 }
             } else{
                 print '<p>Erro ao listar o histórico de compras</p>';
