@@ -1,22 +1,26 @@
 <?php
     #Recebendo os dados
-    $cbid = $_POST['cbid'];
-    $nome = $_POST['nome'];
-    $valor = $_POST['valor'];
-    $validade = $_POST['validade'];
+    $codigoProduto = $_POST['codigoProduto'];
+    $nome = $_POST['nomeProduto'];
+    $descricao = $_POST['descricaoProduto'];
+    $preco = $_POST['precoProduto'];
+    $quantidade = $_POST['quantidadeProduto'];
+    $categoria = $_POST['categoriaProduto'];
    
     # Conecta com BD
-    $ds = "mysql:host=localhost;dbname=mercado";
+    $ds = "mysql:host=localhost;e_market";
     $con = new PDO($ds, 'root', 'vertrigo');
 
     # SQL para update
-    $sql = "UPDATE market SET cbid=?, nome=?, valor=?, validade=? WHERE cbid=?";
+    $sql = "UPDATE produto SET codigoProduto=?, nomeProduto=?, descricaoProduto=?, precoProduto=?, quantidadeProduto=?, categoriaProduto WHERE codigoProduto=?";
     $stm = $con->prepare($sql);
-    $stm->bindParam(1, $cbid);
+    $stm->bindParam(1, $codigoProduto);
     $stm->bindParam(2, $nome);
-    $stm->bindParam(3, $valor);
-    $stm->bindParam(4, $validade);
-    $stm->bindParam(5, $cbid);
+    $stm->bindParam(3, $descricao);
+    $stm->bindParam(4, $preco);
+    $stm->bindParam(5, $quantidade);
+    $stm->bindParam(6, $categoria);
+
 
     #Executa SQL
     if($stm->execute()){

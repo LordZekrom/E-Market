@@ -1,25 +1,27 @@
 <?php
     #Recebe o id pela URL
-    $cbid = $_GET['cbid'];
+    $codigoProduto = $_GET['codigoProduto'];
 
     # Conecta com BD
-    $ds = "mysql:host=localhost;dbname=mercado";
+    $ds = "mysql:host=localhost;dbname=e_market";
     $con = new PDO($ds, 'root', 'vertrigo');
 
     # Buscar dados do registro
-    $sql = "SELECT * from market WHERE cbid=?";
+    $sql = "SELECT * from produto WHERE codigoProduto=?";
     $stm = $con->prepare($sql);
-    $stm->bindParam(1,$cbid);
+    $stm->bindParam(1,$codigoProduto);
 
     # Executa o SQL
     $stm->execute();
 
     # Pega o resultado
     $result = $stm->fetch();
-    $cbid = $result['cbid'];
-    $nome = $result['nome'];
-    $valor = $result['valor'];
-    $validade = $result['validade'];
+    $codigoProduto = $result['codigoProduto'];
+    $nome = $result['nomeProduto'];
+    $descricao = $result['descricaoProduto'];
+    $preco = $result['precoProduto'];
+    $quantidade = $result['quantidadeProduto'];
+    $categoria = $result['categoriaProduto'];
 
     
 ?>
@@ -31,16 +33,32 @@
 </head>
 <body>
     <h3>Editar Produto</h3>
-    <form method='post' action='atualiza.php'>
-        <label>Código de barras: </label>
-        <input type='hidden' name='id' value='<?php print $cbid ?>'>
+    <form method='POST' action='atualiza.php' enctype="multipart/form-data">
+        <label>Código: </label>
+        <input name='codigoProduto'><br>
         <label>Nome: </label>
-        <input name='nome' value='<?php print $nome ?>'><br>
-        <label>Valor: </label>
-        <input name='valor' value='<?php print $valor ?>'><br>
-        <label>Validade: </label>
-        <input name='validade' value='<?php print $validade ?>'><br>
-        <button type='submit'>Atualizar</button>
-</form>
+        <input name='nomeProduto'><br>
+        <label>Descrição: </label>
+        <input name='descricaoProduto'><br>
+        <label>Preço </label>
+        <input name='precoProduto'><br>
+        <label>Quantidade </label>
+        <input name='quantidadeProduto'><br>
+        <label>Categoria </label>
+        <select name='categoriaProduto'>
+            <option value='1'>Eletrônicos</option>
+            <option value='2'>Roupas</option>
+            <option value='3'>Alimentos</option>
+            <option value='4'>Livros</option>
+            <option value='5'>Higiene</option>
+            <option value='6'>Bebidas</option>
+            <option value='7'>Casa</option>
+            <option value='8'>Outros</option>
+        </select>    
+        <br>        
+   Selecione uma imagem: <input name="arquivo" type="file" />
+   <br/>
+        <button type='submit'>Salvar</button>
+    </form>
 </body>
 </html>

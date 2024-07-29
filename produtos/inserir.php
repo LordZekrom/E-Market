@@ -1,11 +1,11 @@
 <?php
     # Recebe dados do FORM
-    //$cid = $_POST['cid'];
-    $nome = $_POST['nome'];
-    $descricao = $_POST['descricao'];
-    $preco = $_POST['preco'];
-    $quantidade = $_POST['quantidade'];
-    $categoria = $_POST['categoria'];
+    //$codigoProduto = $_POST['codigoProduto'];
+    $nome = $_POST['nomeProduto'];
+    $descricao = $_POST['descricaoProduto'];
+    $preco = $_POST['precoProduto'];
+    $quantidade = $_POST['quantidadeProduto'];
+    $categoria = $_POST['categoriaProduto'];
     
     # Conecta com BD
     $ds = "mysql:host=localhost;dbname=e_market";

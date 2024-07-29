@@ -13,17 +13,17 @@
         <h3>Cadastro de produtos</h3>
     <form method='POST' action='inserir.php' enctype="multipart/form-data">
         <label>Código: </label>
-        <input name='cid'><br>
+        <input name='codigoProduto'><br>
         <label>Nome: </label>
-        <input name='nome'><br>
+        <input name='nomeProduto'><br>
         <label>Descrição: </label>
-        <input name='descricao'><br>
+        <input name='descricaoProduto'><br>
         <label>Preço </label>
-        <input name='preco'><br>
+        <input name='precoProduto'><br>
         <label>Quantidade </label>
-        <input name='quantidade'><br>
+        <input name='quantidadeProduto'><br>
         <label>Categoria </label>
-        <select name='categoria'>
+        <select name='categoriaProduto'>
             <option value='1'>Eletrônicos</option>
             <option value='2'>Roupas</option>
             <option value='3'>Alimentos</option>
@@ -62,20 +62,19 @@
     
         # Percorre os registros
         foreach($stm as $row){
-            $codigoProduto = $row['cid'];
+            $codigoProduto = $row['codigoProduto'];
             echo "<tr>";
             echo "<td>" . $codigoProduto . "</td>";
-            echo "<td>" . $row['nome'] . "</td>";
-            echo "<td>" . $row['descricao'] . "</td>";
-            echo "<td>" . $row['preco'] . "</td>";
-            echo "<td>" . $row['quantidade'] . "</td>";
-            echo "<td>" . $row['categoria'] . "</td>";
-            echo "<td>" . $row['categoria'] . "</td>";
+            echo "<td>" . $row['nomeProduto'] . "</td>";
+            echo "<td>" . $row['descricaoProduto'] . "</td>";
+            echo "<td>" . $row['precoProduto'] . "</td>";
+            echo "<td>" . $row['quantidadeProduto'] . "</td>";
+            echo "<td>" . $row['categoriaProduto'] . "</td>";
             echo "<td><img src='imagens/" . $row['fotoProduto'] . "' width='60px'/></td>";
             echo "<td>
-                    <a href='delete.php?b=cid=$codigoProduto'>Deletar</a>
+                    <a href='delete.php?b=codigoProduto=$codigoProduto'>Deletar</a>
                     |
-                    <a href='edita.php?cid=$codigoProduto'>Editar</a>
+                    <a href='edita.php?codigoProduto=$codigoProduto'>Editar</a>
                  </td>"; 
             echo "</tr>";
         }
