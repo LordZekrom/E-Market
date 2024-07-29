@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 29-Jul-2024 às 11:30
+-- Generation Time: 29-Jul-2024 às 11:40
 -- Versão do servidor: 5.7.25
 -- versão do PHP: 7.1.26
 
@@ -68,6 +68,7 @@ CREATE TABLE `pedido` (
 
 CREATE TABLE `produto` (
   `codigoProduto` int(11) NOT NULL,
+  `nomeProduto` varchar(50) NOT NULL,
   `descricaoProduto` varchar(255) NOT NULL,
   `precoProduto` decimal(10,2) NOT NULL,
   `quantidadeProduto` int(11) NOT NULL,
