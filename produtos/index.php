@@ -72,7 +72,7 @@
             echo "<td>" . $row['categoriaProduto'] . "</td>";
             echo "<td><img src='imagens/" . $row['fotoProduto'] . "' width='60px'/></td>";
             echo "<td>
-                    <a href='delete.php?b=codigoProduto=$codigoProduto'>Deletar</a>
+                    <a href='delete.php?codigoProduto=$codigoProduto'>Deletar</a>
                     |
                     <a href='edita.php?codigoProduto=$codigoProduto'>Editar</a>
                  </td>"; 
