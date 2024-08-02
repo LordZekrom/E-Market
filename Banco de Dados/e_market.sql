@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 29-Jul-2024 às 11:40
+-- Generation Time: 02-Ago-2024 às 10:17
 -- Versão do servidor: 5.7.25
 -- versão do PHP: 7.1.26
 
@@ -72,8 +72,23 @@ CREATE TABLE `produto` (
   `descricaoProduto` varchar(255) NOT NULL,
   `precoProduto` decimal(10,2) NOT NULL,
   `quantidadeProduto` int(11) NOT NULL,
-  `categoriaProduto` enum('Eletrônicos','Roupas','Alimentos','Livros','Higiene','Bebidas','Casa','Outros') DEFAULT NULL
+  `categoriaProduto` enum('Eletrônicos','Roupas','Alimentos','Livros','Higiene','Bebidas','Casa','Outros') DEFAULT NULL,
+  `fotoProduto` varchar(256) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `produto`
+--
+
+INSERT INTO `produto` (`codigoProduto`, `nomeProduto`, `descricaoProduto`, `precoProduto`, `quantidadeProduto`, `categoriaProduto`, `fotoProduto`) VALUES
+(1, 'joao', 'sdsd', '6.00', 2312, NULL, NULL),
+(2, 'joao', 'sdsd', '6.00', 2312, NULL, NULL),
+(3, 'joao', 'sdsd', '6.00', 2312, 'Eletrônicos', NULL),
+(4, 'joao', 'sdsd', '6.00', 2312, 'Eletrônicos', NULL),
+(5, 'joao', 'sdsd', '6.00', 2312, 'Eletrônicos', '172225657066a78cba76435.jpg'),
+(6, 'bolacha', 'aaa', '15.99', 10, 'Alimentos', '172226166766a7a0a3bb6c3.jpg'),
+(7, 'arroz', 'arroz branco', '20.00', 1, 'Alimentos', '172226379866a7a8f603078.jpg'),
+(8, 'arroz', 'arroz branco', '30.00', 1, 'Alimentos', '172226383966a7a91f4711b.jpg');
 
 -- --------------------------------------------------------
 
@@ -154,7 +169,7 @@ ALTER TABLE `pedido`
 -- AUTO_INCREMENT for table `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `codigoProduto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `codigoProduto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

@@ -45,7 +45,7 @@
             }
         ?>
             <!-- Opção de alterar as informações(Alguns não podem(Chave Primária)) -->
-		</form>
+                <button><a href="http://localhost/inf22/GitHub/FichasOPMaker/perfil/perfil_alterar_infs_pessoais.php">Alterar Informações</a></button>
     <!-- Histórico de compras -->
         <?php
 		    $datasource = 'mysql:host=localhost;dbname=e_market';
@@ -68,10 +68,11 @@
                     $encontrouPedido = true;
                     
                     if($status == 'finalizado'){            //Só vai aparecer os que estiverem finalizados
-                    print "<br><label>ID: $id</label><br>";
-                    print "<label>Data: $data</label><br>";
-                    print "<label>Hora: $hora</label><br>";
-                    print "<label>Preco: $preco</label><br>";
+                        print "<br><label>ID: $id</label><br>";
+                        print "<label>Data: $data</label><br>";
+                        print "<label>Hora: $hora</label><br>";
+                        print "<label>Complemento: $complemento</label><br>";
+                        print "<label>Preco: $preco</label><br>";
                     }
                 }
                 if($encontrouPedido == false){
@@ -81,7 +82,8 @@
                 print '<p>Erro ao listar o histórico de compras</p>';
             }
         ?>    
-    <!-- Dados de pagamento(Talvez) -->
+    <!-- Dados de pagamento(Só se acabar tudo antes) -->
     <!-- Opção de entrar e sair -->
+            
 </body>
 </html>
