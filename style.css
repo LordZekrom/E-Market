@@ -75,3 +75,12 @@ nav ul li a:hover {
 .search-bar button:hover {
     background-color: #0056b3;
 }
+.product {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    width: 100px;
+    height: 80px;
+    float: left;
+    margin: 10px;
+}
