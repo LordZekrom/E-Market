@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <title>E-Market</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <title>E-Market</title>        
 </head>
 <body>
     <header>
         <div class="logo">
-             <img src="mercado.png" alt="Logo">
+             <img src="../mercado.png" alt="Logo">
         </div>
         <div class="search-bar">
             <input type="search" placeholder="Pesquisar...">
@@ -41,12 +41,12 @@
         # Percorre os registros
         foreach($stm as $row){
             $codigoProduto = $row['codigoProduto'];
+            $linkComprar = "comprar.php?produto=" . $codigoProduto;
            
-            echo "<div class='product'><img src='produtos/imagens/" . $row['fotoProduto'] . "' width='60px'/><br>
+            echo "<div class='product'><img src='../produtos/imagens/" . $row['fotoProduto'] . "' width='60px'/><br>
             <h4>" . $row['nomeProduto'] . "</h4>
-            <h5>" . $row['precoProduto'] . "</h5><button>Comprar</button></div>";
-            /*echo "<td>" . $row['quantidadeProduto'] . "</td>";*/
-            
+            <h5>" . $row['precoProduto'] . "</h5>
+            <button onclick=\"window.location.href='addCarrinho.php?codigoProduto=$codigoProduto'\">Comprar</button></div>";
         }
     ?>
     
