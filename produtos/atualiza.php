@@ -1,5 +1,7 @@
 <?php
-    #Recebendo os dados
+
+
+    # Recebe os dados do formulário
     $codigoProduto = $_POST['codigoProduto'];
     $nome = $_POST['nomeProduto'];
     $descricao = $_POST['descricaoProduto'];
@@ -8,18 +10,18 @@
     $categoria = $_POST['categoriaProduto'];
    
     # Conecta com BD
-    $ds = "mysql:host=localhost;e_market";
+    $ds = "mysql:host=localhost;dbname=e_market";
     $con = new PDO($ds, 'root', 'vertrigo');
 
     # SQL para update
-    $sql = "UPDATE produto SET codigoProduto=?, nomeProduto=?, descricaoProduto=?, precoProduto=?, quantidadeProduto=?, categoriaProduto WHERE codigoProduto=?";
+    $sql = "UPDATE produto SET nomeProduto=?, descricaoProduto=?, precoProduto=?, quantidadeProduto=?, categoriaProduto=? WHERE codigoProduto=?";
     $stm = $con->prepare($sql);
-    $stm->bindParam(1, $codigoProduto);
-    $stm->bindParam(2, $nome);
-    $stm->bindParam(3, $descricao);
-    $stm->bindParam(4, $preco);
-    $stm->bindParam(5, $quantidade);
-    $stm->bindParam(6, $categoria);
+    $stm->bindParam(1, $nome);
+    $stm->bindParam(2, $descricao);
+    $stm->bindParam(3, $preco);
+    $stm->bindParam(4, $quantidade);
+    $stm->bindParam(5, $categoria);
+    $stm->bindParam(6, $codigoProduto);
 
 
     #Executa SQL
@@ -29,4 +31,5 @@
     else{
         print "<p>Erro ao atualizar</p>";
     }
+    
 ?>
