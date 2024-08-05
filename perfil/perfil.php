@@ -39,13 +39,16 @@
                     print "<label>Endereco: $endereco</label><br>";
                     print "<label>Numero: $numero</label><br>";
                     print "<label>Complemento: $complemento</label><br>";
+
+                    //Opção de alterar as informações(Alguns não podem(Chave Primária))
+                        print "<button><a href='edita.php?cpfUsuario=$cpf'>Alterar Informações</a></button>";
                 }
             } else{
                 print '<p>Erro ao listar as informações pessoais</p>';
             }
-        ?>
-            <!-- Opção de alterar as informações(Alguns não podem(Chave Primária)) -->
-                <button><a href="http://localhost/inf22/GitHub/FichasOPMaker/perfil/perfil_alterar_infs_pessoais.php">Alterar Informações</a></button>
+        
+            
+            ?>
     <!-- Histórico de compras -->
         <?php
 		    $datasource = 'mysql:host=localhost;dbname=e_market';
