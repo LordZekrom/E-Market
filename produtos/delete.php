@@ -10,7 +10,8 @@
     # SQL remoção
     $sql = "DELETE FROM produto WHERE codigoProduto=?";
     $stm = $con->prepare($sql);
-    $stm->execute(array($id));
+    $stm->execute(array($codigoProduto));
+
 
     if($stm){
         header("location:index.php");

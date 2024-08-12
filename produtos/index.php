@@ -63,6 +63,7 @@
         # Percorre os registros
         foreach($stm as $row){
             $codigoProduto = $row['codigoProduto'];
+            
             echo "<tr>";
             echo "<td>" . $codigoProduto . "</td>";
             echo "<td>" . $row['nomeProduto'] . "</td>";

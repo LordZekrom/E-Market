@@ -55,7 +55,7 @@
             <option value='8'>Outros</option>
         </select>    
         <br>        
-   Selecione uma imagem: <input name="arquivo" type="file"  />
+   Selecione uma imagem: <input name="arquivo" type="file"   />
    <br/>
         <button type='submit'>Salvar</button>
     </form>
