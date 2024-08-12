@@ -1,3 +1,5 @@
 Mostrar foto do usuario;
     Deixar alterar(inserir ja entra nisso)
 Mexer no trem de se já foi feito compras
+
+O cpf ta conseguindo ficar menor do que deve
