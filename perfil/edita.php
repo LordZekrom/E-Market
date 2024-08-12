@@ -1,3 +1,7 @@
+<?php
+//Inclui o arquivo de verifica��o de sess�o.
+    include_once("verifica.php");
+?>
 <link rel="stylesheet" href="perfil.css">
 <!-- Informações pessoais -->
     <img src="Perfil.png" class="foto_perfil">
@@ -44,19 +48,19 @@
         <label>Nome: </label>
         <input name='nomeUsuario' value='<?php print"$nome"; ?>'><br>
         <label>Email: </label>
-        <input name='emailUsuario'><br>
+        <input name='emailUsuario' value='<?php print"$email"; ?>'><br>
         <label>Estado: </label>
-        <input name='estadoUsuario'><br>
+        <input name='estadoUsuario' value='<?php print"$estado"; ?>'><br>
         <label>Cidade: </label>
-        <input name='cidadeUsuario'><br>
+        <input name='cidadeUsuario' value='<?php print"$cidade"; ?>'><br>
         <label>Bairro: </label>
-        <input name='bairroUsuario'><br>
+        <input name='bairroUsuario' value='<?php print"$bairro"; ?>'><br>
         <label>Endereco: </label>
-        <input name='enderecoUsuario'><br>
+        <input name='enderecoUsuario' value='<?php print"$endereco"; ?>'><br>
         <label>Numero: </label>
-        <input name='numeroUsuario'><br>
+        <input name='numeroUsuario' value='<?php print"$numero"; ?>'><br>
         <label>Complemento: </label>
-        <input name='complementoUsuario'><br>
+        <input name='complementoUsuario' value='<?php print"$complemento"; ?>'><br>
         
         <button type='submit'>Salvar</button>
     </form>

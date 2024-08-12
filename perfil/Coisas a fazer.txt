@@ -1,0 +1,3 @@
+Mostrar foto do usuario;
+    Deixar alterar(inserir ja entra nisso)
+Mexer no trem de se já foi feito compras
