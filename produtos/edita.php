@@ -34,7 +34,7 @@
 <body>
     <h3>Editar Produto</h3>
     <form method='POST' action='atualiza.php' enctype="multipart/form-data">
-        <input name='codigoProduto' type="hidden"><br> 
+        <input name='codigoProduto' type="hidden"  value='<?php print $codigoProduto ?>'><br> 
         <label>Nome: </label>
         <input name='nomeProduto' value='<?php print $nome ?>'><br>
         <label>Descrição: </label>
