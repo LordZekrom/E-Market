@@ -8,14 +8,14 @@
             <!-- Deixar a foto de perfil personalizavel -->
 <?php
     #Recebe o id pela URL
-    $cpf = $_GET['cpfUsuario'];
+    $cpf = $_SESSION['cpf'];
 
     # Conecta com BD
     $ds = "mysql:host=localhost;dbname=e_market";
     $db = new PDO($ds, 'root', 'vertrigo');
 
     # Buscar dados do registro
-    $query = "SELECT * from usuario WHERE cpfUsuario='1234568911'";
+    $query = "SELECT * from usuario WHERE cpfUsuario='$cpf'";
     $stm = $db->prepare($query);
     $stm->bindParam(1,$cpf);
 
@@ -44,7 +44,6 @@
 <body>
     <h3>Editar Perfil</h3>
     <form method='POST' action='atualiza.php' enctype="multipart/form-data">
-        <input type='hidden' value='1234568911' name='cpfUsuario'>    
         <label>Nome: </label>
         <input name='nomeUsuario' value='<?php print"$nome"; ?>'><br>
         <label>Email: </label>

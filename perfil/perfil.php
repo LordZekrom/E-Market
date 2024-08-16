@@ -49,7 +49,7 @@
                     print "<label>Complemento: $complemento</label><br>";
 
                     //Opção de alterar as informações(Alguns não podem(Chave Primária))
-                        print "<button><a href='edita.php?cpfUsuario=$cpf'>Alterar Informações</a></button>";
+                        print "<button><a href='edita.php'>Alterar Informações</a></button>";
                 }
             } else{
                 print '<p>Erro ao listar as informações pessoais</p>';
