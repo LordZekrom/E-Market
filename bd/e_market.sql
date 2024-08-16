@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 02-Ago-2024 às 10:17
+-- Generation Time: 12-Ago-2024 às 12:25
 -- Versão do servidor: 5.7.25
 -- versão do PHP: 7.1.26
 
@@ -105,16 +105,17 @@ CREATE TABLE `usuario` (
   `bairroUsuario` varchar(100) DEFAULT NULL,
   `enderecoUsuario` varchar(200) DEFAULT NULL,
   `numeroUsuario` varchar(10) DEFAULT NULL,
-  `complementoUsuario` varchar(100) DEFAULT NULL
+  `complementoUsuario` varchar(100) DEFAULT NULL,
+  `senhaUsuario` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `usuario`
 --
 
-INSERT INTO `usuario` (`cpfUsuario`, `nomeUsuario`, `emailUsuario`, `estadoUsuario`, `cidadeUsuario`, `bairroUsuario`, `enderecoUsuario`, `numeroUsuario`, `complementoUsuario`) VALUES
-('11111111111', 'teste', 'a@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL),
-('1234568911', 'Burno', 'b@gmail.com', 'Minas Gerais', 'Pouso Alegre', 'Cruz Alta', 'Roça', '000', 'Deu certo?');
+INSERT INTO `usuario` (`cpfUsuario`, `nomeUsuario`, `emailUsuario`, `estadoUsuario`, `cidadeUsuario`, `bairroUsuario`, `enderecoUsuario`, `numeroUsuario`, `complementoUsuario`, `senhaUsuario`) VALUES
+('11111111111', 'teste', 'a@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, ''),
+('1234568911', 'Burno', 'b@gmail.com', 'Minas Gerais', 'Pouso Alegre', 'Cruz Alta', 'Roça', '000', 'Deu certo?', '');
 
 --
 -- Indexes for dumped tables
