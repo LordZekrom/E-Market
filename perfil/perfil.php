@@ -3,7 +3,7 @@
     include_once("verifica.php");
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>Perfil</title>
@@ -23,12 +23,11 @@
 			$pass = 'vertrigo';
 			$db = new PDO($datasource, $user, $pass);
 
-			$query = "SELECT * FROM usuario WHERE cpfUsuario = $cpf";//Mudar de algum jeito que pegue o cpf de acordo com o email
+			$query = "SELECT * FROM usuario WHERE cpfUsuario = '$cpf'";//Mudar de algum jeito que pegue o cpf de acordo com o email
 			$stm = $db -> prepare($query);
             
             if ($stm -> execute()) {
                 while ($row = $stm -> fetch()){
-                    $cpf = $row['cpfUsuario'];
                     $nome = $row['nomeUsuario'];
                     $email = $row['emailUsuario'];
                     $estado = $row['estadoUsuario'];
@@ -59,12 +58,7 @@
             ?>
     <!-- Histórico de compras -->
         <?php
-		    $datasource = 'mysql:host=localhost;dbname=e_market';
-		    $user = 'root';
-			$pass = 'vertrigo';
-			$db = new PDO($datasource, $user, $pass);
-
-			$query = "SELECT * FROM pedido WHERE cpfUsuario = '1234568911'";//Mudar de algum jeito que pegue o cpf de acordo com o email
+			$query = "SELECT * FROM pedido WHERE cpfUsuario = '$cpf'";//Mudar de algum jeito que pegue o cpf de acordo com o email
 			$stm = $db -> prepare($query);
             
             if ($stm -> execute()) {
