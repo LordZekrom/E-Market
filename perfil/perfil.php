@@ -1,3 +1,7 @@
+<?php
+//Inclui o arquivo de verifica��o de sess�o.
+    include_once("verifica.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +10,10 @@
     <link rel="stylesheet" href="perfil.css">
 </head>
 <body>
+    <?php 
+		$cpf = $_SESSION['cpf'];
+		print "<p>Bem vindo!"; 
+	?>
     <!-- Informações pessoais -->
         <img src="Perfil.png" class="foto_perfil">
             <!-- Deixar a foto de perfil personalizavel -->
@@ -15,7 +23,7 @@
 			$pass = 'vertrigo';
 			$db = new PDO($datasource, $user, $pass);
 
-			$query = "SELECT * FROM usuario WHERE cpfUsuario = '1234568911'";//Mudar de algum jeito que pegue o cpf de acordo com o email
+			$query = "SELECT * FROM usuario WHERE cpfUsuario = $cpf";//Mudar de algum jeito que pegue o cpf de acordo com o email
 			$stm = $db -> prepare($query);
             
             if ($stm -> execute()) {
@@ -41,7 +49,7 @@
                     print "<label>Complemento: $complemento</label><br>";
 
                     //Opção de alterar as informações(Alguns não podem(Chave Primária))
-                        print "<button><a href='edita.php?cpfUsuario=$cpf'>Alterar Informações</a></button>";
+                        print "<button><a href='edita.php'>Alterar Informações</a></button>";
                 }
             } else{
                 print '<p>Erro ao listar as informações pessoais</p>';
@@ -87,6 +95,6 @@
         ?>    
     <!-- Dados de pagamento(Só se acabar tudo antes) -->
     <!-- Opção de entrar e sair -->
-            
+    <a href='logout.php'>Sair</a>
 </body>
 </html>

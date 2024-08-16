@@ -1,6 +1,10 @@
 <?php
+//Inclui o arquivo de verifica��o de sess�o.
+    include_once("verifica.php");
+?>
+<?php
+    $cpf = $_SESSION['cpf'];
     #Recebendo os dados
-    $cpf = $_POST['cpfUsuario'];
     $nome = $_POST['nomeUsuario'];
     $email = $_POST['emailUsuario'];
     $estado = $_POST['estadoUsuario'];
