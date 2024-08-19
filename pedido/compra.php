@@ -24,7 +24,7 @@
     <nav>
         <ul>
             <li><a href="../home/index.html">Home</a></li>
-            <li><a href="../pedido/compra.php" style="background-color: rgb(158, 227, 255); color:black;" >Produtos</a></li>
+            <li><a href="../pedido/compra.php" style="background-color: #2c3e50; color:white;" >Produtos</a></li>
             <li><a href="../comparacao/index.html">Comparação</a></li>
             <li><a href="../perfil/index.html">Perfil</a></li> 
         </ul>

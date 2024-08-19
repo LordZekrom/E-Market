@@ -1,8 +1,8 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: rgb(255, 255, 255);
+    background-color: #f4f4f4;
     margin: 0;
-    padding: 0
+    padding: 0;
 }
 
 header {
@@ -10,20 +10,21 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: rgb(158, 227, 255);
-    border-bottom: 1px solid rgb(158, 227, 255);;
+    background-color: #2c3e50;
+    border-bottom: 1px solid #2c3e50;
 }
 
-.logo img{
+.logo img {
     height: 70px;
 }
 
 .cart {
     font-size: 18px;
+    color: white;
 }
 
 nav {
-    background-color:  rgb(4, 91, 126) ;
+    background-color: #4272a3;
 }
 
 nav ul {
@@ -48,15 +49,17 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color:rgb(158, 227, 255);
-    color:black;
+    background-color: #2c3e50;
+    color: #ffffff;
 }
+
 .search-bar {
     display: flex;
     border: 1px solid #ccc;
     border-radius: 5px;
     overflow: hidden;
 }
+
 .search-bar input[type="search"] {
     border: none;
     padding: 10px;
@@ -65,7 +68,7 @@ nav ul li a:hover {
 }
 
 .search-bar button {
-    background-color: #007BFF;
+    background-color: #21a3b4;
     border: none;
     color: white;
     padding: 10px 15px;
@@ -73,11 +76,11 @@ nav ul li a:hover {
 }
 
 .search-bar button:hover {
-    background-color: #0056b3;
+    background-color: #2b89c0;
 }
 
 .product {
-    border: 5px solid black;
+    border: 1px solid #2c3e50;
     border-radius: 10px;
     padding: 5px;
     width: 100px;
