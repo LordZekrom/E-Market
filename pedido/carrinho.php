@@ -1,10 +1,10 @@
 <?php
 
 
-    $cpfUsuario = "1234568911";
+    $cpfUsuario = "12345678911";
 
 
-   if (isset($_GET['codigoProduto']) /*&& isset($_GET['cpfUsuario'])*/) {
+   if (isset($_GET['IdProduto']) /*&& isset($_GET['cpfUsuario'])*/) {
 
 
 
@@ -91,6 +91,7 @@
         $stm = $con->prepare($sql);
         $stm->bindParam(1, $idPedido);
         $stm->bindParam(2, $codigoProduto);
+        
 
 
         #Vereficar inserção
@@ -123,15 +124,28 @@
     <link rel="stylesheet" href="carrinho.css">
     </head>
 <body>
-    <a href='../Pedido'>Pedidos</a>
-    |
-    <a href='../Produto'>Produtos</a>
-    |
-    <a href='../Cliente'>Clientes</a>
-    |
-    <a href='../Carrinho-finalizado/index.php'>Carrinho e Finalizados</a>
-   
-    <h3>Cadastro do Pedido</h3>
+<header>
+        <div class="logo">
+             <img src="mercado.png" alt="Logo">
+        </div>
+        <div class="search-bar">
+            <input type="search" placeholder="Pesquisar...">
+            <button type="submit">Buscar</button>
+        </div>
+        <div class="cart">
+            <a href="#">
+            <img src="carrinho.png" alt="Carrinho">
+             </a>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="pedido/compra.php">Produtos</a></li>
+            <li><a href="#">Comparação</a></li>
+            <li><a href="#">Perfil</a></li> 
+        </ul>
+    </nav>
     <form method="POST" action="inserir.php">
         <label>CPF: </label>
         <input name="cpfUsuario" value="<?php echo htmlspecialchars($cpfUsuario, ENT_QUOTES, 'UTF-8'); ?>">
@@ -144,6 +158,7 @@
                 <th>ID</th>
                 <th>Nome</th>
                 <th>Preço</th>
+                <th>Excluir</th>
             </tr>
 
 
