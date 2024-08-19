@@ -1,5 +1,5 @@
 <?php
-$cpfUsuario = "1234568911";
+$cpfUsuario = "12345678911";
 $codigoProduto = $_GET['codigoProduto'];
 
 ################### Verificar se exite um PEDIDO com status CARRINHO, se existe, nós pegamos o ID desse pedido.
