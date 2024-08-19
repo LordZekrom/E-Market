@@ -4,7 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../style.css" />
-    <title>E-Market</title>        
+    <title>E-Market</title> 
+    <style>
+    .product {
+    border: 5px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    width: auto;
+    height: auto;
+    float: left;
+    margin: 10px;
+    
+}
+    </style>
 </head>
 <body>
 <header>
@@ -26,7 +38,7 @@
             <li><a href="../home/index.html">Home</a></li>
             <li><a href="../pedido/compra.php" style="background-color: #2c3e50; color:white;" >Produtos</a></li>
             <li><a href="../comparacao/index.html">Comparação</a></li>
-            <li><a href="../perfil/index.html">Perfil</a></li> 
+            <li><a href="../perfil/perfil.php">Perfil</a></li> 
         </ul>
     </nav>
     <main>
@@ -45,10 +57,10 @@
             $codigoProduto = $row['codigoProduto'];
             $linkComprar = "comprar.php?produto=" . $codigoProduto;
            
-            echo "<div class='product'><img src='../produtos/imagens/" . $row['fotoProduto'] . "' width='60px'/><br>
-            <h4>" . $row['nomeProduto'] . "</h4>
-            <h5>" . $row['precoProduto'] . "</h5>
-            <button onclick=\"window.location.href='addCarrinho.php?codigoProduto=$codigoProduto'\">Comprar</button></div>";
+            echo "<div class='product'><img src='../produtos/imagens/" . $row['fotoProduto'] . "' width='80'/>
+            <h4>" . $row['nomeProduto'] . "</h4> <h5>" . $row['precoProduto'] . "</h5> <h5>" . $row['descricaoProduto'] . "</h5>
+            <button onclick=\"window.location.href='addCarrinho.php?codigoProduto=$codigoProduto'\">Comprar</button>
+            <button onclick=\"window.location.href='addCarrinho.php?codigoProduto=$codigoProduto'\">Adiocionar ao carrinho</button></div>";
         }
     ?>
     
