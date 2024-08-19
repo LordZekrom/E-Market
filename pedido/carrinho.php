@@ -121,29 +121,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho de compras da E-Market</title>
-    <link rel="stylesheet" href="carrinho.css">
+    <link rel="stylesheet" href="../pedido/carrinho.css">
     </head>
 <body>
-<header>
+    <header>
         <div class="logo">
-             <img src="mercado.png" alt="Logo">
+             <img src="../imagens/mercado.png" alt="Logo">
         </div>
         <div class="search-bar">
             <input type="search" placeholder="Pesquisar...">
             <button type="submit">Buscar</button>
         </div>
         <div class="cart">
-            <a href="#">
-            <img src="carrinho.png" alt="Carrinho">
+            <a href=" ../pedido/carrinho.php">
+            <img src="../imagens/carrinho.png" alt="Carrinho">
              </a>
         </div>
     </header>
     <nav>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="pedido/compra.php">Produtos</a></li>
-            <li><a href="#">Comparação</a></li>
-            <li><a href="#">Perfil</a></li> 
+            <li><a href="../home/index.html">Home</a></li>
+            <li><a href="../pedido/compra.php">Produtos</a></li>
+            <li><a href="../comparacao/index.html">Comparação</a></li>
+            <li><a href="../perfil/perfil.php"  >Perfil</a></li> 
         </ul>
     </nav>
     <form method="POST" action="inserir.php">

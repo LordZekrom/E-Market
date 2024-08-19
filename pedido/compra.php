@@ -16,7 +16,7 @@
             <button type="submit">Buscar</button>
         </div>
         <div class="cart">
-            <a href="   ">
+            <a href=" ../pedido/carrinho.php">
             <img src="../imagens/carrinho.png" alt="Carrinho">
              </a>
         </div>
