@@ -6,16 +6,40 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Perfil</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="stylesheet" href="perfil.css">
+    <title>E-Market</title>
 </head>
 <body>
+    <header>
+        <div class="logo">
+             <img src="../imagens/mercado.png" alt="Logo">
+        </div>
+        <div class="search-bar">
+            <input type="search" placeholder="Pesquisar...">
+            <button type="submit">Buscar</button>
+        </div>
+        <div class="cart">
+            <a href="  ">
+            <img src="../imagens/carrinho.png" alt="Carrinho">
+             </a>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="../home/index.html">Home</a></li>
+            <li><a href="../pedido/compra.php">Produtos</a></li>
+            <li><a href="../comparacao/index.html">Comparação</a></li>
+            <li><a href="../perfil/index.html" style="background-color: rgb(158, 227, 255); color:black;" >Perfil</a></li> 
+        </ul>
+    </nav>
+
     <?php 
 		$cpf = $_SESSION['cpf'];
-		print "<p>Bem vindo!"; 
 	?>
-    <!-- Informações pessoais -->
-        <img src="Perfil.png" class="foto_perfil">
+    <!-- Informações pessoais -->   
+        <br><img src="Perfil.png" class="foto_perfil">
             <!-- Deixar a foto de perfil personalizavel -->
         <?php
 		    $datasource = 'mysql:host=localhost;dbname=e_market';
@@ -37,7 +61,7 @@
                     $numero = $row['numeroUsuario'];
                     $complemento = $row['complementoUsuario'];
                 
-                    print "<br><label>CPf: $cpf</label><br>";
+                    print "<br><br><label>CPf: $cpf</label><br>";
                     print "<label>Nome: $nome</label><br>";
                     print "<label>Email: $email</label><br>";
                     print "<label>Estado: $estado</label><br>";
@@ -51,7 +75,7 @@
                         print "<button><a href='edita.php'>Alterar Informações</a></button>";
                 }
             } else{
-                print '<p>Erro ao listar as informações pessoais</p>';
+                print '<br><p>Erro ao listar as informações pessoais</p>';
             }
         
             
@@ -81,14 +105,14 @@
                     }
                 }
                 if($encontrouPedido == false){
-                    print "<br><label>Não foi feita nenhuma compra</label><br>";
+                    print "<br><br><label>Não foi feita nenhuma compra</label><br>";
                 }
             } else{
-                print '<p>Erro ao listar o histórico de compras</p>';
+                print '<br><p>Erro ao listar o histórico de compras</p>';
             }
         ?>    
     <!-- Dados de pagamento(Só se acabar tudo antes) -->
     <!-- Opção de entrar e sair -->
-    <a href='logout.php'>Sair</a>
+    <br><a href='logout.php'>Sair</a>
 </body>
 </html>
