@@ -2,10 +2,7 @@
 //Inclui o arquivo de verifica��o de sess�o.
     include_once("verifica.php");
 ?>
-<link rel="stylesheet" href="perfil.css">
-<!-- Informações pessoais -->
-    <img src="Perfil.png" class="foto_perfil">
-            <!-- Deixar a foto de perfil personalizavel -->
+
 <?php
     #Recebe o id pela URL
     $cpf = $_SESSION['cpf'];
@@ -40,9 +37,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Mercado</title>
+    <link rel="stylesheet" href="perfil.css">
+<link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
+<header>
+        <div class="logo">
+             <img src="../imagens/mercado.png" alt="Logo">
+        </div>
+    </header>
     <h3>Editar Perfil</h3>
+    <img src="Perfil.png" class="foto_perfil"><br><br>
     <form method='POST' action='atualiza.php' enctype="multipart/form-data">
         <label>Nome: </label>
         <input name='nomeUsuario' value='<?php print"$nome"; ?>'><br>
