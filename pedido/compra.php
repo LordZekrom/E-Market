@@ -7,24 +7,26 @@
     <title>E-Market</title>        
 </head>
 <body>
-    <header>
+<header>
         <div class="logo">
-             <img src="../mercado.png" alt="Logo">
+             <img src="../imagens/mercado.png" alt="Logo">
         </div>
         <div class="search-bar">
             <input type="search" placeholder="Pesquisar...">
             <button type="submit">Buscar</button>
         </div>
         <div class="cart">
-            <img src="carrinho.png" alt="Logoc">
+            <a href="   ">
+            <img src="../imagens/carrinho.png" alt="Carrinho">
+             </a>
         </div>
     </header>
     <nav>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Produtos</a></li>
-            <li><a href="#">Comparação</a></li>
-            <li><a href="#">Perfil</a></li> 
+            <li><a href="../home/index.html">Home</a></li>
+            <li><a href="../pedido/compra.php">Produtos</a></li>
+            <li><a href="../comparacao/index.html">Comparação</a></li>
+            <li><a href="../perfil/index.html">Perfil</a></li> 
         </ul>
     </nav>
     <main>
