@@ -1,6 +1,17 @@
-<html>
-	<head><title>Login</title></head>
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="perfil.css">
+	<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
 	<body>
+	<header>
+        <div class="logo">
+             <img src="../imagens/mercado.png" alt="Logo">
+        </div>
+    </header>
 		<h3>Login</h3>
 		<form method="post" action="confirmalogin.php">
 			<label>CPF:</label>
@@ -9,6 +20,6 @@
 			<input type="password" name="senha" /><br>
 			<button type="submit">Logar</button>
 		</form>
-		<a href='cadastra.php'>N�o tem login? Cadastre-se.</a>
+		<br><br><a href='cadastra.php'>Nâo tem login? Cadastre-se.</a>
 	</body>
 </html>
