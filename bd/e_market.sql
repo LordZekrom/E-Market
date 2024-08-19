@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 12-Ago-2024 às 12:25
+-- Generation Time: 16-Ago-2024 às 11:54
 -- Versão do servidor: 5.7.25
 -- versão do PHP: 7.1.26
 
@@ -34,7 +34,7 @@ CREATE TABLE `itenspedido` (
   `idItensPedido` int(11) NOT NULL,
   `idPedido` int(11) DEFAULT NULL,
   `idProduto` int(11) DEFAULT NULL,
-  `quantidadeItensPedido` int(11) NOT NULL,
+  `quantidadeItensPedido` int(11) DEFAULT NULL,
   `precoProduto` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -115,7 +115,9 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`cpfUsuario`, `nomeUsuario`, `emailUsuario`, `estadoUsuario`, `cidadeUsuario`, `bairroUsuario`, `enderecoUsuario`, `numeroUsuario`, `complementoUsuario`, `senhaUsuario`) VALUES
 ('11111111111', 'teste', 'a@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, ''),
-('1234568911', 'Burno', 'b@gmail.com', 'Minas Gerais', 'Pouso Alegre', 'Cruz Alta', 'Roça', '000', 'Deu certo?', '');
+('1234', 'Dio', 'dionisio@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '1234'),
+('12345678911', 'Burno', 'b@gmail.com', 'Amazonas', 'Pouso Alegre', 'Cruz Alta', 'Roça', '000', 'Deu certo?', '1234'),
+('98765432199', 'Simo', 'luis.tavares@ifsuldeminas.edu.br', NULL, NULL, NULL, NULL, NULL, NULL, '1234');
 
 --
 -- Indexes for dumped tables
