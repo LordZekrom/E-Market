@@ -11,6 +11,8 @@
 			<input name="email" /><br>
 			<label>Senha:</label>
 			<input type="password" name="senha" /><br>
+			<label>Foto de Perfil:</label>
+            <input type="file" name="fotoPerfil" /><br>
 			<button type="submit">Cadastrar</button>
 		</form>
 	</body>

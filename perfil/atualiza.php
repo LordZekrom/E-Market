@@ -1,43 +1,69 @@
 <?php
-//Inclui o arquivo de verifica��o de sess�o.
-    include_once("verifica.php");
-?>
-<?php
-    $cpf = $_SESSION['cpf'];
-    #Recebendo os dados
-    $nome = $_POST['nomeUsuario'];
-    $email = $_POST['emailUsuario'];
-    $estado = $_POST['estadoUsuario'];
-    $cidade = $_POST['cidadeUsuario'];
-    $bairro = $_POST['bairroUsuario'];
-    $endereco = $_POST['enderecoUsuario'];
-    $numero = $_POST['numeroUsuario'];
-    $complemento = $_POST['complementoUsuario'];
+// Inclui o arquivo de verificação de sessão.
+include_once("verifica.php");
 
-    # Conecta com BD
-    $ds = "mysql:host=localhost;dbname=e_market";
-    $con = new PDO($ds, 'root', 'vertrigo');
+// Recebe o id pela URL
+$cpf = $_SESSION['cpf'];
 
-    # SQL para update
-    $query = "UPDATE usuario SET nomeUsuario=?, emailUsuario=?, estadoUsuario=?, cidadeUsuario=?, bairroUsuario=?, enderecoUsuario=?, numeroUsuario=?, complementoUsuario=? WHERE cpfUsuario=?";
-    $stm = $con->prepare($query);
-    $stm->bindParam(1, $nome);
-    $stm->bindParam(2, $email);
-    $stm->bindParam(3, $estado);
-    $stm->bindParam(4, $cidade);
-    $stm->bindParam(5, $bairro);
-    $stm->bindParam(6, $endereco);
-    $stm->bindParam(7, $numero);
-    $stm->bindParam(8, $complemento);
-    $stm->bindParam(9, $cpf);
+// Conecta com BD
+$ds = "mysql:host=localhost;dbname=e_market";
+$db = new PDO($ds, 'root', 'vertrigo');
 
+// Atualiza os dados do usuário
+$query = "UPDATE usuario SET 
+    nomeUsuario = :nome, 
+    emailUsuario = :email, 
+    estadoUsuario = :estado, 
+    cidadeUsuario = :cidade, 
+    bairroUsuario = :bairro, 
+    enderecoUsuario = :endereco, 
+    numeroUsuario = :numero, 
+    complementoUsuario = :complemento";
 
-    #Executa SQL
-    if($stm->execute()){
-        header('location:perfil.php');
+if ($_FILES['fotoPerfil']['name']) {
+    // Se uma nova imagem foi enviada
+    $fotoPerfil = $_FILES['fotoPerfil']['name'];
+    $extensao = pathinfo($fotoPerfil, PATHINFO_EXTENSION);
+    $extensao = strtolower($extensao);
+
+    // Verifica a extensão do arquivo
+    if (in_array($extensao, ['jpg', 'jpeg', 'gif', 'png'])) {
+        $novoNome = uniqid(time()) . '.' . $extensao;
+        $destino = 'imagens/' . $novoNome;
+        
+        if (move_uploaded_file($_FILES['fotoPerfil']['tmp_name'], $destino)) {
+            $query .= ", fotoPerfil = :fotoPerfil";
+        } else {
+            echo "Erro ao enviar a imagem.";
+            exit;
+        }
+    } else {
+        echo "Tipo de arquivo não permitido.";
+        exit;
     }
-    else{
-        print "<p>Erro ao atualizar</p>";
-        print_r($stm->errorInfo());
-    }
+}
+
+$query .= " WHERE cpfUsuario = :cpf";
+
+$stm = $db->prepare($query);
+$stm->bindParam(':nome', $_POST['nomeUsuario']);
+$stm->bindParam(':email', $_POST['emailUsuario']);
+$stm->bindParam(':estado', $_POST['estadoUsuario']);
+$stm->bindParam(':cidade', $_POST['cidadeUsuario']);
+$stm->bindParam(':bairro', $_POST['bairroUsuario']);
+$stm->bindParam(':endereco', $_POST['enderecoUsuario']);
+$stm->bindParam(':numero', $_POST['numeroUsuario']);
+$stm->bindParam(':complemento', $_POST['complementoUsuario']);
+$stm->bindParam(':cpf', $cpf);
+
+if (isset($novoNome)) {
+    $stm->bindParam(':fotoPerfil', $novoNome);
+}
+
+if ($stm->execute()) {
+    header("Location: perfil.php");
+} else {
+    echo "<p>Erro ao atualizar</p>";
+    print_r($stm->errorInfo());
+}
 ?>
