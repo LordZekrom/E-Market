@@ -28,6 +28,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <meta charset="UTF-8">
     <title>Edição</title>
 </head>
