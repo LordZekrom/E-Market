@@ -82,6 +82,6 @@
         }
     ?>
     </table>
-    <a href='../produtos/index.php'>Voltar</a> 
+    <a href='../pedido/compra.php'>Voltar</a> 
     </body>
     </html>
