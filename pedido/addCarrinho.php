@@ -1,5 +1,6 @@
 <?php
-$cpfUsuario = "12345678911";
+#Recebe o id pela URL
+$cpf = $_SESSION['cpf'];
 $codigoProduto = $_GET['codigoProduto'];
 
 ################### Verificar se exite um PEDIDO com status CARRINHO, se existe, nós pegamos o ID desse pedido.
@@ -8,7 +9,7 @@ include_once "../bd/bd.php";
     
 $sql = "SELECT * FROM pedido WHERE cpfUsuario = ? AND statusPedido = 'carrinho' ";
 $stm = $con->prepare($sql);
-$stm->bindParam(1, $cpfUsuario);
+$stm->bindParam(1, $cpf);
 $stm->execute();
 
 $idPedido = 0;
@@ -19,7 +20,7 @@ else {
     ################### Verificar se exite um PEDIDO com status CARRINHO, se existe, nós pegamos o ID desse pedido.
     $sql = "INSERT INTO pedido (cpfUsuario, statusPedido) VALUES(?, 1)";
     $stm = $con->prepare($sql);
-    $stm->bindParam(1, $cpfUsuario); 
+    $stm->bindParam(1, $cpf); 
     $r = $stm->execute();
     
     if($r){

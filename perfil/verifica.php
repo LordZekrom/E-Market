@@ -6,6 +6,6 @@
 	if(empty($_SESSION["cpf"]))
 	{
 		//Caso não exista dados registrados, exige login
-		header("Location:login.php");
+		header("Location:../perfil/login.php");
 	}
 ?>

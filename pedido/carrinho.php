@@ -1,7 +1,11 @@
 <?php
+//Inclui o arquivo de verifica��o de sess�o.
+    include_once("../perfil/verifica.php");
+?>
+<?php
 
-
-    $cpfUsuario = "12345678911";
+    #Recebe o id pela URL
+    $cpf = $_SESSION['cpf'];
 
 
    if (isset($_GET['IdProduto']) /*&& isset($_GET['cpfUsuario'])*/) {
@@ -24,7 +28,7 @@
     ###### Verificar se já existe um pedido com status CARRINHO, se existir pega o ID    
     $sql = "SELECT * FROM pedido WHERE cpfUsuario = ? AND statusPedido = 'carrinho'";
     $stm = $con->prepare($sql);
-    $stm->bindParam(1, $cpfUsuario);
+    $stm->bindParam(1, $cpf);
     $stm->execute();
 
 
@@ -39,7 +43,7 @@
         ####### Caso não existe pedido com status CARRINHO, para este CPF, criamos um pedido com STATUS CARRINHO
         $sql = 'INSERT INTO pedido (cpfUsuario, statusPedido) VALUES(?,1)';
         $stm = $con->prepare($sql);
-        $r = $stm->execute(array($cpfUsuario));
+        $r = $stm->execute(array($cpf));
 
 
         #Vereficar inserção
@@ -113,11 +117,6 @@
 <html lang="pt-br">
 <head>
 
-<?php
-    # Recebe o CPF pela URL
-    $cpfUsuario = isset($_GET['cpfUsuario']) ? $_GET['cpfUsuario'] : '';
-?>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho de compras da E-Market</title>
@@ -147,9 +146,6 @@
         </ul>
     </nav>
     <form method="POST" action="inserir.php">
-        <label>CPF: </label>
-        <input name="cpfUsuario" value="<?php echo htmlspecialchars($cpfUsuario, ENT_QUOTES, 'UTF-8'); ?>">
-        <br>
        
         <h3>Listagem de Produtos</h3>
         <table border>
@@ -183,7 +179,7 @@
 
                     echo '<tr>';
                     echo "<td>
-                        <a href='inserir.php?codigoProduto=" . urlencode($codigoProduto) . "&cpfUsuario=" . urlencode($cpfUsuario) . "'>Adicionar ao carrinho</a>
+                        <a href='inserir.php?codigoProduto=" . urlencode($codigoProduto) . "&cpfUsuario=" . urlencode($cpf) . "'>Adicionar ao carrinho</a>
                         <form action='salvar.php' method='post' style='display:inline;'>
                             <input type='hidden' name='idProduto' value='" . htmlspecialchars($codigoProduto, ENT_QUOTES, 'UTF-8') . "'>
                             <input type='hidden' name='nomeProduto' value='" . htmlspecialchars($nomeProduto, ENT_QUOTES, 'UTF-8') . "'>
