@@ -63,7 +63,8 @@
             <button onclick=\"window.location.href='addCarrinho.php?codigoProduto=$codigoProduto'\">Adiocionar ao carrinho</button></div>";
         }
     ?>
-    
+    <br>
+    <a href='../produtos/index.php'>Editar produtos</a> 
     </main>
 </body>
 </html>
