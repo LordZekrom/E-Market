@@ -9,7 +9,9 @@
 	<body>
 	<header>
         <div class="logo">
+		<a href=" ../home/index.html">
              <img src="../imagens/mercado.png" alt="Logo">
+            </a>
         </div>
     </header>
 		<h3>Login</h3>
