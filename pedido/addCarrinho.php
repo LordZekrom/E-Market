@@ -1,4 +1,8 @@
 <?php
+//Inclui o arquivo de verifica��o de sess�o.
+    include_once("../perfil/verifica.php");
+?>
+<?php
 #Recebe o id pela URL
 $cpf = $_SESSION['cpf'];
 $codigoProduto = $_GET['codigoProduto'];
@@ -40,10 +44,12 @@ $stm->bindParam(2, $codigoProduto);
 $r = $stm->execute();
 
 if($r){
-    print "<p>Item inserido.</p>";          
+    print "<script>alert('Item inserido!')</script>";
+    header("Location:../pedido/carrinho.php");
 }
 else {
-    print "<p>Erro ao inserir</p>";
+    print "<script>alert('Erro ao inserir o produto')</script>";
     print_r($stm->errorInfo());
+    header("Location:../pedido/compra.php");
 }
 ?>

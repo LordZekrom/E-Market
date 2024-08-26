@@ -3,20 +3,9 @@
     include_once("../perfil/verifica.php");
 ?>
 <?php
-
+/*
     #Recebe o id pela URL
     $cpf = $_SESSION['cpf'];
-
-
-   if (isset($_GET['IdProduto']) /*&& isset($_GET['cpfUsuario'])*/) {
-
-
-
-
-    #Recebe os parâmetros da URL
-    $idProduto = $_GET['idProduto'];
-    #$cpfusuario = $_GET['cpfUsuario'];
-
 
     # Conecta com BD
     $ds = "mysql:host=localhost;dbname=e_market";
@@ -24,6 +13,7 @@
 
 
 
+   if (isset($_GET['IdProduto']) /*&& isset($_GET['cpfUsuario'])/) {
 
     ###### Verificar se já existe um pedido com status CARRINHO, se existir pega o ID    
     $sql = "SELECT * FROM pedido WHERE cpfUsuario = ? AND statusPedido = 'carrinho'";
@@ -59,7 +49,6 @@
     }
     print "<p>ID pedido: $idPedido</p>";  
     print "<p>ID produto: $codigoProduto</p>";  
-
 
     ####### Primeiro, verificar se o item já está no carrinho
     $sqlCheck = 'SELECT * FROM itenspedido WHERE idItensPedido = :idPedido AND codigoProduto = :codigoProduto';
@@ -109,7 +98,7 @@
             print_r($stm->errorInfo());
         }
     }
-}
+}*/
 ?>
 
 
@@ -145,104 +134,50 @@
             <li><a href="../perfil/perfil.php"  >Perfil</a></li> 
         </ul>
     </nav>
-    <form method="POST" action="inserir.php">
-       
-        <h3>Listagem de Produtos</h3>
-        <table border>
-            <tr>
-                <th>Ações</th>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Preço</th>
-                <th>Excluir</th>
-            </tr>
-
-
-            <?php
-                // Conecta com BD
-                $ds = 'mysql:host=localhost;dbname=e_market';
-                $con = new PDO($ds, 'root', 'vertrigo');
-
-
-                // Seleciona todos os registros
-                $sql = 'SELECT * FROM produto';
-                $stm = $con->prepare($sql);
-                $stm->execute();
-
-
-                // Percorre os registros
-                foreach($stm as $row){
-                    $codigoProduto = $row['codigoProduto']; // Verifique se está sendo atribuído corretamente
-                    $nomeProduto = $row['nomeProduto'];
-                    $precoProduto = $row['precoProduto'];
-
-
-                    echo '<tr>';
-                    echo "<td>
-                        <a href='inserir.php?codigoProduto=" . urlencode($codigoProduto) . "&cpfUsuario=" . urlencode($cpf) . "'>Adicionar ao carrinho</a>
-                        <form action='salvar.php' method='post' style='display:inline;'>
-                            <input type='hidden' name='idProduto' value='" . htmlspecialchars($codigoProduto, ENT_QUOTES, 'UTF-8') . "'>
-                            <input type='hidden' name='nomeProduto' value='" . htmlspecialchars($nomeProduto, ENT_QUOTES, 'UTF-8') . "'>
-                            <input type='hidden' name='precoProduto' value='" . htmlspecialchars($precoProduto, ENT_QUOTES, 'UTF-8') . "'>
-                        </form>
-                    </td>";
-                    echo '<td>' . htmlspecialchars($row['codigoProduto'], ENT_QUOTES, 'UTF-8') . '</td>';
-                    echo '<td>' . htmlspecialchars($row['nomeProduto'], ENT_QUOTES, 'UTF-8') . '</td>';
-                    echo '<td>' . htmlspecialchars($row['precoProduto'], ENT_QUOTES, 'UTF-8') . '</td>';
-                    echo '</tr>';
-                }
-            ?>
-        </table>
-    </form>
-    <button type='submit'>Salvar</button>
-
-
-    <h3>Pedidos</h3>
+    <h3>Pedido</h3>
     <table border>
         <tr>
-            <th>ID</th>
-            <th>CPF Cliente</th>
-            <th>Data</th>
-            <th>Hora</th>
-            <th>Preço Final</th>
-            <th>Status</th>
+            <th>ID do Produto(Foto, depois)</th>
+            <th>Nome</th>
+            <th>Quantidade</th>
+            <th>Preço Unitário</th>
             <th>Ações</th>
         </tr>
-
-
         <?php
 
 // Conecta com BD
 $ds = 'mysql:host=localhost;dbname=e_market';
 $con = new PDO($ds, 'root', 'vertrigo');
 
+#Recebe o id pela URL
+$cpf = $_SESSION['cpf'];
 
 // Seleciona todos os registros
-$sql = "SELECT * FROM pedido";
+$sql = "SELECT idPedido FROM pedido WHERE statusPedido = 'carrinho' AND cpfUsuario = :cpfUsuario";
 $stm = $con->prepare($sql);
+$stm->bindParam(':cpfUsuario', $cpf);
 $stm->execute();
-
+$row = $stm->fetch();
+$idPedido = $row['idPedido'];
+$sql = "SELECT * FROM itenspedido ip JOIN pedido p ON ip.idPedido = p.idPedido AND p.cpfUsuario = :cpfUsuario WHERE p.idPedido = :idPedido";
+$stm = $con->prepare($sql);
+$stm->bindParam(':cpfUsuario', $cpf);
+$stm->bindParam(':idPedido', $idPedido);
+$stm->execute();
 
 // Percorre os registros
 foreach($stm as $row){
-    $datetime = $row['dataPedido'];
-    $datetimeObj = new DateTime($datetime);
-    $data = $datetimeObj->format('d/m/Y');
-    $hora = $datetimeObj->format('H:i:s');
-    $id = $row['idPedido'];
-
+    $id = $row['idProduto'];
+    $quantidade = $row['quantidadeItensPedido'];
+    $preco = $row['precoProduto'];
 
     echo "<tr>";
     echo "<td>" . htmlspecialchars($id, ENT_QUOTES, 'UTF-8') . "</td>";
-    echo "<td>" . htmlspecialchars($row['cpfUsuario'], ENT_QUOTES, 'UTF-8') . "</td>";
-    echo "<td>" . htmlspecialchars($data, ENT_QUOTES, 'UTF-8') . "</td>";
-    echo "<td>" . htmlspecialchars($hora, ENT_QUOTES, 'UTF-8') . "</td>";
-    echo "<td>" . htmlspecialchars($row['precoFinal'], ENT_QUOTES, 'UTF-8') . "</td>";
-    echo "<td>" . htmlspecialchars($row['statusPedido'], ENT_QUOTES, 'UTF-8') . "</td>";
+    echo "<td>" . htmlspecialchars($quantidade, ENT_QUOTES, 'UTF-8') . "</td>";
+    echo "<td>" . htmlspecialchars($quantidade, ENT_QUOTES, 'UTF-8') . "</td>";
+    echo "<td>" . htmlspecialchars($preco, ENT_QUOTES, 'UTF-8') . "</td>";
     echo "<td>
             <a href='delete.php?idPedido=" . urlencode($id) . "'>Deletar</a>
-            |
-            <a href='edita.php?idPedido=" . urlencode($id) . "'>Editar</a>
         </td>";
     echo "</tr>";
 }
