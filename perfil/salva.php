@@ -38,7 +38,7 @@ if (isset($_FILES['fotoPerfil']) && $_FILES['fotoPerfil']['error'] == UPLOAD_ERR
     }
 } else {
     // Define uma foto padrão se nenhuma foto for enviada
-    $fotoPerfil = 'default.png';
+    $fotoPerfil = 'Perfil.png';
 }
 
 // Insere os dados no banco de dados
