@@ -21,14 +21,14 @@ $stm->execute();
 if ($stm -> fetch()) {
 	// Login efetuado com sucesso.
 
-	// Armazenando usu�rio na sess�o.
+	// Armazenando usuário na sessão.
 	$_SESSION['cpf'] = $cpf;
 	
-	// Redirecionando para a p�gina inicial.
+	// Redirecionando para a página inicial.
 	header("location:perfil.php");
 } else {
-	// Caso usu�rio ou senha estejam incorretos.
-	print "<p>Usu�rio e/ou Senha Inv�lidos!</p>";
+	// Caso usuário ou senha estejam incorretos.
+	print "<p>Usuário e/ou Senha Inválidos!</p>";
 	print "<a href='perfil.php'>Voltar</a>";
 }
 ?>
