@@ -62,8 +62,11 @@
 					<td>$quantidade</td>
 					<td>$categoria</td>
 					<td><img src='imagens/" . $row['fotoProduto'] . "' width='60px'/></td>
-					<td><a href='delete.php?id=$codigoProduto'>Excluir</a> | 	
-					<a href='edita.php?id=$codigoProduto'>Editar</a></td>
+					<td>
+						<a href='delete.php?codigoProduto=$codigoProduto'>Deletar</a>
+						|
+                    	<a href='edita.php?codigoProduto=$codigoProduto'>Editar</a>
+					</td>
 					</tr>";					
 				}				
 			} else {
