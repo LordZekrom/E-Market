@@ -2,3 +2,11 @@
     height: 100px;
     width: 100px;
 }
+label {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
