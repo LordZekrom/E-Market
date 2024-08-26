@@ -159,7 +159,7 @@ $stm->bindParam(':cpfUsuario', $cpf);
 $stm->execute();
 $row = $stm->fetch();
 $idPedido = $row['idPedido'];
-$sql = "SELECT * FROM itenspedido ip JOIN pedido p ON ip.idPedido = p.idPedido AND p.cpfUsuario = :cpfUsuario WHERE p.idPedido = :idPedido";
+$sql = "SELECT * FROM itenspedido ip JOIN pedido p ON ip.idPedido = p.idPedido AND p.cpfUsuario = :cpfUsuario JOIN produto pr ON pr.codigoProduto = ip.idProduto WHERE p.idPedido = :idPedido";
 $stm = $con->prepare($sql);
 $stm->bindParam(':cpfUsuario', $cpf);
 $stm->bindParam(':idPedido', $idPedido);
@@ -168,12 +168,13 @@ $stm->execute();
 // Percorre os registros
 foreach($stm as $row){
     $id = $row['idProduto'];
+    $nome = $row['nomeProduto'];
     $quantidade = $row['quantidadeItensPedido'];
     $preco = $row['precoProduto'];
 
     echo "<tr>";
     echo "<td>" . htmlspecialchars($id, ENT_QUOTES, 'UTF-8') . "</td>";
-    echo "<td>" . htmlspecialchars($quantidade, ENT_QUOTES, 'UTF-8') . "</td>";
+    echo "<td>" . htmlspecialchars($nome, ENT_QUOTES, 'UTF-8') . "</td>";
     echo "<td>" . htmlspecialchars($quantidade, ENT_QUOTES, 'UTF-8') . "</td>";
     echo "<td>" . htmlspecialchars($preco, ENT_QUOTES, 'UTF-8') . "</td>";
     echo "<td>
