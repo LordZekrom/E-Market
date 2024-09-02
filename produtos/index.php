@@ -7,10 +7,30 @@
     <title>Edita</title>
 </head>
 <body>
-    <a href='index.php'>Inicial</a> 
-            |
-            <a href='pesquisa.php'>Pesquisa</a>
-            <br>
+<header>
+        <div class="logo">
+             <img src="../imagens/mercado.png" alt="Logo">
+        </div>
+        <div class="edit">
+           <h4 style="color:white">Gerenciamento de produtos  </h4>
+        </div>
+        <div class="cart">
+            
+        </div>
+        
+        
+    </header>
+    <nav>
+        <ul>
+            <li><a href="../produtos/index.php" style="background-color: #2c3e50; color:white;">Inicial</a></li>
+            <li><a href="../produtos/pesquisa.php" >Pesquisa</a></li>
+        </ul>
+    </nav>
+            <?php
+        if (isset($_GET['msg'])){
+            print "<span style='color:red'>Produto não pode ser removido devido a registros em venda.</span>";
+        }
+    ?>
         <h3>Cadastro de produtos</h3>
     <form method='POST' action='inserir.php' enctype="multipart/form-data">
         <label>Código: </label>

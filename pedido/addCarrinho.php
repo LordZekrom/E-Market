@@ -36,12 +36,39 @@ else {
     }
 }
 
-###################### Inserção dos itens do pedido
-$sql = "INSERT INTO itenspedido (idPedido, idProduto) VALUES(?, ?)";
+###################### Procurar se já tem um item desse no carrinho
+$sql = "SELECT * FROM itenspedido";
 $stm = $con->prepare($sql);
-$stm->bindParam(1, $idPedido); 
-$stm->bindParam(2, $codigoProduto);
-$r = $stm->execute();
+$stm->execute();
+
+$boolCtl1 = 0;
+foreach($stm as $row){
+    $idPedido2 = $row['idPedido'];
+    $codigoProduto2 = $row['idProduto'];
+    if($idPedido == $idPedido2 && $codigoProduto == $codigoProduto2){
+        ###################### Inserção dos itens do pedido
+        $quantidade = $row['quantidadeItensPedido'];
+        $quantidade += 1;
+
+        $sql = "UPDATE itenspedido SET quantidadeItensPedido = ? WHERE idPedido = ? AND idProduto = ?";
+        $stm = $con->prepare($sql);
+        $stm->bindParam(1, $quantidade);
+        $stm->bindParam(2, $idPedido); 
+        $stm->bindParam(3, $codigoProduto);
+        $r = $stm->execute();
+        $boolCtl1 = 1;
+        break;
+    } 
+}
+if($boolCtl1 == 0){
+    ###################### Inserção dos itens do pedido
+    $sql = "INSERT INTO itenspedido (idPedido, idProduto, quantidadeItensPedido) VALUES(?, ?, 1)";
+    $stm = $con->prepare($sql);
+    $stm->bindParam(1, $idPedido); 
+    $stm->bindParam(2, $codigoProduto);
+    $r = $stm->execute();
+}
+
 
 if($r){
     print "<script>alert('Item inserido!')</script>";

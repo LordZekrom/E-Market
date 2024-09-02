@@ -6,17 +6,32 @@
 		<title>Market</title>
 	</head>
 	<body>
-		<a href='index.php'>Inicial</a> 
-		|
-		<a href='pesquisa.php'>Pesquisa</a>
+	<header>
+        <div class="logo">
+             <img src="../imagens/mercado.png" alt="Logo">
+        </div>
+        <div class="edit">
+           <h4 style="color:white">Gerenciamento de produtos  </h4>
+        </div>
+        <div class="cart">
+            
+        </div>
+        
+    </header>
+    <nav>
+        <ul>
+            <li><a href="../produtos/index.php">Inicial</a></li>
+            <li><a href="../produtos/pesquisa.php"  style="background-color: #2c3e50; color:white;">Pesquisa</a></li>
+        </ul>
+    </nav>
 		<br>
-		<h2>Pesquisa de Produtos</h2>
+		<h3>Pesquisa de Produtos</h3>
 		<form method="post" action="pesquisa.php">
 			<label>Produto:</label>
 			<input type="text" name="nomeProduto" />
 			<button type="submit">Pesquisar</button>
 		</form>
-		<h2>Listagem dos Produtos</h2>
+		<h3>Listagem dos Produtos</h3>
 		<table border>
 			<tr>
 				<th>Código</th>
