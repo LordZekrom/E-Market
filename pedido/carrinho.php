@@ -182,6 +182,11 @@ foreach($stm as $row){
         </td>";
     echo "</tr>";
 }
+    print"<tr>
+            <th>Preço Total</th>
+            <th>Ações</th>
+        </tr>";
+        
 ?>
 </table>
 </body>
