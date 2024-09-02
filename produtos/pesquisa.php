@@ -25,13 +25,13 @@
         </ul>
     </nav>
 		<br>
-		<h2>Pesquisa de Produtos</h2>
+		<h3>Pesquisa de Produtos</h3>
 		<form method="post" action="pesquisa.php">
 			<label>Produto:</label>
 			<input type="text" name="nomeProduto" />
 			<button type="submit">Pesquisar</button>
 		</form>
-		<h2>Listagem dos Produtos</h2>
+		<h3>Listagem dos Produtos</h3>
 		<table border>
 			<tr>
 				<th>Código</th>
