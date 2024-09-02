@@ -37,7 +37,7 @@
         <ul>
             <li><a href="../home/index.html">Home</a></li>
             <li><a href="../pedido/compra.php" style="background-color: #2c3e50; color:white;" >Produtos</a></li>
-            <li><a href="../comparacao/index.html">Comparação</a></li>
+            <li><a href="../comparacao/index.php">Comparação</a></li>
             <li><a href="../perfil/perfil.php">Perfil</a></li> 
         </ul>
     </nav>
