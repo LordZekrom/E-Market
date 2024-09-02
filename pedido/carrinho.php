@@ -166,11 +166,15 @@ $stm->bindParam(':idPedido', $idPedido);
 $stm->execute();
 
 // Percorre os registros
+$precoTotal = 0;
 foreach($stm as $row){
     $id = $row['idProduto'];
     $nome = $row['nomeProduto'];
     $quantidade = $row['quantidadeItensPedido'];
     $preco = $row['precoProduto'];
+    $precoTotal += $preco;
+    $idPedido = $row['idPedido'];
+    $idItens = $row['idItensPedido'];
 
     echo "<tr>";
     echo "<td>" . htmlspecialchars($id, ENT_QUOTES, 'UTF-8') . "</td>";
@@ -178,7 +182,7 @@ foreach($stm as $row){
     echo "<td>" . htmlspecialchars($quantidade, ENT_QUOTES, 'UTF-8') . "</td>";
     echo "<td>" . htmlspecialchars($preco, ENT_QUOTES, 'UTF-8') . "</td>";
     echo "<td>
-            <a href='delete.php?idPedido=" . urlencode($id) . "'>Deletar</a>
+    <a href='delete.php?codigoProduto=" . urlencode($id) . "&idPedido=" . urlencode($idPedido) . "&idItensPedido=" . urlencode($idItens) . "'>Remover</a>
         </td>";
     echo "</tr>";
 }
@@ -186,6 +190,12 @@ foreach($stm as $row){
             <th>Preço Total</th>
             <th>Ações</th>
         </tr>";
+    echo "<tr>";
+    echo "<td>" . htmlspecialchars($precoTotal, ENT_QUOTES, 'UTF-8') . " Reais</td>";
+    echo "<td>
+            <a href='delete.php?idPedido=" . urlencode($id) . "'>Comprar</a>
+        </td>";
+    echo "</tr>";
         
 ?>
 </table>
