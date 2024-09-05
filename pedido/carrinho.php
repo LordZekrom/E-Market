@@ -104,8 +104,8 @@ else{
         echo "<td>" . htmlspecialchars($quantidade, ENT_QUOTES, 'UTF-8') . "</td>";
         echo "<td>" . htmlspecialchars($preco, ENT_QUOTES, 'UTF-8') . "</td>";
         echo "<td>
-        <a href='.php?codigoProduto=" . urlencode($id) . "&idPedido=" . urlencode($idPedido) . "&idItensPedido=" . urlencode($idItens) . "'>Adicionar</a>
-        <a href='.php?codigoProduto=" . urlencode($id) . "&idPedido=" . urlencode($idPedido) . "&idItensPedido=" . urlencode($idItens) . "'>Diminuir</a>
+        <a href='maisProduto.php?codigoProduto=" . urlencode($id) . "&idPedido=" . urlencode($idPedido) . "&idItensPedido=" . urlencode($idItens) . "'>Adicionar</a>
+        <a href='menosProduto.php?codigoProduto=" . urlencode($id) . "&idPedido=" . urlencode($idPedido) . "&idItensPedido=" . urlencode($idItens) . "'>Diminuir</a>
         <a href='delete.php?codigoProduto=" . urlencode($id) . "&idPedido=" . urlencode($idPedido) . "&idItensPedido=" . urlencode($idItens) . "'>Remover</a>
             </td>";
         echo "</tr>";
@@ -117,7 +117,7 @@ else{
         echo "<tr>";
         echo "<td>" . htmlspecialchars($precoTotal, ENT_QUOTES, 'UTF-8') . " Reais</td>";
         echo "<td>
-                <a href='delete.php?idPedido=" . urlencode($id) . "'>Fechar Pedido</a>
+                <a href='.php?idPedido=" . urlencode($id) . "'>Fechar Pedido</a>
             </td>";
         echo "</tr>";
 
