@@ -12,6 +12,19 @@
     <title>Carrinho de compras da E-Market</title>
     <link rel="stylesheet" type="text/css" href="carro.css" />
     </head>
+    <style>
+        .product{
+            max-width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            margin-left: auto;
+        }
+        .center {
+        text-align: center; /* Centraliza horizontalmente */
+         }
+    </style>
 <body> 
     <header>
         <div class="logo">
@@ -68,7 +81,7 @@ if(empty($resultado)){
 else{
     print"
         <tr>
-            <th>ID do Produto(Foto, depois)</th>
+            <th>Foto do Produto</th>
             <th>Nome</th>
             <th>Quantidade</th>
             <th>Preço Unitário</th>
@@ -97,16 +110,17 @@ else{
         $precoTotal += $preco * $quantidade;
         $idPedido = $row['idPedido'];
         $idItens = $row['idItensPedido'];
-
+        $fotoProduto = $row['fotoProduto'];
+//<img src="imagens/<?php echo htmlspecialchars($fotoPerfil); " class="foto_perfil" alt="Foto de Perfil">
         echo "<tr>";
-        echo "<td>" . htmlspecialchars($id, ENT_QUOTES, 'UTF-8') . "</td>";
+        echo "<td align='center'>" . "<img src='../produtos/imagens/$fotoProduto' class='product'/>" . "</td>";
         echo "<td>" . htmlspecialchars($nome, ENT_QUOTES, 'UTF-8') . "</td>";
         echo "<td>" . htmlspecialchars($quantidade, ENT_QUOTES, 'UTF-8') . "</td>";
         echo "<td>" . htmlspecialchars($preco, ENT_QUOTES, 'UTF-8') . "</td>";
-        echo "<td>
-        <a href='maisProduto.php?codigoProduto=" . urlencode($id) . "&idPedido=" . urlencode($idPedido) . "&idItensPedido=" . urlencode($idItens) . "'>Adicionar</a>
-        <a href='menosProduto.php?codigoProduto=" . urlencode($id) . "&idPedido=" . urlencode($idPedido) . "&idItensPedido=" . urlencode($idItens) . "'>Diminuir</a>
-        <a href='delete.php?codigoProduto=" . urlencode($id) . "&idPedido=" . urlencode($idPedido) . "&idItensPedido=" . urlencode($idItens) . "'>Remover</a>
+        echo "<td align='center'>
+        <a href='maisProduto.php?codigoProduto=" . urlencode($id) . "&idPedido=" . urlencode($idPedido) . "&idItensPedido=" . urlencode($idItens) . "'><img src='imgs/mais.png' alt='Adicionar produto' class='imgCart'></a>
+        <a href='menosProduto.php?codigoProduto=" . urlencode($id) . "&idPedido=" . urlencode($idPedido) . "&idItensPedido=" . urlencode($idItens) . "'><img src='imgs/menos.png' alt='Diminuir produto' class='imgCart'></a>
+        <a href='delete.php?codigoProduto=" . urlencode($id) . "&idPedido=" . urlencode($idPedido) . "&idItensPedido=" . urlencode($idItens) . "'><img src='imgs/lixeria.png' alt='Remover produto' class='imgCart'></a>
             </td>";
         echo "</tr>";
     }
