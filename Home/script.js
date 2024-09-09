@@ -1,9 +1,39 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const blocks = document.querySelectorAll('.block');
+    const ofertas = document.querySelectorAll('.ofertas');
 
-    blocks.forEach(block => {
-        block.addEventListener('click', () => {
-            block.classList.toggle('expanded');
+    ofertas.forEach(ofertas => {
+        ofertas.addEventListener('click', () => {
+            ofertas.classList.toggle('expanded');
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const cupons = document.querySelectorAll('.cupons');
+
+    cupons.forEach(cupons => {
+        cupons.addEventListener('click', () => {
+            cupons.classList.toggle('expanded');
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const categorias = document.querySelectorAll('.categorias');
+
+    categorias.forEach(categorias => {
+        categorias.addEventListener('click', () => {
+            categorias.classList.toggle('expanded');
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const maisvendidos = document.querySelectorAll('.maisvendidos');
+
+    maisvendidos.forEach(maisvendidos => {
+        maisvendidos.addEventListener('click', () => {
+            maisvendidos.classList.toggle('expanded');
         });
     });
 });

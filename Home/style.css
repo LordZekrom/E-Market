@@ -160,7 +160,7 @@ header h1 {
     font-size: 16px;
 }
 
-.mais-vendidos {
+.maisvendidos {
     background-color: white;
     padding: 20px;
     border: 1px solid #ddd;
@@ -169,12 +169,12 @@ header h1 {
     text-align: center;
 }
 
-.mais-vendidos h2 {
+.maisvendidos h2 {
     font-size: 30px;
     margin-bottom: 10px;
 }
 
-.mais-vendidos p {
+.maisvendidos p {
     font-size: 16px;
 }
 
@@ -198,7 +198,7 @@ header h1 {
     animation: expand 0.3s ease-in-out;
 }
 
-.mais-vendidos.expanded .details {
+.maisvendidos.expanded .details {
     display: block;
     animation: expand 0.3s ease-in-out;
 }
