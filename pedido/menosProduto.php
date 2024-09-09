@@ -32,9 +32,8 @@ include_once "../bd/bd.php";
             if($quantidade > 1){
                 $quantidade = $quantidade - 1;
             } else{
-                //header("Location:../pedido/delete.php");
-                Falta aqui é conseguir passar essas 3 infos pro delete, de algum modo, e ir pro addproduto
-                echo "<a href='delete.php?codigoProduto=" . urlencode($codigoProduto) . "&idPedido=" . urlencode($idPedido) . "&idItensPedido=" . urlencode($idItens) . "'>Remover</a>";
+                header("Location:../pedido/delete.php?codigoProduto=" . urlencode($codigoProduto) . "&idPedido=" . urlencode($idPedido) . "&idItensPedido=" . urlencode($idItens));
+                exit();
             }
 
     $sql = "UPDATE itenspedido SET quantidadeItensPedido = ? WHERE idPedido = ? AND idProduto = ?";
