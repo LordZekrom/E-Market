@@ -31,7 +31,7 @@
         <li><a href="../perfil/perfil.php">Perfil</a></li>
     </ul>
 </nav>
-
+<main>
 <?php
 // Conexão com o banco de dados
 $servername = "localhost";
@@ -127,7 +127,7 @@ function gerarTabelaProduto($conn, $categoria, $inputNamePrefix) {
         <button type="submit">Comparar Produtos</button>
     </form>
 </div>
-
+</main>
 <script>
     document.querySelectorAll('input[name="produto1"]').forEach(input => {
         input.addEventListener('change', () => {
