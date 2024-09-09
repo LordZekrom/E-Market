@@ -21,9 +21,6 @@
             margin-bottom: 15px;
             margin-left: auto;
         }
-        .center {
-        text-align: center; /* Centraliza horizontalmente */
-         }
     </style>
 <body> 
     <header>
