@@ -88,15 +88,7 @@ nav ul li a:hover {
     float: left;
     margin: 10px;
 }
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    flex-direction: column;
-}
+
 
 .container {
     display: flex;
@@ -104,9 +96,11 @@ body {
 }
 
 .table-container {
+    float: left;
     border: 1px solid #ccc;
     padding: 10px;
     width: 300px;
+    margin-left: 10px;
 }
 
 table {
@@ -124,6 +118,10 @@ th {
     background-color: #f2f2f2;
 }
 
+.comp{
+    justify-content: center;
+    align-items: center;
+}
 .compare-button {
     margin-top: 20px;
     text-align: center;
