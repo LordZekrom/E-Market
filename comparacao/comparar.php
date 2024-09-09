@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,9 +26,9 @@
     </header>
     <nav>
         <ul>
-            <li><a href="../home/index.html" style="background-color: #2c3e50; color: white;" >Home</a></li>
+            <li><a href="../home/index.html"  >Home</a></li>
             <li><a href="../pedido/compra.php">Produtos</a></li>
-            <li><a href="../comparacao/index.html">Comparação</a></li>
+            <li><a href="../comparacao/index.html" style="background-color: #2c3e50; color: white;">Comparação</a></li>
             <li><a href="../perfil/perfil.php">Perfil</a></li>
         </ul>
     </nav>
