@@ -53,8 +53,8 @@ $produto2_id = isset($_POST['produto2']) ? $_POST['produto2'] : null;
 
 if ($produto1_id && $produto2_id) {
     // Preparar consultas SQL
-    $sql1 = "SELECT nomeProduto, precoProduto FROM produto WHERE codigoProduto = ?";
-    $sql2 = "SELECT nomeProduto, precoProduto FROM produto WHERE codigoProduto = ?";
+    $sql1 = "SELECT nomeProduto, precoProduto, fotoProduto FROM produto WHERE codigoProduto = ?";
+    $sql2 = "SELECT nomeProduto, precoProduto, fotoProduto FROM produto WHERE codigoProduto = ?";
 
     // Consultas preparadas para evitar SQL Injection
     $stmt1 = $conn->prepare($sql1);
