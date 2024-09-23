@@ -40,7 +40,7 @@ $fotoPerfil = $result['fotoPerfil'];
 <body>
 <header>
     <div class="logo">
-        <img src="../imagens/mercado.png" alt="Logo">
+        <img src="../imagens/logo2.png" alt="Logo">
     </div>
 </header>
 <h3>Editar Perfil</h3>

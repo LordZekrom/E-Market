@@ -45,7 +45,7 @@ if ($stm->execute()) {
 <body>
     <header>
         <div class="logo">
-            <img src="../imagens/mercado.png" alt="Logo">
+            <img src="../imagens/logo2.png" alt="Logo">
         </div>
         <div class="search-bar">
             <input type="search" placeholder="Pesquisar...">

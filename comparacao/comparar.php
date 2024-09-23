@@ -8,7 +8,6 @@
 
 </head>
 <body>
-<<<<<<< HEAD
 <header>
         <div class="logo">
             <a href=" ../home/index.html">
@@ -21,7 +20,7 @@
         </div>
         <div class="cart">
             <a href=" ../pedido/carrinho.php">
-=======
+        </div>
     <header>
     <div class="logo">
         <a href="../home/index.html">
