@@ -139,3 +139,15 @@ th {
 .compare-button button:hover {
     background-color: #45a049;
 }
+
+.pri{
+    width: 100px; /* Largura da div */
+    height: 100px; /* Altura da div */
+    margin: 10px; /* Espaçamento entre as divs */
+    background-color: lightblue; /* Cor de fundo das divs */
+    display: flex; /* Para centralizar o texto dentro das divs */
+    justify-content: center; /* Centraliza o texto horizontalmente */
+    align-items: center; /* Centraliza o texto verticalmente */
+    border: 1px solid #000; /* Borda para visualizar as divs */
+
+}

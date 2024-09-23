@@ -47,7 +47,7 @@ if ($conn->connect_error) {
 
 // Função para gerar a tabela de produto
 function gerarTabelaProduto($conn, $categoria, $inputNamePrefix) {
-    $sql = "SELECT codigoProduto, nomeProduto, precoProduto FROM produto WHERE categoriaProduto = ?";
+    $sql = "SELECT codigoProduto, nomeProduto, precoProduto, fotoProduto FROM produto WHERE categoriaProduto = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $categoria);
     $stmt->execute();
@@ -60,6 +60,8 @@ function gerarTabelaProduto($conn, $categoria, $inputNamePrefix) {
             echo "<tr>";
             echo "<td>" . htmlspecialchars($row["nomeProduto"]) . "</td>";
             echo "<td>R$ " . number_format($row["precoProduto"], 2, ',', '.') . "</td>";
+            echo "<td><img src='../produtos/imagens/" . $row['fotoProduto'] . "' width='60px'/></td>";
+
             echo "<td><input type='radio' name='" . $inputNamePrefix . "' value='" . $row["codigoProduto"] . "'></td>";
             echo "</tr>";
         }
