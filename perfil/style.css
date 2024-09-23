@@ -87,3 +87,17 @@ nav ul li a:hover {
     float: left;
     margin: 10px;
 }
+
+.loga {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 250px; /* Ocupa a altura total da janela */
+    margin-top: 20px; /* Centraliza horizontalmente */
+    background-color: #2c3e50; /* Fundo azul */
+    padding: 20px; /* Espaçamento interno */
+    border-radius: 10px #2c3e50; /* Bordas arredondadas */
+    width: 300px; /* Largura fixa para o bloco */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+}

@@ -1,5 +1,7 @@
 <html>
-	<head><title>Login</title></head>
+	<head><title>Login</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	</head>
 	<body>
 		<h3>Login</h3>
 		<form method="post" action="salva.php">

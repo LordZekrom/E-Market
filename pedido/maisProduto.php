@@ -34,15 +34,4 @@ include_once "../bd/bd.php";
     $stm->bindParam(1, $quantidade);
     $stm->bindParam(2, $idPedido); 
     $stm->bindParam(3, $codigoProduto);
-    $r = $stm->execute();
-
-if($r){
-    print "<script>alert('Quantidade Aumentada!')</script>";
-    header("Location:../pedido/carrinho.php");
-}
-else {
-    print "<script>alert('Erro ao diminuir a quantiade')</script>";
-    print_r($stm->errorInfo());
-    header("Location:../pedido/compra.php");
-}
 ?>
