@@ -9,7 +9,7 @@
 <body>
 <header>
         <div class="logo">
-             <img src="../imagens/mercado.png" alt="Logo">
+             <img src="../imagens/logo2.png" alt="Logo">
         </div>
         <div class="edit">
            <h4 style="color:white">Gerenciamento de produtos  </h4>

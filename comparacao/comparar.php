@@ -11,7 +11,7 @@
 <header>
         <div class="logo">
             <a href=" ../home/index.html">
-             <img src="../imagens/mercado.png" alt="Logo">
+             <img src="../imagens/logo2.png" alt="Logo">
             </a>
         </div>
         <div class="search-bar">
