@@ -91,9 +91,10 @@ nav ul li a:hover {
 
 
 .container {
-    display: flex;
     gap: 20px;
     border-radius: 15px;
+    display: flex;
+    margin-left: 200px;
 }
 
 .table-container {
@@ -103,6 +104,7 @@ nav ul li a:hover {
     width: 300px;
     margin-left: 10px;
     border-radius: 15px;
+   
 }
 
 table {
@@ -125,8 +127,11 @@ th {
     align-items: center;
 }
 .compare-button {
+    margin-left: 10px;
     margin-top: 20px;
+    border-radius: 15px;
     text-align: center;
+
 }
 
 .compare-button button {
@@ -165,3 +170,8 @@ th {
 
 }
 
+.certo{
+    margin-top: 100px;
+    display: flex;
+    margin-left: 230px;
+}

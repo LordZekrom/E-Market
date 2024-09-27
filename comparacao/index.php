@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="compar.css" />
     <title>Comparação de Produtos</title>
 </head>
 <body>
@@ -75,6 +75,7 @@ function gerarTabelaProduto($conn, $categoria, $inputNamePrefix) {
 ?>
 
 <div class="container">
+    <div class="sim">
     <form method="get" action="">
         <label for="categoria1">Selecione a categoria para o Produto 1:</label>
         <select name="categoria1" id="categoria1" onchange="this.form.submit()">
@@ -88,7 +89,8 @@ function gerarTabelaProduto($conn, $categoria, $inputNamePrefix) {
             <option value="Casa" <?php echo isset($_GET['categoria1']) && $_GET['categoria1'] === 'Casa' ? 'selected' : ''; ?>>Casa</option>
             <option value="Outros" <?php echo isset($_GET['categoria1']) && $_GET['categoria1'] === 'Outros' ? 'selected' : ''; ?>>Outros</option>
         </select>
-        <br><br>
+        </div>
+        <div class="nao">
         <label for="categoria2">Selecione a categoria para o Produto 2:</label>
         <select name="categoria2" id="categoria2" onchange="this.form.submit()">
             <option value="">Escolha uma categoria</option>
@@ -101,34 +103,38 @@ function gerarTabelaProduto($conn, $categoria, $inputNamePrefix) {
             <option value="Casa" <?php echo isset($_GET['categoria2']) && $_GET['categoria2'] === 'Casa' ? 'selected' : ''; ?>>Casa</option>
             <option value="Outros" <?php echo isset($_GET['categoria2']) && $_GET['categoria2'] === 'Outros' ? 'selected' : ''; ?>>Outros</option>
         </select>
+</div>
     </form>
-    
-    <div class="table-container">
-        <h3>Produtos da Categoria 1</h3>
-        <?php 
-        if (isset($_GET['categoria1']) && !empty($_GET['categoria1'])) {
-            gerarTabelaProduto($conn, $_GET['categoria1'], 'produto1'); 
-        }
-        ?>
+    </div>
+    <div class="certo">
+        <div class="table-container">
+            <h3>Produtos da Categoria 1</h3>
+            <?php 
+            if (isset($_GET['categoria1']) && !empty($_GET['categoria1'])) {
+                gerarTabelaProduto($conn, $_GET['categoria1'], 'produto1'); 
+            }
+            ?>
+        </div>
+
+        <div class="compare-button">
+        <form action="comparar.php" method="post">
+            <input type="hidden" name="produto1" id="produto1" value="">
+            <input type="hidden" name="produto2" id="produto2" value="">
+            <button type="submit">Comparar Produtos</button>
+        </form>
     </div>
 
-    <div class="table-container">
-        <h3>Produtos da Categoria 2</h3>
-        <?php 
-        if (isset($_GET['categoria2']) && !empty($_GET['categoria2'])) {
-            gerarTabelaProduto($conn, $_GET['categoria2'], 'produto2'); 
-        }
-        ?>
+        <div class="table-container">
+            <h3>Produtos da Categoria 2</h3>
+            <?php 
+            if (isset($_GET['categoria2']) && !empty($_GET['categoria2'])) {
+                gerarTabelaProduto($conn, $_GET['categoria2'], 'produto2'); 
+            }
+            ?>
+        </div>
     </div>
-</div>
+  </div>
 
-<div class="compare-button">
-    <form action="comparar.php" method="post">
-        <input type="hidden" name="produto1" id="produto1" value="">
-        <input type="hidden" name="produto2" id="produto2" value="">
-        <button type="submit">Comparar Produtos</button>
-    </form>
-</div>
 </main>
 <script>
     document.querySelectorAll('input[name="produto1"]').forEach(input => {
