@@ -17,6 +17,15 @@ $idItens = $_GET['idItensPedido'];
 
 include_once "../bd/bd.php";
 
+#Almentar no estoque
+    $sql = "SELECT quantidadeProduto FROM produto WHERE codigoProduto = $codigoProduto";
+    $stm = $con->prepare($sql);
+    $stm->execute();
+    $row = $stm->fetch();
+    $quantidade = $row['quantidadeProduto'];
+    $sql = "SELECT quantidadeItensPedido FROM itensPedido WHERE idProduto = $codigoProduto AND ";//ARRUMANDO A QUESTÃO DE SE DELETAR TODA A QUANTIDADE, DE DEVOLVER ELA AO ESTOQUE
+    include_once("almentarEstoque.php");
+
 ###################### Remoção dos itens do pedido
     //dar um select, ser for maior que 2, ele diminui em um. Caso for 1, ele apaga o produto do carrinho(da pra chamar o delete, eu acho)
 
@@ -43,13 +52,14 @@ include_once "../bd/bd.php";
     $stm->bindParam(3, $codigoProduto);
     $r = $stm->execute();
 
+    $url = "";
 if($r){
-    print "<script>alert('Quantidade Diminuida!')</script>";
-    header("Location:../pedido/carrinho.php");
+    $url = "Location:../pedido/carrinho.php";
 }
 else {
     print "<script>alert('Erro ao diminuir a quantiade')</script>";
     print_r($stm->errorInfo());
-    header("Location:../pedido/compra.php");
+    $url = "Location:../pedido/compra.php";
 }
+header($url);
 ?>
