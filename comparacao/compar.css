@@ -91,10 +91,10 @@ nav ul li a:hover {
 
 
 .container {
-    gap: 20px;
+    
     border-radius: 15px;
-    display: flex;
     margin-left: 200px;
+    border: 2px black;
 }
 
 .table-container {
