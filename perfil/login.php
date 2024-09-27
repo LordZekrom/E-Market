@@ -25,7 +25,7 @@
   		<button type="submit" class="submit">Entrar</button>
   			<p class="cadastrar-link">
     				Não tem uma conta?
-    			<a href="">Cadastre-se</a>
+    			<a href="cadastra.php">Cadastre-se</a>
   			</p>
 </form>
 
