@@ -14,16 +14,20 @@
             </a>
         </div>
     </header>
-		<div class="loga">
-			<h3>Login</h3>
-				<form method="post" action="confirmalogin.php">
-					<label>CPF:</label>
-					<input name="cpf" /><br>
-					<label>Senha:</label>
-					<input type="password" name="senha" /><br>
-					<button type="submit">Logar</button>
-				</form>
-			<br><br><a href='cadastra.php'>Nâo tem login? Cadastre-se.</a>
-		</div>
+		<form class="form">
+  			<p class="form-title">Entre com a sua conta</p>
+  				<div class="input-container">
+    				<input type="cpf" placeholder="Digite seu CPF">
+  				</div>
+  			<div class="input-container">
+    			<input type="password" placeholder="Digite sua senha">
+  			</div>
+  		<button type="submit" class="submit">Entrar</button>
+  			<p class="cadastrar-link">
+    				Não tem uma conta?
+    			<a href="">Cadastre-se</a>
+  			</p>
+</form>
+
 	</body>
 </html>
