@@ -17,6 +17,21 @@ $idItens = $_GET['idItensPedido'];
 
 include_once "../bd/bd.php";
 
+#Conferir estoque do produto
+$sql = "SELECT quantidadeProduto FROM produto WHERE codigoProduto = $codigoProduto";
+$stm = $con->prepare($sql);
+$stm->execute();
+$row = $stm->fetch();
+$quantidade = $row['quantidadeProduto'];
+if($quantidade <= 0){    
+    echo "<script>
+        alert('Item fora de estoque');
+        window.location.href='../pedido/carrinho.php';
+        </script>";
+    exit();
+}
+include_once("diminuirEstoque.php");
+
 ###################### Agregação dos itens do pedido
 
     //Select na quantidade original
@@ -34,4 +49,16 @@ include_once "../bd/bd.php";
     $stm->bindParam(1, $quantidade);
     $stm->bindParam(2, $idPedido); 
     $stm->bindParam(3, $codigoProduto);
+    $r = $stm->execute();
+
+    $url = "";
+    if($r){
+        $url = "Location:../pedido/carrinho.php";
+    }
+    else {
+        print "<script>alert('Erro ao almentar a quantiade')</script>";
+        print_r($stm->errorInfo());
+        $url = "Location:../pedido/compra.php";
+    }
+    header($url);
 ?>

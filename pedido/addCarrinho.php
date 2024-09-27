@@ -10,7 +10,23 @@ $codigoProduto = $_GET['codigoProduto'];
 ################### Verificar se exite um PEDIDO com status CARRINHO, se existe, nós pegamos o ID desse pedido.
 
 include_once "../bd/bd.php";
+
+#Conferir estoque do produto
+    $sql = "SELECT quantidadeProduto FROM produto WHERE codigoProduto = $codigoProduto";
+    $stm = $con->prepare($sql);
+    $stm->execute();
+    $row = $stm->fetch();
+    $quantidade = $row['quantidadeProduto'];
+    if($quantidade <= 0){    
+        echo "<script>
+            alert('Item fora de estoque');
+            window.location.href='../pedido/compra.php';
+            </script>";
+        exit();
+    }
+    include_once("diminuirEstoque.php");
     
+
 $sql = "SELECT * FROM pedido WHERE cpfUsuario = ? AND statusPedido = 'carrinho' ";
 $stm = $con->prepare($sql);
 $stm->bindParam(1, $cpf);
@@ -69,14 +85,15 @@ if($boolCtl1 == 0){
     $r = $stm->execute();
 }
 
-
+$url = "";
 if($r){
     print "<script>alert('Item inserido!')</script>";
-    header("Location:../pedido/carrinho.php");
+    $url = "Location:../pedido/carrinho.php";
 }
 else {
     print "<script>alert('Erro ao inserir o produto')</script>";
     print_r($stm->errorInfo());
-    header("Location:../pedido/compra.php");
+    $url = "Location:../pedido/compra.php";
 }
+header($url);
 ?>
