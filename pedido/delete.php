@@ -13,18 +13,28 @@ $idItens = $_GET['idItensPedido'];
 
 include_once "../bd/bd.php";
 
+#Almentar no estoque
+$sql = "SELECT quantidadeProduto FROM produto WHERE codigoProduto = $codigoProduto";
+$stm = $con->prepare($sql);
+$stm->execute();
+$row = $stm->fetch();
+$quantidade = $row['quantidadeProduto'];
+include_once("almentarEstoque.php");
+
 ###################### Remoção dos itens do pedido
 $sql = "DELETE FROM itenspedido WHERE idProduto = $codigoProduto AND idPedido = $idPedido AND idItensPedido = $idItens";
 $stm = $con->prepare($sql);
 $r = $stm->execute();
 
+$url = ""
 if($r){
-    print "<script>alert('Item Removido!')</script>";
-    header("Location:../pedido/carrinho.php");
+    print "<script>alert('Carrinho finalizado!')</script>";
+    $url = "Location:../pedido/carrinho.php";
 }
 else {
-    print "<script>alert('Erro ao remover o produto')</script>";
+    print "<script>alert('Erro ao finalizar carrinho')</script>";
     print_r($stm->errorInfo());
-    header("Location:../pedido/compra.php");
+    $url = "Location:../pedido/compra.php";
 }
+header($url)
 ?>

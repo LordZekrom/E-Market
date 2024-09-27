@@ -21,13 +21,15 @@
     $stm->bindParam(1, $cpf); 
     $r = $stm->execute();
 
+$url = ""
 if($r){
     print "<script>alert('Carrinho finalizado!')</script>";
-    header("Location:../pedido/carrinho.php");
+    $url = "Location:../pedido/carrinho.php";
 }
 else {
     print "<script>alert('Erro ao finalizar carrinho')</script>";
     print_r($stm->errorInfo());
-    header("Location:../pedido/compra.php");
+    $url = "Location:../pedido/compra.php";
 }
+header($url)
 ?>
