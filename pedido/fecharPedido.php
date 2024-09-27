@@ -8,6 +8,8 @@
     $cpf = $_SESSION['cpf'];
     $idPedido = $_GET['idPedido'];
 
+    include_once "../bd/bd.php";
+
     $sql = "UPDATE pedido SET statusPedido = 'finalizado' WHERE idPedido = ? AND cpfUsuario = ?";
     $stm = $con->prepare($sql);
     $stm->bindParam(1, $idPedido);
@@ -18,7 +20,7 @@
     $stm = $con->prepare($sql);
     $stm->bindParam(1, $cpf); 
     $r = $stm->execute();
-//NÃO TÁ FUNCIONANDO
+
 if($r){
     print "<script>alert('Carrinho finalizado!')</script>";
     header("Location:../pedido/carrinho.php");
