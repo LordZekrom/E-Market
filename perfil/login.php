@@ -14,7 +14,8 @@
             </a>
         </div>
     </header>
-		<form class="form">
+		<form method="post" action="confirmalogin.php">
+			<div  class="form"> 
   			<p class="form-title">Entre com a sua conta</p>
   				<div class="input-container">
     				<input type="cpf" placeholder="Digite seu CPF">
@@ -27,7 +28,7 @@
     				Não tem uma conta?
     			<a href="cadastra.php">Cadastre-se</a>
   			</p>
-</form>
-
+			</div>
+		</form>
 	</body>
 </html>
