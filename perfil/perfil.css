@@ -1,6 +1,8 @@
 .foto_perfil{
     height: 100px;
     width: 100px;
+    border: solid 3px black;
+    border-radius: 15px;
 }
 label {
     font-family: Arial, sans-serif;
@@ -8,5 +10,8 @@ label {
     color: #333;
     display: block;
     margin-bottom: 5px;
+  }
+  .perfil-info{
+    margin-left: 100px;
   }
   
