@@ -88,7 +88,7 @@ if ($stm->execute()) {
 
     <!-- Histórico de compras -->
     <?php
-    $query = "SELECT * FROM pedido WHERE cpfUsuario = :cpf";
+    /*$query = "SELECT * FROM pedido WHERE cpfUsuario = :cpf";
     $stm = $db->prepare($query);
     $stm->bindParam(':cpf', $cpf);
 
@@ -116,7 +116,7 @@ if ($stm->execute()) {
         }
     } else {
         print '<br><p>Erro ao listar o histórico de compras</p>';
-    }
+    }*/
     ?>
 
     <!-- Dados de pagamento (Comentado, se necessário no futuro) -->
