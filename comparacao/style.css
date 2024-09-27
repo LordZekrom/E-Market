@@ -93,6 +93,7 @@ nav ul li a:hover {
 .container {
     display: flex;
     gap: 20px;
+    border-radius: 15px;
 }
 
 .table-container {
@@ -101,6 +102,7 @@ nav ul li a:hover {
     padding: 10px;
     width: 300px;
     margin-left: 10px;
+    border-radius: 15px;
 }
 
 table {
@@ -151,3 +153,15 @@ th {
     border: 1px solid #000; /* Borda para visualizar as divs */
 
 }
+.sec{
+    width: 100px; /* Largura da div */
+    height: 100px; /* Altura da div */
+    margin: 10px; /* Espaçamento entre as divs */
+    background-color: lightblue; /* Cor de fundo das divs */
+    display: flex; /* Para centralizar o texto dentro das divs */
+    justify-content: center; /* Centraliza o texto horizontalmente */
+    align-items: center; /* Centraliza o texto verticalmente */
+    border: 1px solid #000; /* Borda para visualizar as divs */
+
+}
+
