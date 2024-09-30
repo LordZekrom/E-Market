@@ -25,7 +25,9 @@
 <body> 
     <header>
         <div class="logo">
+        <a href=" ../home/index.html">
              <img src="../imagens/logo2.png" alt="Logo">
+            </a>
         </div>
         <div class="search-bar">
             <input type="search" placeholder="Pesquisar...">

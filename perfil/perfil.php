@@ -38,14 +38,16 @@ if ($stm->execute()) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="login.css" />
     <link rel="stylesheet" href="perfil.css">
     <title>E-Market</title>
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="../imagens/logo2.png" alt="Logo">
+        <a href=" ../home/index.html">
+             <img src="../imagens/logo2.png" alt="Logo">
+            </a>
         </div>
         <div class="search-bar">
             <input type="search" placeholder="Pesquisar...">
