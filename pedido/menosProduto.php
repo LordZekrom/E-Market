@@ -23,7 +23,7 @@ include_once "../bd/bd.php";
     $stm->execute();
     $row = $stm->fetch();
     $quantidade = $row['quantidadeProduto'];
-    $sql = "SELECT quantidadeItensPedido FROM itensPedido WHERE idProduto = $codigoProduto AND ";//ARRUMANDO A QUESTÃO DE SE DELETAR TODA A QUANTIDADE, DE DEVOLVER ELA AO ESTOQUE
+    //$sql = "SELECT quantidadeItensPedido FROM itensPedido WHERE idProduto = $codigoProduto AND ";//ARRUMANDO A QUESTÃO DE SE DELETAR TODA A QUANTIDADE, DE DEVOLVER ELA AO ESTOQUE
     include_once("almentarEstoque.php");
 
 ###################### Remoção dos itens do pedido
