@@ -38,14 +38,16 @@ if ($stm->execute()) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="login.css" />
     <link rel="stylesheet" href="perfil.css">
     <title>E-Market</title>
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="../imagens/logo2.png" alt="Logo">
+        <a href=" ../home/index.html">
+             <img src="../imagens/logo2.png" alt="Logo">
+            </a>
         </div>
         <div class="search-bar">
             <input type="search" placeholder="Pesquisar...">
@@ -72,23 +74,60 @@ if ($stm->execute()) {
         <!-- Exibe a foto de perfil personalizada -->
         <img src="imagens/<?php echo htmlspecialchars($fotoPerfil); ?>" class="foto_perfil" alt="Foto de Perfil">
         <br><br>
-        <label>CPF: <?php echo htmlspecialchars($cpf); ?></label><br>
-        <label>Nome: <?php echo htmlspecialchars($nome); ?></label><br>
-        <label>Email: <?php echo htmlspecialchars($email); ?></label><br>
-        <label>Estado: <?php echo htmlspecialchars($estado); ?></label><br>
-        <label>Cidade: <?php echo htmlspecialchars($cidade); ?></label><br>
-        <label>Bairro: <?php echo htmlspecialchars($bairro); ?></label><br>
-        <label>Endereço: <?php echo htmlspecialchars($endereco); ?></label><br>
-        <label>Número: <?php echo htmlspecialchars($numero); ?></label><br>
-        <label>Complemento: <?php echo htmlspecialchars($complemento); ?></label><br>
-        
+        <table border="1">
+    <thead>
+        <tr>
+            <th>Campo</th>
+            <th>Valor</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>CPF</td>
+            <td><?php echo htmlspecialchars($cpf); ?></td>
+        </tr>
+        <tr>
+            <td>Nome</td>
+            <td><?php echo htmlspecialchars($nome); ?></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><?php echo htmlspecialchars($email); ?></td>
+        </tr>
+        <tr>
+            <td>Estado</td>
+            <td><?php echo htmlspecialchars($estado); ?></td>
+        </tr>
+        <tr>
+            <td>Cidade</td>
+            <td><?php echo htmlspecialchars($cidade); ?></td>
+        </tr>
+        <tr>
+            <td>Bairro</td>
+            <td><?php echo htmlspecialchars($bairro); ?></td>
+        </tr>
+        <tr>
+            <td>Endereço</td>
+            <td><?php echo htmlspecialchars($endereco); ?></td>
+        </tr>
+        <tr>
+            <td>Número</td>
+            <td><?php echo htmlspecialchars($numero); ?></td>
+        </tr>
+        <tr>
+            <td>Complemento</td>
+            <td><?php echo htmlspecialchars($complemento); ?></td>
+        </tr>
+    </tbody>
+</table>
+
         <!-- Opção de alterar as informações -->
         <button><a href='edita.php'>Alterar Informações</a></button>
     </div>
 
     <!-- Histórico de compras -->
     <?php
-    /*$query = "SELECT * FROM pedido WHERE cpfUsuario = :cpf";
+    $query = "SELECT * FROM pedido WHERE cpfUsuario = :cpf";
     $stm = $db->prepare($query);
     $stm->bindParam(':cpf', $cpf);
 
@@ -116,7 +155,7 @@ if ($stm->execute()) {
         }
     } else {
         print '<br><p>Erro ao listar o histórico de compras</p>';
-    }*/
+    }
     ?>
 
     <!-- Dados de pagamento (Comentado, se necessário no futuro) -->
