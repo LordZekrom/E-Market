@@ -35,12 +35,14 @@ $fotoPerfil = $result['fotoPerfil'];
     <meta charset="UTF-8">
     <title>Mercado</title>
     <link rel="stylesheet" href="perfil.css">
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="login.css" />
 </head>
 <body>
 <header>
     <div class="logo">
-        <img src="../imagens/logo2.png" alt="Logo">
+    <a href=" ../home/index.html">
+             <img src="../imagens/logo2.png" alt="Logo">
+            </a>
     </div>
 </header>
 <h3>Editar Perfil</h3>
