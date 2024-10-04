@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 23-Ago-2024 às 11:58
+-- Generation Time: 04-Out-2024 às 10:43
 -- Versão do servidor: 5.7.25
 -- versão do PHP: 7.1.26
 
@@ -49,7 +49,15 @@ INSERT INTO `itenspedido` (`idItensPedido`, `idPedido`, `idProduto`, `quantidade
 (4, 1, 6, NULL, NULL),
 (5, 1, 4, NULL, NULL),
 (6, 1, 4, NULL, NULL),
-(7, 1, 4, NULL, NULL);
+(7, 1, 4, NULL, NULL),
+(8, 2, 5, 1, NULL),
+(9, 2, 6, 2, NULL),
+(10, 2, 8, 1, NULL),
+(11, 3, 9, 1, NULL),
+(12, 3, 5, 3, NULL),
+(13, 3, 8, 2, NULL),
+(14, 3, 6, 1, NULL),
+(15, 4, 7, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -78,7 +86,10 @@ CREATE TABLE `pedido` (
 --
 
 INSERT INTO `pedido` (`idPedido`, `cpfUsuario`, `dataPedido`, `horaPedido`, `estadoUsuario`, `cidadeUsuario`, `bairroUsuario`, `enderecoUsuario`, `numeroUsuario`, `complementoUsuario`, `desconto`, `precoFinal`, `statusPedido`) VALUES
-(1, '12345678911', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'carrinho');
+(1, '12345678911', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'carrinho'),
+(2, '12345612344', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'carrinho'),
+(3, '1234', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'finalizado'),
+(4, '1234', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'carrinho');
 
 -- --------------------------------------------------------
 
@@ -101,14 +112,18 @@ CREATE TABLE `produto` (
 --
 
 INSERT INTO `produto` (`codigoProduto`, `nomeProduto`, `descricaoProduto`, `precoProduto`, `quantidadeProduto`, `categoriaProduto`, `fotoProduto`) VALUES
-(1, 'joao', 'sdsd', '6.00', 2312, NULL, NULL),
-(2, 'joao', 'sdsd', '6.00', 2312, NULL, NULL),
-(3, 'joao', 'sdsd', '6.00', 2312, 'Eletrônicos', NULL),
-(4, 'joao', 'sdsd', '6.00', 2312, 'Eletrônicos', NULL),
-(5, 'joao', 'sdsd', '6.00', 2312, 'Eletrônicos', '172225657066a78cba76435.jpg'),
-(6, 'bolacha', 'aaa', '15.99', 10, 'Alimentos', '172226166766a7a0a3bb6c3.jpg'),
-(7, 'arroz', 'arroz branco', '20.00', 1, 'Alimentos', '172226379866a7a8f603078.jpg'),
-(8, 'arroz', 'arroz branco', '30.00', 1, 'Alimentos', '172226383966a7a91f4711b.jpg');
+(4, 'Ferrero Rocher', 'chocolate Ferrero Rocher - 12 unidades', '3.99', 6, 'Eletrônicos', '172743965066f6a322061c7.jpg'),
+(5, 'Chocolate Crunch ', 'Barra de Chocolate Nestlé Crunch 90g', '5.00', 20, 'Eletrônicos', '172743894766f6a0638122a.png'),
+(6, 'Bolacha Passatempo', 'pacote de bolha passatempo - 1 quilo', '15.99', 10, 'Eletrônicos', '172743858566f69ef91ce22.png'),
+(7, 'Arroz Carindé', 'arroz branco', '25.00', 1, 'Eletrônicos', '172743842166f69e555bd24.png'),
+(8, 'Guaraná Antarctica', 'Refrigerante Guaraná Antarctica Lata 350ml', '3.50', 50, 'Eletrônicos', '172588612366deeeab4096e.png'),
+(9, 'Coca Cola Lata ', 'Refrigerante Coca Cola Lata 350ml', '4.99', 60, 'Bebidas', '172588626466deef38212dc.png'),
+(10, 'Kinder ovo', 'Chocolate Kinder Ovo Meninas 40g', '4.50', 20, 'Alimentos', '172744016366f6a5238e19a.jpg'),
+(11, 'Suco Natural One ', 'Suco de Laranja Integral Refrigerado Natural One 100% Suco 1,5 Litros', '10.99', 5, 'Bebidas', '172744238366f6adcfb2099.png'),
+(12, 'Feijão Carioca Camil', 'feijão carioca camil em grãos - 1 quilo', '40.00', 4, 'Alimentos', '172744261866f6aeba10849.png'),
+(13, 'Ração Pedigree', 'Ração Seca Pedigree Carne e Vegetais para Cães Adultos - 2,7Kg', '30.00', 3, 'Outros', '172744364466f6b2bcb1508.png'),
+(14, 'Pedro Sarajane', 'Cachorre Pedro - 15 quilos', '190.00', 1, 'Eletrônicos', '172744375066f6b32653796.jpeg'),
+(15, 'Suco Natural One', 'Suco natural de laranja , 1 litro', '36.89', 2, 'Bebidas', '172744383966f6b37f6fac2.png');
 
 -- --------------------------------------------------------
 
@@ -139,6 +154,7 @@ INSERT INTO `usuario` (`cpfUsuario`, `nomeUsuario`, `emailUsuario`, `estadoUsuar
 ('10987654321', 'burno', 'aburno@gmail.com', '', '', '', '', '', '', '2323', '172441254866c872845282c.jpg'),
 ('11111111111', 'teste', 'a@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '', NULL),
 ('1234', 'Dio', 'dionisio@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '1234', NULL),
+('12345612344', 'Rafael Moreira', 'rafael@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '123', 'default.png'),
 ('12345678911', 'Bruno', 'b@gmail.com', 'Amazonas', 'Pouso Alegre', 'Cruz Alta', 'Roça', '000', 'Deu certo?', '1234', NULL),
 ('22222222', 's', 's@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '1414', 'default.png'),
 ('333333333', 'p', 'p@gmail.com', '', '', '', '', '', '', '14', '172441339466c875d282725.jpg'),
@@ -191,19 +207,19 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `itenspedido`
 --
 ALTER TABLE `itenspedido`
-  MODIFY `idItensPedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idItensPedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `idPedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idPedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `codigoProduto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `codigoProduto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables
