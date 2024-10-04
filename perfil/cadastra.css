@@ -1,0 +1,159 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(255, 255, 255);
+    margin: 0;
+    padding: 0
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #2c3e50;
+   
+}
+
+.logo img{
+    height: 70px;
+}
+
+.cart {
+    font-size: 18px;
+}
+
+nav {
+    background-color: #4272a3;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul li {
+    margin: 0;
+    flex: 1;
+    text-align: center;
+}
+
+nav ul li a {
+    display: block;
+    padding: 14px 20px;
+    text-decoration: none;
+    color: white;
+}
+
+nav ul li a:hover {
+    background-color: #2c3e50;
+    color: #ffffff;
+}
+
+.search-bar {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.search-bar input[type="search"] {
+    border: none;
+    padding: 10px;
+    outline: none;
+    width: 300px;
+}
+
+.search-bar button {
+    background-color: #21a3b4;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #2b89c0;
+}
+
+.product {
+    border: 5px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    width: 100px;
+    height: 80px;
+    float: left;
+    margin: 10px;
+}
+
+
+.login-box {
+    background-color: #ffffff; /* Fundo branco */
+    padding: 30px;
+    border: 2px solid #2c3e50; /* Borda azul-escura */
+    border-radius: 10px; /* Bordas arredondadas */
+    width: 300px; /* Largura fixa */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.form-title {
+    font-size: 24px;
+    color: #2c3e50; /* Título na cor azul-escura */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-container {
+    margin-bottom: 15px;
+}
+
+.input-container label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.input-container input:focus {
+    border-color: #2c3e50; /* Borda azul-escura ao focar */
+    outline: none;
+}
+
+.submit {
+    width: 100%;
+    padding: 10px;
+    background-color: #2c3e50; /* Botão azul-escuro */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.submit:hover {
+    background-color: #34495e; /* Escurece o botão ao passar o mouse */
+}
+
+.cadastrar-link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.cadastrar-link a {
+    color: #3498db; /* Link em azul */
+    text-decoration: none;
+}
+
+.cadastrar-link a:hover {
+    text-decoration: underline;
+}

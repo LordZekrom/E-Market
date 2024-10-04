@@ -19,6 +19,14 @@ $stm = $con->prepare($sql);
 $stm->execute();
 $row = $stm->fetch();
 $quantidade = $row['quantidadeProduto'];
+$sql = "SELECT quantidadeItensPedido FROM itensPedido WHERE idProduto = $codigoProduto AND ";//ARRUMANDO A QUESTÃO DE SE DELETAR TODA A QUANTIDADE, DE DEVOLVER ELA AO ESTOQUE
+$stm = $con->prepare($sql);
+$stm->execute();
+$row = $stm->fetch();
+$quantidadeItem = $row['quantidadeItensPedido'];
+for(;$quantidadeItem > 0; $quantidadeItem--){
+   include_once("almentarEstoque.php");
+}
 include_once("almentarEstoque.php");
 
 ###################### Remoção dos itens do pedido
@@ -26,7 +34,7 @@ $sql = "DELETE FROM itenspedido WHERE idProduto = $codigoProduto AND idPedido = 
 $stm = $con->prepare($sql);
 $r = $stm->execute();
 
-$url = ""
+$url = "";
 if($r){
     print "<script>alert('Carrinho finalizado!')</script>";
     $url = "Location:../pedido/carrinho.php";
