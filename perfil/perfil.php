@@ -75,8 +75,7 @@ if ($stm->execute()) {
         <table border="1">
     <thead>
         <tr>
-            <th>Campo</th>
-            <th>Valor</th>
+            <th>Dados pessoais</th>
         </tr>
     </thead>
     <tbody>
