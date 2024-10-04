@@ -21,7 +21,7 @@
     $stm->bindParam(1, $cpf); 
     $r = $stm->execute();
 
-$url = ""
+$url = "";
 if($r){
     print "<script>alert('Carrinho finalizado!')</script>";
     $url = "Location:../pedido/carrinho.php";
