@@ -44,7 +44,7 @@ if ($stm->execute()) {
 </head>
 <body>
     <header>
-        <div class="logo">
+    <div class="logo">
         <a href=" ../home/index.html">
              <img src="../imagens/logo2.png" alt="Logo">
             </a>
@@ -67,9 +67,8 @@ if ($stm->execute()) {
             <li><a href="../perfil/perfil.php" style="background-color: #2c3e50; color:white;">Perfil</a></li> 
         </ul>
     </nav>
-
-    <!-- Informações pessoais -->
-    <div class="perfil-info">
+    <div class=bloco-peril>
+        <div class="perfil-info"> <!-- Informações pessoais -->
         <br>
         <!-- Exibe a foto de perfil personalizada -->
         <img src="imagens/<?php echo htmlspecialchars($fotoPerfil); ?>" class="foto_perfil" alt="Foto de Perfil">
