@@ -8,6 +8,7 @@ $cpf = $_SESSION['cpf'];
 $codigoProduto = $_GET['codigoProduto'];
 $idPedido = $_GET['idPedido'];
 $idItens = $_GET['idItensPedido'];
+$loop = $_GET['quantidadeItensPedido'];
 
 //################### Verificar se exite um PEDIDO com status CARRINHO, se existe, nós pegamos o ID desse pedido.
 
@@ -19,15 +20,9 @@ $stm = $con->prepare($sql);
 $stm->execute();
 $row = $stm->fetch();
 $quantidade = $row['quantidadeProduto'];
-$sql = "SELECT quantidadeItensPedido FROM itensPedido WHERE idProduto = $codigoProduto AND ";//ARRUMANDO A QUESTÃO DE SE DELETAR TODA A QUANTIDADE, DE DEVOLVER ELA AO ESTOQUE
-$stm = $con->prepare($sql);
-$stm->execute();
-$row = $stm->fetch();
-$quantidadeItem = $row['quantidadeItensPedido'];
-for(;$quantidadeItem > 0; $quantidadeItem--){
-   include_once("almentarEstoque.php");
+for(;$loop>0;$loop--){
+    include("almentarEstoque.php");
 }
-include_once("almentarEstoque.php");
 
 ###################### Remoção dos itens do pedido
 $sql = "DELETE FROM itenspedido WHERE idProduto = $codigoProduto AND idPedido = $idPedido AND idItensPedido = $idItens";

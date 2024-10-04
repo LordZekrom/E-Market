@@ -1,9 +1,16 @@
 <html>
-	<head><title>Login</title>
+	<head><title>E-Market</title>
     	<link rel="stylesheet" href="../perfil.css">
 		<link rel="stylesheet" type="text/css" href="cadastra.css" />
 	</head>
 	<body>
+	<header>
+        <div class="logo">
+		<a href=" ../home/index.html">
+             <img src="../imagens/logo2.png" alt="Logo">
+            </a>
+        </div>
+    </header>
 		<form method="post" action="salva.php">
   			<div class="login-box">
 				<h3 class="form-title">Cadastro</h3>
