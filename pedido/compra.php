@@ -119,6 +119,7 @@
     </style>
 </head>
 <body>
+    
     <header>
         <div class="logo">
             <img src="../imagens/logo2.png" alt="Logo">
