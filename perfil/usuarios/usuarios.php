@@ -1,6 +1,6 @@
 <?php
 //Inclui o arquivo de verifica��o de sess�o.
-    include_once("../perfil/verifica.php");
+    include_once("../../perfil/verifica.php");
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@
 <body>
 <header>
         <div class="logo">
-             <img src="../imagens/logo2.png" alt="Logo">
+             <img src="../../imagens/logo2.png" alt="Logo">
         </div>
         <div class="edit">
            <h4 style="color:white">Gerenciamento de Usuários  </h4>
@@ -27,8 +27,8 @@
     </header>
     <nav>
         <ul>
-            <li><a href="../produtos/index.php" style="background-color: #2c3e50; color:white;">Inicial</a></li>
-            <li><a href="../produtos/pesquisa.php" >Pesquisa</a></li>
+            <li><a href="../../produtos/index.php" style="background-color: #2c3e50; color:white;">Inicial</a></li>
+            <li><a href="../../produtos/pesquisa.php" >Pesquisa</a></li>
         </ul>
     </nav>
             <?php
@@ -36,31 +36,35 @@
             print "<span style='color:red'>Produto não pode ser removido devido a registros em venda.</span>";
         }
     ?>
-        <h3>Cadastro de produtos</h3>
+        <h3>Cadastro de Usuário</h3>
     <form method='POST' action='inserir.php' enctype="multipart/form-data">
-        <label>Código: </label>
-        <input name='codigoProduto'><br>
+        <label>Cpf: </label>
+        <input name='cpfUsuario'><br>
         <label>Nome: </label>
-        <input name='nomeProduto'><br>
-        <label>Descrição: </label>
-        <input name='descricaoProduto'><br>
-        <label>Preço </label>
-        <input name='precoProduto'><br>
-        <label>Quantidade </label>
-        <input name='quantidadeProduto'><br>
-        <label>Categoria </label>
-        <select name='categoriaProduto'>
-            <option value='1'>Eletrônicos</option>
-            <option value='2'>Roupas</option>
-            <option value='3'>Alimentos</option>
-            <option value='4'>Livros</option>
-            <option value='5'>Higiene</option>
-            <option value='6'>Bebidas</option>
-            <option value='7'>Casa</option>
-            <option value='8'>Outros</option>
+        <input name='nomeUsuario'><br>
+        <label>Email: </label>
+        <input name='emailUsuario'><br>
+        <label>Estado: </label>
+        <input name='estadoUsuario'><br>
+        <label>Cidade: </label>
+        <input name='cidadeUsuario'><br>
+        <label>Bairro: </label>
+        <input name='bairroUsuario'><br>
+        <label>Endereco: </label>
+        <input name='enderecoUsuario'><br>
+        <label>Numero: </label>
+        <input name='numeroUsuario'><br>
+        <label>Complemento: </label>
+        <input name='complementoUsuario'><br>
+        <label>Senha: </label>
+        <input name='senhaUsuario'><br>
+        <label>Tipo: </label>
+        <select name='tipoUsuario'>
+            <option value='1'>Cliente</option>
+            <option value='2'>Adm</option>
         </select>    
         <br>        
-   Selecione uma imagem: <input name="arquivo" type="file" />
+   Selecione uma imagem: <input name="fotoUsuario" type="file" />
    <br/>
         <button type='submit'>Salvar</button>
     </form>
