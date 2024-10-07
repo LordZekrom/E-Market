@@ -14,7 +14,6 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-
         }
 
         .product {
@@ -30,7 +29,7 @@
             text-align: center;
             background-color: #f9f9f9;
             transition: box-shadow 0.3s;
-            align-items:center;
+            align-items: center;
         }
 
         .product:hover {
@@ -43,13 +42,13 @@
             border-radius: 8px;
             margin-bottom: 2px;
             height: auto;
-        
         }
 
         .product h3 {
             color: #333;
             margin: 10px 0;
         }
+
         .product h4 {
             font-size: 1.2em;
             color: #00991f;
@@ -99,8 +98,31 @@
             margin-bottom: 10px;
             transition: background-color 0.3s;
         }
+
         .product button:hover {
-            background-color: #21a3b4;;
+            background-color: #21a3b4;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .quantity-controls button {
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+            background-color: #e0e0e0;
+            border: none;
+            cursor: pointer;
+        }
+
+        .quantity-controls input {
+            width: 40px;
+            text-align: center;
+            margin: 0 5px;
         }
 
         /* Flex container for products */
@@ -128,7 +150,7 @@
             <button type="submit">Buscar</button>
         </div>
         <div class="cart">
-            <a href=" ../pedido/carrinho.php">
+            <a href="../pedido/carrinho.php">
                 <img src="../imagens/carrinho.png" alt="Carrinho">
             </a>
         </div>
@@ -142,41 +164,44 @@
         </ul>
     </nav>
     <main>
-    <div class="product-container">
-    <?php
-        # Conecta com BD
-        $ds = "mysql:host=localhost;dbname=e_market";
-        $con = new PDO($ds, 'root', 'vertrigo');
-    
-        # Seleciona todos os registros
-        $sql = "SELECT * FROM produto";
-        $stm = $con->prepare($sql);
-        $stm->execute();
-    
-        # Percorre os registros
-        foreach($stm as $row){
-            $codigoProduto = $row['codigoProduto'];
-            $linkComprar = "comprar.php?produto=" . $codigoProduto;
-           
-            echo "<div class='product'>
-                <img src='../produtos/imagens/" . $row['fotoProduto'] . "' />
-                " . $row['nomeProduto'] . "
-                <table>
-                    <tr>
-                        <h4>R$" . $row['precoProduto'] . "</h4>
-                    </tr>
-                    <br>
-                    <tr>
-                        " . $row['descricaoProduto'] . "
-                    </tr>
-                </table>
-                <button onclick=\"window.location.href='addCarrinho.php?codigoProduto=$codigoProduto'\">Comprar</button>
-            </div>";
-        }
-    ?>
-    </div>
-    <br>
-    <a href='../produtos/index.php'>Editar produtos</a> 
+        <div class="product-container">
+            <?php
+                # Conecta com BD
+                $ds = "mysql:host=localhost;dbname=e_market";
+                $con = new PDO($ds, 'root', 'vertrigo');
+        
+                # Seleciona todos os registros
+                $sql = "SELECT * FROM produto";
+                $stm = $con->prepare($sql);
+                $stm->execute();
+        
+                # Percorre os registros
+                foreach($stm as $row){
+                    $codigoProduto = $row['codigoProduto'];
+                    echo "<div class='product'>
+                        <img src='../produtos/imagens/" . $row['fotoProduto'] . "' />
+                        " . $row['nomeProduto'] . "
+                        <table>
+                            <tr>
+                                <h4>R$" . $row['precoProduto'] . "</h4>
+                            </tr>
+                            <br>
+                            <tr>
+                                " . $row['descricaoProduto'] . "
+                            </tr>
+                        </table>
+                        <div class='quantity-controls'>
+                            <button onclick=\"this.parentNode.querySelector('input').stepDown()\">-</button>
+                            <input type='number' value='1' min='1' />
+                            <button onclick=\"this.parentNode.querySelector('input').stepUp()\">+</button>
+                        </div>
+                        <button onclick=\"window.location.href='addCarrinho.php?codigoProduto=$codigoProduto&quantidade=' + this.parentNode.querySelector('input').value\">Comprar</button>
+                    </div>";
+                }
+            ?>
+        </div>
+        <br>
+        <a href='../produtos/index.php'>Editar produtos</a> 
     </main>
 </body>
 </html>
