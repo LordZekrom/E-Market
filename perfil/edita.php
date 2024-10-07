@@ -35,14 +35,34 @@ $fotoPerfil = $result['fotoPerfil'];
     <meta charset="UTF-8">
     <title>Mercado</title>
     <link rel="stylesheet" href="perfil.css">
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="login.css" />
 </head>
 <body>
 <header>
+<<<<<<< HEAD
+        <div class="logo">
+        <a href=" ../home/index.html">
+             <img src="../imagens/logo2.png" alt="Logo">
+            </a>
+        </div>
+        <div class="search-bar">
+            <input type="search" placeholder="Pesquisar...">
+            <button type="submit">Buscar</button>
+        </div>
+        <div class="cart">
+            <a href="  ">
+                <img src="../imagens/carrinho.png" alt="Carrinho">
+            </a>
+        </div>
+    </header>
+=======
     <div class="logo">
-        <img src="../imagens/logo2.png" alt="Logo">
+    <a href=" ../home/index.html">
+             <img src="../imagens/logo2.png" alt="Logo">
+            </a>
     </div>
 </header>
+>>>>>>> 6d5d089d51ab955af72928ebe174fe26f2bc59df
 <h3>Editar Perfil</h3>
 <img src="imagens/<?php echo htmlspecialchars($fotoPerfil); ?>" class="foto_perfil" alt="Foto de Perfil"><br><br>
 <form method='POST' action='atualiza.php' enctype="multipart/form-data">

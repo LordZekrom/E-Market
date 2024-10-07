@@ -25,7 +25,9 @@
 <body> 
     <header>
         <div class="logo">
+        <a href=" ../home/index.html">
              <img src="../imagens/logo2.png" alt="Logo">
+            </a>
         </div>
         <div class="search-bar">
             <input type="search" placeholder="Pesquisar...">
@@ -117,7 +119,7 @@ else{
         echo "<td align='center'>
         <a href='maisProduto.php?codigoProduto=" . urlencode($id) . "&idPedido=" . urlencode($idPedido) . "&idItensPedido=" . urlencode($idItens) . "'><img src='imgs/mais.png' alt='Adicionar produto' class='imgCart'></a>
         <a href='menosProduto.php?codigoProduto=" . urlencode($id) . "&idPedido=" . urlencode($idPedido) . "&idItensPedido=" . urlencode($idItens) . "'><img src='imgs/menos.png' alt='Diminuir produto' class='imgCart'></a>
-        <a href='delete.php?codigoProduto=" . urlencode($id) . "&idPedido=" . urlencode($idPedido) . "&idItensPedido=" . urlencode($idItens) . "'><img src='imgs/lixeria.png' alt='Remover produto' class='imgCart'></a>
+        <a href='delete.php?codigoProduto=" . urlencode($id) . "&idPedido=" . urlencode($idPedido) . "&idItensPedido=" . urlencode($idItens) . "&quantidadeItensPedido=" . urlencode($quantidade) ."'><img src='imgs/lixeria.png' alt='Remover produto' class='imgCart'></a>
             </td>";
         echo "</tr>";
     }

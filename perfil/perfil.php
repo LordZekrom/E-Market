@@ -38,14 +38,16 @@ if ($stm->execute()) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="login.css" />
     <link rel="stylesheet" href="perfil.css">
-    <title>E-Market</title>
+    <title> Perfil E-Market</title>
 </head>
 <body>
     <header>
-        <div class="logo">
-            <img src="../imagens/logo2.png" alt="Logo">
+    <div class="logo">
+        <a href=" ../home/index.html">
+             <img src="../imagens/logo2.png" alt="Logo">
+            </a>
         </div>
         <div class="search-bar">
             <input type="search" placeholder="Pesquisar...">
@@ -65,18 +67,15 @@ if ($stm->execute()) {
             <li><a href="../perfil/perfil.php" style="background-color: #2c3e50; color:white;">Perfil</a></li> 
         </ul>
     </nav>
-
-    <!-- Informações pessoais -->
-    <div class="perfil-info">
+    <div class=bloco-peril>
+        <div class="perfil-info">
         <br>
-        <!-- Exibe a foto de perfil personalizada -->
         <img src="imagens/<?php echo htmlspecialchars($fotoPerfil); ?>" class="foto_perfil" alt="Foto de Perfil">
         <br><br>
         <table border="1">
     <thead>
         <tr>
-            <th>Campo</th>
-            <th>Valor</th>
+            <th>Dados pessoais</th>
         </tr>
     </thead>
     <tbody>
@@ -118,46 +117,51 @@ if ($stm->execute()) {
         </tr>
     </tbody>
 </table>
-
-        <!-- Opção de alterar as informações -->
         <button><a href='edita.php'>Alterar Informações</a></button>
     </div>
+    <div class="pedidos-finalizados">
+        <!-- Histórico de compras -->
+        <?php
+            $query = "SELECT * FROM pedido WHERE cpfUsuario = :cpf";
+            $stm = $db->prepare($query);
+            $stm->bindParam(':cpf', $cpf);
 
-    <!-- Histórico de compras -->
-    <?php
-    /*$query = "SELECT * FROM pedido WHERE cpfUsuario = :cpf";
-    $stm = $db->prepare($query);
-    $stm->bindParam(':cpf', $cpf);
+            if ($stm->execute()) {
+                $encontrouPedido = false;
 
-    if ($stm->execute()) {
-        $encontrouPedido = false;
-        while ($row = $stm->fetch(PDO::FETCH_ASSOC)) {
-            $id = $row['idPedido'];
-            $data = $row['dataPedido'];
-            $hora = $row['horaPedido'];
-            $preco = $row['precoFinal'];
-            $status = $row['statusPedido'];
-            $complemento = $row['complementoUsuario'];
-            $encontrouPedido = true;
+                while ($row = $stm->fetch(PDO::FETCH_ASSOC)) {
+                    $id = $row['idPedido'];
+                    $data = $row['dataPedido'];
+                    $hora = $row['horaPedido'];
+                    $preco = $row['precoFinal'];
+                    $status = $row['statusPedido'];
+                    $complemento = $row['complementoUsuario'];
+                    $encontrouPedido = true;
 
-            if ($status == 'finalizado') { // Só vai aparecer os que estiverem finalizados
-                print "<br><label>ID: $id</label><br>";
-                print "<label>Data: $data</label><br>";
-                print "<label>Hora: $hora</label><br>";
-                print "<label>Complemento: $complemento</label><br>";
-                print "<label>Preço: $preco</label><br>";
+                    if ($status == 'finalizado') { // Só vai aparecer os que estiverem finalizados
+                        print "<br><label>ID: $id</label><br>";
+                        print "<label>Data: $data</label><br>";
+                        print "<label>Hora: $hora</label><br>";
+                        print "<label>Complemento: $complemento</label><br>";
+                        print "<label>Preço: $preco</label><br>";
+                    }
+                }
+
+                if (!$encontrouPedido) {
+                    print "<br><br><label>Não foi feita nenhuma compra</label><br>";
+                }
+
             }
-        }
-        if (!$encontrouPedido) {
-            print "<br><br><label>Não foi feita nenhuma compra</label><br>";
-        }
-    } else {
-        print '<br><p>Erro ao listar o histórico de compras</p>';
-    }*/
-    ?>
-
-    <!-- Dados de pagamento (Comentado, se necessário no futuro) -->
-    <!-- Opção de entrar e sair -->
-    <br><a href='logout.php'>Sair</a>
+                else {
+                print '<br><p>Erro ao listar o histórico de compras</p>';
+                }
+        ?>
+            <!-- Dados de pagamento (Comentado, se necessário no futuro) -->
+            <!-- Opção de entrar e sair -->
+            <div class="sair">    
+                <br><a href='logout.php'>Sair da conta</a>
+            </div>    
+        </div>
+    </div>
 </body>
 </html>
