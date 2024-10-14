@@ -27,8 +27,8 @@
     </header>
     <nav>
         <ul>
-            <li><a href="../../produtos/index.php" style="background-color: #2c3e50; color:white;">Inicial</a></li>
-            <li><a href="../../produtos/pesquisa.php" >Pesquisa</a></li>
+            <li><a href="../usuarios/usuarios.php" style="background-color: #2c3e50; color:white;">Inicial</a></li>
+            <li><a href="../usuarios/pesquisa.php" >Pesquisa</a></li>
         </ul>
     </nav>
             <?php
@@ -66,57 +66,7 @@
         <br>        
    Selecione uma imagem: <input name="fotoUsuario" type="file" />
    <br/>
-        <button type='submit'>Salvar</button>
-    </form>
-    <h3>Listagem de Produtos</h3>
-    <table border>
-        <tr>
-            <th>Cpf</th>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>Estado</th>
-            <th>Cidade</th>
-            <th>Bairro</th>
-            <th>Endereco</th>
-            <th>Numero</th>
-            <th>Complemento</th>
-            <th>Foto Usuário</th>
-            <th>Ações</th>
-        </tr>
-    <?php
-    // Recebe o cpf da sessão
-    $cpf = $_SESSION['cpf'];
-        # Conecta com BD
-        $ds = "mysql:host=localhost;dbname=e_market";
-        $con = new PDO($ds, 'root', 'vertrigo');
-    
-        # Seleciona todos os registros
-        $sql = "SELECT * FROM usuario";
-        $stm = $con->prepare($sql);
-        $stm->execute();
-    
-        # Percorre os registros
-        foreach($stm as $row){
-            echo "<tr>";
-            echo "<td>" . $cpf . "</td>";
-            echo "<td>" . $row['nomeUsuario'] . "</td>";
-            echo "<td>" . $row['emailUsuario'] . "</td>";
-            echo "<td>" . $row['estadoUsuario'] . "</td>";
-            echo "<td>" . $row['cidadeUsuario'] . "</td>";
-            echo "<td>" . $row['bairroUsuario'] . "</td>";
-            echo "<td>" . $row['enderecoUsuario'] . "</td>";
-            echo "<td>" . $row['numeroUsuario'] . "</td>";
-            echo "<td>" . $row['complementoUsuario'] . "</td>";
-/*Falte esse tbm*/            echo "<td><img src='imagens/" . $row['fotoProduto'] . "' width='60px'/></td>";
-            echo "<td>
-                    <a href='delete.php?codigoProduto=$codigoProduto'>Deletar</a>
-                    |
-                    <a href='edita.php?codigoProduto=$codigoProduto'>Editar</a>
-                 </td>"; 
-            echo "</tr>";
-        }
-    ?>
-    </table>
+        <button type='submit'>Salvar</button><br><br>
     <a href='../pedido/compra.php'>Voltar</a> 
     </body>
     </html>
