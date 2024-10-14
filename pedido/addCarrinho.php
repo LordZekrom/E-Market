@@ -6,6 +6,7 @@
 #Recebe o id pela URL
 $cpf = $_SESSION['cpf'];
 $codigoProduto = $_GET['codigoProduto'];
+$addcar = $_GET['addcar'];
 
 ################### Verificar se exite um PEDIDO com status CARRINHO, se existe, nós pegamos o ID desse pedido.
 
@@ -87,8 +88,14 @@ if($boolCtl1 == 0){
 
 $url = "";
 if($r){
-    print "<script>alert('Item inserido!')</script>";
-    $url = "Location:../pedido/carrinho.php";
+    if($addcar==1){
+        echo " window.history.back();</script>";
+        $addcar= 0;
+    }
+    else{
+        echo "<script>alert('Item adicionado ao carrinho!'); window.Location.href='../pedido/carrinho.php';</script>";
+    }
+    
 }
 else {
     print "<script>alert('Erro ao inserir o produto')</script>";

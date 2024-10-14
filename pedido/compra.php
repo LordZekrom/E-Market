@@ -88,8 +88,22 @@
             color: #666;
         }
 
-        .product button {
+
+        .buy {
             padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #2c3e50;
+            color: white;
+            cursor: pointer;
+            width: 70%;
+            margin-bottom: 10px;
+            transition: background-color 0.3s;
+            width: 138px;
+        }
+
+        .car {
+            padding: 9px;
             border: none;
             border-radius: 5px;
             background-color: #2c3e50;
@@ -98,16 +112,42 @@
             width: 100%;
             margin-bottom: 10px;
             transition: background-color 0.3s;
+            width: 38px;
         }
-        .product button:hover {
+
+        .buy:hover {
             background-color: #21a3b4;;
         }
 
+        .car:hover {
+            background-color: #21a3b4;;
+        }
+
+        .product button{
+           display:inline-block;
+           margin-right: px; /* Espaço entre os botões */
+        }
         /* Flex container for products */
         .product-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
+        }
+        .button-container {
+            display: flex; /* Usa flexbox para alinhar os botões */
+            justify-content: center; /* Centraliza os botões */
+            gap: 4px; /* Espaço entre os botões */
+           
+        }
+        .button-container img{
+            border-radius: 0px;
+            
+           
+        }
+
+        .car img {
+            width: 100%; /* A imagem ocupa toda a largura do botão */
+         height: 100%; /* A imagem ocupa toda a altura do botão */
         }
 
         @media (max-width: 768px) {
@@ -119,7 +159,7 @@
     </style>
 </head>
 <body>
-    
+
     <header>
         <div class="logo">
             <img src="../imagens/logo2.png" alt="Logo">
@@ -145,6 +185,8 @@
     <main>
     <div class="product-container">
     <?php
+
+        $addcar=0;
         # Conecta com BD
         $ds = "mysql:host=localhost;dbname=e_market";
         $con = new PDO($ds, 'root', 'vertrigo');
@@ -171,7 +213,13 @@
                         " . $row['descricaoProduto'] . "
                     </tr>
                 </table>
-                <button onclick=\"window.location.href='addCarrinho.php?codigoProduto=$codigoProduto'\">Comprar</button>
+                <div class='button-container'>
+                    <button onclick=\"window.location.href='addCarrinho.php?codigoProduto=$codigoProduto'\" class='buy'>Comprar</button>
+                    <button onclick=\"window.location.href='addCarrinho.php?addcar=1&codigoProduto=$codigoProduto'\" class='car'>
+                         <img src='../imagens/addcarao.png' alt='Adicionar ao Carrinho'>
+                    </button>
+
+                </div>
             </div>";
         }
     ?>
