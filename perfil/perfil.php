@@ -73,13 +73,10 @@ if ($stm->execute()) {
         <img src="imagens/<?php echo htmlspecialchars($fotoPerfil); ?>" class="foto_perfil" alt="Foto de Perfil">
         <br><br>
         <table border="1">
-    <thead>
         <tr>
             <th>Dados pessoais</th>
         </tr>
-    </thead>
-    <tbody>
-        <tr>
+        <tr>    
             <td>CPF</td>
             <td><?php echo htmlspecialchars($cpf); ?></td>
         </tr>
@@ -115,8 +112,7 @@ if ($stm->execute()) {
             <td>Complemento</td>
             <td><?php echo htmlspecialchars($complemento); ?></td>
         </tr>
-    </tbody>
-</table>
+        </table>
         <button><a href='edita.php'>Alterar Informações</a></button>
     </div>
     <div class="pedidos-finalizados">
@@ -159,9 +155,9 @@ if ($stm->execute()) {
             <!-- Dados de pagamento (Comentado, se necessário no futuro) -->
             <!-- Opção de entrar e sair -->
             <div class="sair">    
-                <br><a href='logout.php'>Sair da conta</a>
             </div>    
         </div>
+        <br><a href='logout.php'>Sair da conta</a>
     </div>
 </body>
 </html>
