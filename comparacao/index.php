@@ -74,65 +74,19 @@ function gerarTabelaProduto($conn, $categoria, $inputNamePrefix) {
 }
 ?>
 
-<div class="container">
-    <div class="sim">
-    <form method="get" action="">
-        <label for="categoria1">Selecione a categoria para o Produto 1:</label>
-        <select name="categoria1" id="categoria1" onchange="this.form.submit()">
-            <option value="">Escolha uma categoria</option>
-            <option value="Eletrônicos" <?php echo isset($_GET['categoria1']) && $_GET['categoria1'] === 'Eletrônicos' ? 'selected' : ''; ?>>Eletrônicos</option>
-            <option value="Roupas" <?php echo isset($_GET['categoria1']) && $_GET['categoria1'] === 'Roupas' ? 'selected' : ''; ?>>Roupas</option>
-            <option value="Alimentos" <?php echo isset($_GET['categoria1']) && $_GET['categoria1'] === 'Alimentos' ? 'selected' : ''; ?>>Alimentos</option>
-            <option value="Livros" <?php echo isset($_GET['categoria1']) && $_GET['categoria1'] === 'Livros' ? 'selected' : ''; ?>>Livros</option>
-            <option value="Higiene" <?php echo isset($_GET['categoria1']) && $_GET['categoria1'] === 'Higiene' ? 'selected' : ''; ?>>Higiene</option>
-            <option value="Bebidas" <?php echo isset($_GET['categoria1']) && $_GET['categoria1'] === 'Bebidas' ? 'selected' : ''; ?>>Bebidas</option>
-            <option value="Casa" <?php echo isset($_GET['categoria1']) && $_GET['categoria1'] === 'Casa' ? 'selected' : ''; ?>>Casa</option>
-            <option value="Outros" <?php echo isset($_GET['categoria1']) && $_GET['categoria1'] === 'Outros' ? 'selected' : ''; ?>>Outros</option>
-        </select>
-        </div>
-        <div class="nao">
-        <label for="categoria2">Selecione a categoria para o Produto 2:</label>
-        <select name="categoria2" id="categoria2" onchange="this.form.submit()">
-            <option value="">Escolha uma categoria</option>
-            <option value="Eletrônicos" <?php echo isset($_GET['categoria2']) && $_GET['categoria2'] === 'Eletrônicos' ? 'selected' : ''; ?>>Eletrônicos</option>
-            <option value="Roupas" <?php echo isset($_GET['categoria2']) && $_GET['categoria2'] === 'Roupas' ? 'selected' : ''; ?>>Roupas</option>
-            <option value="Alimentos" <?php echo isset($_GET['categoria2']) && $_GET['categoria2'] === 'Alimentos' ? 'selected' : ''; ?>>Alimentos</option>
-            <option value="Livros" <?php echo isset($_GET['categoria2']) && $_GET['categoria2'] === 'Livros' ? 'selected' : ''; ?>>Livros</option>
-            <option value="Higiene" <?php echo isset($_GET['categoria2']) && $_GET['categoria2'] === 'Higiene' ? 'selected' : ''; ?>>Higiene</option>
-            <option value="Bebidas" <?php echo isset($_GET['categoria2']) && $_GET['categoria2'] === 'Bebidas' ? 'selected' : ''; ?>>Bebidas</option>
-            <option value="Casa" <?php echo isset($_GET['categoria2']) && $_GET['categoria2'] === 'Casa' ? 'selected' : ''; ?>>Casa</option>
-            <option value="Outros" <?php echo isset($_GET['categoria2']) && $_GET['categoria2'] === 'Outros' ? 'selected' : ''; ?>>Outros</option>
-        </select>
+<
 </div>
     </form>
     </div>
     <div class="certo">
-        <div class="table-container">
-            <h3>Produtos da Categoria 1</h3>
-            <?php 
-            if (isset($_GET['categoria1']) && !empty($_GET['categoria1'])) {
-                gerarTabelaProduto($conn, $_GET['categoria1'], 'produto1'); 
-            }
-            ?>
-        </div>
-
-        <div class="compare-button">
-        <form action="comparar.php" method="post">
-            <input type="hidden" name="produto1" id="produto1" value="">
-            <input type="hidden" name="produto2" id="produto2" value="">
-            <button type="submit">Comparar Produtos</button>
-        </form>
-    </div>
-
-        <div class="table-container">
-            <h3>Produtos da Categoria 2</h3>
-            <?php 
-            if (isset($_GET['categoria2']) && !empty($_GET['categoria2'])) {
-                gerarTabelaProduto($conn, $_GET['categoria2'], 'produto2'); 
-            }
-            ?>
-        </div>
-    </div>
+    <div class="teste">              
+                <div class="teste2">
+                <h2>Comparar</h2>
+                <p>Veja as melhores comparações</p>
+                    <p>Encontre grandes comparações em diversos produtos.</p>
+                    <a href="comparar.php">Comparar</a>
+                </div>
+</div>
   </div>
 
 </main>

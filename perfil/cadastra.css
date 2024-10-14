@@ -96,6 +96,9 @@ nav ul li a:hover {
     border-radius: 10px; /* Bordas arredondadas */
     width: 300px; /* Largura fixa */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin: 0 auto;
+    margin-top: 50px;
 }
 
 .form-title {
