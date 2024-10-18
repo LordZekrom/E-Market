@@ -274,21 +274,6 @@ td {
 
 }*/
 
-.compare-button button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-}
-
-.compare-button button:hover {
-    background-color: #45a049;
-}
-
 
 .compare-button {
     background-color: #28a745; /* Cor de fundo verde */
@@ -301,4 +286,57 @@ td {
     width: 200px;
     height: 100px;
     float: left;
+    position: relative; /* Posicionamento relativo para o botão */
+}
+
+.compare-button button {
+    /* Remove o padding e o tamanho fixo do botão */
+    padding: 0;
+    width: auto;
+    height: auto;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    position: absolute; /* Posicionamento absoluto para o botão */
+    top: 0; /* Posiciona o botão no topo da div */
+    left: 0; /* Posiciona o botão à esquerda da div */
+    right: 0; /* Expande o botão para a direita */
+    bottom: 0; /* Expande o botão para baixo */
+}
+
+.compare-button button:hover {
+    background-color: #45a049;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Para ocupar toda a altura da viewport */
+    margin: 0; /* Para remover margens padrão */
+}
+
+table {
+    border-collapse: collapse; /* Para garantir que as bordas da tabela se unam */
+    margin: auto; /* Centraliza a tabela na página */
+}
+
+.comparacao {
+    width: 80%; /* Defina uma largura desejada */
+    border: 1px solid #ccc; /* Bordas para a tabela */
+}
+
+.product {
+    text-align: center; /* Centraliza o texto dentro de cada produto */
+}
+
+.product img {
+    max-width: 100%; /* Faz com que a imagem ocupe o máximo de espaço disponível */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+h3, p {
+    margin: 10px 0; /* Margens para dar um pouco de espaço entre os elementos */
 }

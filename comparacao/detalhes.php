@@ -1,3 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="compar.css" />
+    <title>Document</title>
+</head>
+<body>
+<div class="logo">
+        <a href="../home/index.html">
+            <img src="../imagens/logo2.png" alt="Logo">
+        </a>
+    </div>
+    <div class="search-bar">
+        <input type="search" placeholder="Pesquisar...">
+        <button type="submit">Buscar</button>
+    </div>
+    <div class="cart">
+        <a href="../pedido/carrinho.php">
+            <img src="../imagens/carrinho.png" alt="Carrinho">
+        </a>
+    </div>
+</header>
+<nav>
+    <ul>
+        <li><a href="../home/index.html">Home</a></li>
+        <li><a href="../pedido/compra.php">Produtos</a></li>
+        <li><a href="../comparacao/index.php" style="background-color: #2c3e50; color: white;">Comparação</a></li>
+        <li><a href="../perfil/perfil.php">Perfil</a></li>
+    </ul>
+</nav>
 <?php
     $produtoA = $_POST['produtoA'];
     $produtoB = $_POST['produtoB'];
@@ -7,58 +39,49 @@
     $con = new PDO($ds, 'root', 'vertrigo');
 
     # Seleciona os produtos conforme o código fornecido
-    $sql = "SELECT * FROM produto WHERE codigoProduto = :codigoProdutoA";
+    $sql = "SELECT * FROM produto WHERE codigoProduto = :codigoProduto";
     $stm = $con->prepare($sql);
-    $stm->bindParam(':codigoProdutoA', $produtoA, PDO::PARAM_INT);
+
+    # Busca o produto A
+    $stm->bindParam(':codigoProduto', $produtoA, PDO::PARAM_INT);
     $stm->execute();
+    $produtoA = $stm->fetch(PDO::FETCH_ASSOC);
 
-    # Percorre os registros
-    foreach($stm as $row){
-        $codigoProduto = $row['codigoProduto'];
-        echo "<div class='product listA' id='listA$codigoProduto'>
-            <img src='../produtos/imagens/" . $row['fotoProduto'] . "' />
-            " . $row['nomeProduto'] . "
-            <table>
-                <tr>
-                    <h4>R$" . $row['precoProduto'] . "</h4>
-                </tr>
-                <br>
-                <tr>
-                    " . $row['descricaoProduto'] . "
-                </tr>
-            </table>
-            <button onclick=\"selecionar('produtoA'," . $codigoProduto . ")\">Selecionar</button>
-        </div>";
-        
+    # Busca o produto B
+    $stm->bindParam(':codigoProduto', $produtoB, PDO::PARAM_INT);
+    $stm->execute();
+    $produtoB = $stm->fetch(PDO::FETCH_ASSOC);
+
+    # Verifica se ambos os produtos foram encontrados
+    if ($produtoA && $produtoB) {
+        echo "<table class='comparacao'>";
+        echo "<tr>";
+        echo "<th>Produto A</th>";
+        echo "<th>Produto B</th>";
+        echo "</tr>";
+        echo "<tr>";
+        echo "<td>";
+        echo "<div class='product'>";
+        echo "<img src='../produtos/imagens/" . $produtoA['fotoProduto'] . "' />";
+        echo "<h3>" . $produtoA['nomeProduto'] . "</h3>";
+        echo "<p>R$" . $produtoA['precoProduto'] . "</p>";
+        echo "<p>" . $produtoA['descricaoProduto'] . "</p>";
+        echo "</div>";
+        echo "</td>";
+        echo "<td>";
+        echo "<div class='product'>";
+        echo "<img src='../produtos/imagens/" . $produtoB['fotoProduto'] . "' />";
+        echo "<h3>" . $produtoB['nomeProduto'] . "</h3>";
+        echo "<p>R$" . $produtoB['precoProduto'] . "</p>";
+        echo "<p>" . $produtoB['descricaoProduto'] . "</p>";
+        echo "</div>";
+        echo "</td>";
+        echo "</tr>";
+        echo "</table>";
+    } else {
+        echo "<h2>Erro: Um ou ambos os produtos não foram encontrados.</h2>";
     }
-
-     # Conecta com o BD
-     $ds = "mysql:host=localhost;dbname=e_market";
-     $con = new PDO($ds, 'root', 'vertrigo');
- 
-     # Seleciona os produtos conforme o código fornecido
-     $sql = "SELECT * FROM produto WHERE codigoProduto = :codigoProdutoB";
-     $stm = $con->prepare($sql);
-     $stm->bindParam(':codigoProdutoB', $produtoA, PDO::PARAM_INT);
-     $stm->execute();
- 
-     # Percorre os registros
-     foreach($stm as $row){
-         $codigoProduto = $row['codigoProduto'];
-         echo "<div class='product listB' id='listB$codigoProduto'>
-             <img src='../produtos/imagens/" . $row['fotoProduto'] . "' />
-             " . $row['nomeProduto'] . "
-             <table>
-                 <tr>
-                     <h4>R$" . $row['precoProduto'] . "</h4>
-                 </tr>
-                 <br>
-                 <tr>
-                     " . $row['descricaoProduto'] . "
-                 </tr>
-             </table>
-             <button onclick=\"selecionar('produtoBn'," . $codigoProduto . ")\">Selecionar</button>
-         </div>";
-         
-     }
 ?>
+
+</body>
+</html>
