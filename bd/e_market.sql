@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 04-Out-2024 às 10:43
+-- Generation Time: 18-Out-2024 às 13:55
 -- Versão do servidor: 5.7.25
 -- versão do PHP: 7.1.26
 
@@ -119,7 +119,7 @@ INSERT INTO `produto` (`codigoProduto`, `nomeProduto`, `descricaoProduto`, `prec
 (8, 'Guaraná Antarctica', 'Refrigerante Guaraná Antarctica Lata 350ml', '3.50', 50, 'Eletrônicos', '172588612366deeeab4096e.png'),
 (9, 'Coca Cola Lata ', 'Refrigerante Coca Cola Lata 350ml', '4.99', 60, 'Bebidas', '172588626466deef38212dc.png'),
 (10, 'Kinder ovo', 'Chocolate Kinder Ovo Meninas 40g', '4.50', 20, 'Alimentos', '172744016366f6a5238e19a.jpg'),
-(11, 'Suco Natural One ', 'Suco de Laranja Integral Refrigerado Natural One 100% Suco 1,5 Litros', '10.99', 5, 'Bebidas', '172744238366f6adcfb2099.png'),
+(11, 'Suco Natural One ', 'Suco de Laranja Integral Refrigerado Natural One 100% Suco 1,5 Litros', '10.99', 5, 'Eletrônicos', '1729255241671257498ec0e.png'),
 (12, 'Feijão Carioca Camil', 'feijão carioca camil em grãos - 1 quilo', '40.00', 4, 'Alimentos', '172744261866f6aeba10849.png'),
 (13, 'Ração Pedigree', 'Ração Seca Pedigree Carne e Vegetais para Cães Adultos - 2,7Kg', '30.00', 3, 'Outros', '172744364466f6b2bcb1508.png'),
 (14, 'Pedro Sarajane', 'Cachorre Pedro - 15 quilos', '190.00', 1, 'Eletrônicos', '172744375066f6b32653796.jpeg'),
@@ -142,29 +142,30 @@ CREATE TABLE `usuario` (
   `numeroUsuario` varchar(10) DEFAULT NULL,
   `complementoUsuario` varchar(100) DEFAULT NULL,
   `senhaUsuario` varchar(255) NOT NULL,
-  `fotoPerfil` varchar(255) DEFAULT NULL
+  `fotoPerfil` varchar(255) DEFAULT NULL,
+  `tipoUsuario` enum('adm','cliente') NOT NULL DEFAULT 'cliente'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `usuario`
 --
 
-INSERT INTO `usuario` (`cpfUsuario`, `nomeUsuario`, `emailUsuario`, `estadoUsuario`, `cidadeUsuario`, `bairroUsuario`, `enderecoUsuario`, `numeroUsuario`, `complementoUsuario`, `senhaUsuario`, `fotoPerfil`) VALUES
-('0987654321', 'g', 'g@gmail.com', '', '', '', '', '', '', '1717', '172441306466c87488b4f80.jpg'),
-('10987654321', 'burno', 'aburno@gmail.com', '', '', '', '', '', '', '2323', '172441254866c872845282c.jpg'),
-('11111111111', 'teste', 'a@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '', NULL),
-('1234', 'Dio', 'dionisio@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '1234', NULL),
-('12345612344', 'Rafael Moreira', 'rafael@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '123', 'default.png'),
-('12345678911', 'Bruno', 'b@gmail.com', 'Amazonas', 'Pouso Alegre', 'Cruz Alta', 'Roça', '000', 'Deu certo?', '1234', NULL),
-('22222222', 's', 's@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '1414', 'default.png'),
-('333333333', 'p', 'p@gmail.com', '', '', '', '', '', '', '14', '172441339466c875d282725.jpg'),
-('33333333333333', 'h', 'h@gmail.com', '', '', '', '', '', '', '1414', '172441329166c8756b21b2d.jpg'),
-('4321', 'teste', 'teste@gmil.com', '', '', '', '', '', '', '4321', '172441206466c870a0f27d1.jpg'),
-('54321', 'teste2', 'teste2@gmail.com', '', '', '', '', '', '', '54321', '172441220466c8712c1c02d.jpg'),
-('6543221', 'teste3', 'teste3@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '6543221', NULL),
-('7654321', 'saci', 'saci@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '2626', NULL),
-('87654321', 'l', 'l@gmil.com', NULL, NULL, NULL, NULL, NULL, NULL, '1414', 'default.png'),
-('98765432199', 'Simo', 'luis.tavares@ifsuldeminas.edu.br', NULL, NULL, NULL, NULL, NULL, NULL, '1234', NULL);
+INSERT INTO `usuario` (`cpfUsuario`, `nomeUsuario`, `emailUsuario`, `estadoUsuario`, `cidadeUsuario`, `bairroUsuario`, `enderecoUsuario`, `numeroUsuario`, `complementoUsuario`, `senhaUsuario`, `fotoPerfil`, `tipoUsuario`) VALUES
+('10987654321', 'burno', 'aburno@gmail.com', '', '', '', '', '89', '', '2323', '172441254866c872845282c.jpg', 'cliente'),
+('111111111', 'lauany', 'g@gmail.com', 'Amazonas', 'Pouso Alegre', 'Cruz Alta', 'Rua do Dionisio', '64', 'apartamento', '1717', '1729258474671263ea51c18.png', 'adm'),
+('11111111111', 'teste', 'a@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, 'cliente'),
+('1234', 'Dio', 'dionisio@gmail.com', '', '', '', '', '', '', '1234', '172925235067124bfe99c53.png', 'cliente'),
+('12345612344', 'Rafael Moreira', 'rafael@gmail.com', '', '', '', '', '', '', '123', 'default.png', 'cliente'),
+('12345678911', 'Báh', 'b@gmail.com', 'Amazonas', 'Pouso Alegre', 'Cruz Alta', 'Roça', '89', 'Deu certo?', '1234', NULL, 'adm'),
+('22222222', 's', 's@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '1414', 'default.png', 'cliente'),
+('333333333', 'p', 'p@gmail.com', '', '', '', '', '', '', '14', '172441339466c875d282725.jpg', 'cliente'),
+('4321', 'teste', 'teste@gmil.com', '', '', '', '', '', '', '4321', '172441206466c870a0f27d1.jpg', 'cliente'),
+('54321', 'teste2', 'teste2@gmail.com', '', '', '', '', '', '', '54321', '172441220466c8712c1c02d.jpg', 'cliente'),
+('6543221', 'teste3', 'teste3@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '6543221', NULL, 'cliente'),
+('7654321', 'saci', 'saci@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '2626', NULL, 'cliente'),
+('87654321', 'l', 'l@gmil.com', NULL, NULL, NULL, NULL, NULL, NULL, '1414', 'default.png', 'cliente'),
+('98765432199', 'Simo', 'luis.tavares@ifsuldeminas.edu.br', NULL, NULL, NULL, NULL, NULL, NULL, '1234', NULL, 'cliente'),
+('99', 'adm', 'adm@gmail.com', 'Minas Gerais', 'Pouso Alegre', 'Cruz Alta', 'Rua do Dionisio', '89', 'apartamento', '1234', NULL, 'cliente');
 
 --
 -- Indexes for dumped tables
