@@ -57,7 +57,7 @@
                      " . $row['descricaoProduto'] . "
                  </tr>
              </table>
-             <button onclick=\"selecionar('produtoB'," . $codigoProduto . ")\">Selecionar</button>
+             <button onclick=\"selecionar('produtoBn'," . $codigoProduto . ")\">Selecionar</button>
          </div>";
          
      }
