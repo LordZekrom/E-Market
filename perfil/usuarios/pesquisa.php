@@ -17,7 +17,7 @@
              <img src="../../imagens/logo2.png" alt="Logo">
         </div>
         <div class="edit">
-           <h4 style="color:white">Gerenciamento de Usuários  </h4>
+           <h4 style="color:white">Gerenciamento de Usuários</h4>
         </div>
         <div class="cart">
             
@@ -54,8 +54,6 @@
             <th>Ações</th>
         </tr>
 	<?php
-    // Recebe o cpf da sessão
-    $cpf = $_SESSION['cpf'];
         # Conecta com BD
         $ds = "mysql:host=localhost;dbname=e_market";
         $con = new PDO($ds, 'root', 'vertrigo');
@@ -67,8 +65,9 @@
     
         # Percorre os registros
         foreach($stm as $row){
+            $cpf = $row['cpfUsuario'];
             echo "<tr>";
-            echo "<td>" . $cpf . "</td>";
+            echo "<td>" . $row['cpfUsuario'] . "</td>";
             echo "<td>" . $row['nomeUsuario'] . "</td>";
             echo "<td>" . $row['emailUsuario'] . "</td>";
             echo "<td>" . $row['estadoUsuario'] . "</td>";
@@ -77,12 +76,12 @@
             echo "<td>" . $row['enderecoUsuario'] . "</td>";
             echo "<td>" . $row['numeroUsuario'] . "</td>";
             echo "<td>" . $row['complementoUsuario'] . "</td>";
-/*Falte esse tbm*/            echo "<td><img src='imagens/" . $row['fotoProduto'] . "' width='60px'/></td>";
+            echo "<td><img src='../../perfil/imagens/" . $row['fotoPerfil'] . "' width='60px'/></td>";
             echo "<td>
-                    <a href='delete.php?codigoProduto=$codigoProduto'>Deletar</a>
+                    <a href='delete.php?cpfUsuario=$cpf'>Deletar</a>
                     |
-                    <a href='edita.php?codigoProduto=$codigoProduto'>Editar</a>
-                 </td>"; 
+                    <a href='edita.php?cpfUsuario=$cpf'>Editar</a>
+                </td>"; 
             echo "</tr>";
         }
     ?>

@@ -1,33 +1,40 @@
 <?php
-
-
     # Recebe os dados do formulário
-    $codigoProduto = $_POST['codigoProduto'];
-    $nome = $_POST['nomeProduto'];
-    $descricao = $_POST['descricaoProduto'];
-    $preco = $_POST['precoProduto'];
-    $quantidade = $_POST['quantidadeProduto'];
-    $categoria = $_POST['categoriaProduto'];
+    $cpfAntigo = $_POST['cpfAntigo'];
+    $cpf = $_POST['cpfUsuario'];
+    $nome = $_POST['nomeUsuario'];
+    $email = $_POST['emailUsuario'];
+    $estado = $_POST['estadoUsuario'];
+    $cidade = $_POST['cidadeUsuario'];
+    $bairro = $_POST['bairroUsuario'];
+    $endereco = $_POST['enderecoUsuario'];
+    $numero = $_POST['numeroUsuario'];
+    $complemento = $_POST['complementoUsuario'];
+    $tipo = $_POST['tipoUsuario'];
+    $foto = $_POST['fotoPerfil'];
    
     # Conecta com BD
     $ds = "mysql:host=localhost;dbname=e_market";
     $con = new PDO($ds, 'root', 'vertrigo');
 
     # SQL para update
-    $sql = "UPDATE produto SET nomeProduto=?, descricaoProduto=?, precoProduto=?, quantidadeProduto=?, categoriaProduto=? WHERE codigoProduto=?";
+    $sql = "UPDATE usuario SET cpfUsuario=?, nomeUsuario=?, emailUsuario=?, estadoUsuario=?, cidadeUsuario=?, bairroUsuario =?, enderecoUsuario=?, numeroUsuario=?, complementoUsuario=?, tipoUsuario=? WHERE cpfUsuario = $cpfAntigo";
     $stm = $con->prepare($sql);
-    $stm->bindParam(1, $nome);
-    $stm->bindParam(2, $descricao);
-    $stm->bindParam(3, $preco);
-    $stm->bindParam(4, $quantidade);
-    $stm->bindParam(5, $categoria);
-    $stm->bindParam(6, $codigoProduto);
+    $stm->bindParam(1, $cpf);
+    $stm->bindParam(2, $nome);
+    $stm->bindParam(3, $email);
+    $stm->bindParam(4, $estado);
+    $stm->bindParam(5, $cidade);
+    $stm->bindParam(6, $bairro);
+    $stm->bindParam(7, $endereco);
+    $stm->bindParam(8, $numero);
+    $stm->bindParam(9, $complemento);
+    $stm->bindParam(10, $tipo);
     $r = $stm->execute();
 
 
 if($r){
     
-       
 }
 else {
     print "<p>Erro ao inserir</p>";
@@ -62,12 +69,12 @@ if ( isset( $_FILES[ 'arquivo' ][ 'name' ] ) && $_FILES[ 'arquivo' ][ 'error' ] 
         $novoNome = uniqid ( time () ) . '.' . $extensao;
  
         // Concatena a pasta com o nome
-        $destino = 'imagens/' . $novoNome;
+        $destino = '../../perfil/imagens/' . $novoNome;
  
         // tenta mover o arquivo para o destino
         if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
             
-            $sql = "UPDATE produto set fotoProduto = ? WHERE codigoProduto = ?";
+            $sql = "UPDATE usuario set fotoPerfil = ? WHERE cpfUsuario = $cpf";
             $stm = $con->prepare($sql);            
             $r = $stm->execute(array($novoNome, $codigoProduto));
 
