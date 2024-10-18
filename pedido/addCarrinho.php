@@ -89,11 +89,11 @@ if($boolCtl1 == 0){
 $url = "";
 if($r){
     if($addcar==1){
-        echo " window.history.back();</script>";
+        echo "<script>window.history.back();</script>";
         $addcar= 0;
     }
     else{
-        echo "<script>alert('Item adicionado ao carrinho!'); window.Location.href='../pedido/carrinho.php';</script>";
+        echo "<script>window.location.href='../pedido/carrinho.php';</script>";
     }
     
 }

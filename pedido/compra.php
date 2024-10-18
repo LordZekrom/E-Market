@@ -115,7 +115,8 @@
         }
 
         .buy:hover {
-            background-color: #21a3b4;;
+            background-color: #21a3b4;
+        }
 
         .product button:hover {
             background-color: #21a3b4;
@@ -240,7 +241,7 @@
                     </tr>
                 </table>
                 <div class='button-container'>
-                    <button onclick=\"window.location.href='addCarrinho.php?codigoProduto=$codigoProduto'\" class='buy'>Comprar</button>
+                    <button onclick=\"window.location.href='addCarrinho.php?addcar=0&codigoProduto=$codigoProduto'\" class='buy'>Comprar</button>
                     <button onclick=\"window.location.href='addCarrinho.php?addcar=1&codigoProduto=$codigoProduto'\" class='car'>
                          <img src='../imagens/addcarao.png' alt='Adicionar ao Carrinho'>
                     </button>
@@ -251,45 +252,7 @@
     ?>
     </div>
     <br>
-    <a href='../produtos/index.php'>Editar produtos</a> 
-        <div class="product-container">
-            <?php
-                # Conecta com BD
-                $ds = "mysql:host=localhost;dbname=e_market";
-                $con = new PDO($ds, 'root', 'vertrigo');
-        
-                # Seleciona todos os registros
-                $sql = "SELECT * FROM produto";
-                $stm = $con->prepare($sql);
-                $stm->execute();
-        
-                # Percorre os registros
-                foreach($stm as $row){
-                    $codigoProduto = $row['codigoProduto'];
-                    echo "<div class='product'>
-                        <img src='../produtos/imagens/" . $row['fotoProduto'] . "' />
-                        " . $row['nomeProduto'] . "
-                        <table>
-                            <tr>
-                                <h4>R$" . $row['precoProduto'] . "</h4>
-                            </tr>
-                            <br>
-                            <tr>
-                                " . $row['descricaoProduto'] . "
-                            </tr>
-                        </table>
-                        <div class='quantity-controls'>
-                            <button onclick=\"this.parentNode.querySelector('input').stepDown()\">-</button>
-                            <input type='number' value='1' min='1' />
-                            <button onclick=\"this.parentNode.querySelector('input').stepUp()\">+</button>
-                        </div>
-                        <button onclick=\"window.location.href='addCarrinho.php?codigoProduto=$codigoProduto&quantidade=' + this.parentNode.querySelector('input').value\">Comprar</button>
-                    </div>";
-                }
-            ?>
-        </div>
-        <br>
-        <a href='../produtos/index.php'>Editar produtos</a> 
+    <a href='../produtos/index.php'>Editar produtos</a>  
     </main>
 </body>
 </html>
