@@ -5,22 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="compar.css" />
     <title>Document</title>
+    <style>
+        .back-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background-color: #2980b9;
+        }
+    </style>
 </head>
 <body>
+<header>
 <div class="logo">
-        <a href="../home/index.html">
-            <img src="../imagens/logo2.png" alt="Logo">
-        </a>
-    </div>
-    <div class="search-bar">
-        <input type="search" placeholder="Pesquisar...">
-        <button type="submit">Buscar</button>
-    </div>
-    <div class="cart">
-        <a href="../pedido/carrinho.php">
-            <img src="../imagens/carrinho.png" alt="Carrinho">
-        </a>
-    </div>
+    <a href="../home/index.html">
+        <img src="../imagens/logo2.png" alt="Logo">
+    </a>
+</div>
+
+<div class="search-bar">
+    <input type="search" placeholder="Pesquisar...">
+    <button type="submit">Buscar</button>
+</div>
+
+<div class="cart">
+    <a href="../pedido/carrinho.php">
+        <img src="../imagens/carrinho.png" alt="Carrinho">
+    </a>
+</div>
 </header>
 <nav>
     <ul>
@@ -30,6 +52,7 @@
         <li><a href="../perfil/perfil.php">Perfil</a></li>
     </ul>
 </nav>
+ 
 <?php
     $produtoA = $_POST['produtoA'];
     $produtoB = $_POST['produtoB'];
@@ -82,6 +105,9 @@
         echo "<h2>Erro: Um ou ambos os produtos não foram encontrados.</h2>";
     }
 ?>
+
+<!-- Botão para voltar à página de comparação -->
+<a href="../comparacao/comparar.php" class="back-button">Voltar para Comparar Produtos</a>
 
 </body>
 </html>
