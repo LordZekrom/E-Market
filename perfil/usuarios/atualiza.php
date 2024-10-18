@@ -76,7 +76,7 @@ if ( isset( $_FILES[ 'arquivo' ][ 'name' ] ) && $_FILES[ 'arquivo' ][ 'error' ] 
             
             $sql = "UPDATE usuario set fotoPerfil = ? WHERE cpfUsuario = $cpf";
             $stm = $con->prepare($sql);            
-            $r = $stm->execute(array($novoNome, $codigoProduto));
+            $r = $stm->execute(array($novoNome));
 
             if($r){
                 $redirecionar = true;
@@ -102,7 +102,7 @@ $redirecionar = true;
 }
 
 if ($redirecionar){
-header("location:index.php");
+header("location:pesquisa.php");
 }
 
  

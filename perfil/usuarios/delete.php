@@ -14,7 +14,7 @@
 
 
     if($r){
-        header("location:usuarios.php");
+        header("location:pesquisa.php");
     }
     else {
         print "<p>Erro ao remover</p>";

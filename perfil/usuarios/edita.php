@@ -60,8 +60,8 @@
         <input name='complementoUsuario' value='<?php print $complemento ?>'><br>
         <label>Tipo Usuário: </label>
         <select name='tipoUsuario' value='<?php print $tipo ?>'>
-            <option value='1'>Cliente</option>
-            <option value='2'>Adm</option>
+            <option value='cliente'>Cliente</option>
+            <option value='adm'>Adm</option>
         </select>    <br>
         <label>Foto: </label>
         <?php echo "<img src='../../perfil/imagens/" . $foto. "' width='32px'/>"?>
