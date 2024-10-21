@@ -207,6 +207,16 @@
             <li><a href="../comparacao/index.php">Comparação</a></li>
             <li><a href="../perfil/perfil.php">Perfil</a></li>
         </ul>
+        <ul id="menu-categorias">
+            <li><a href="#" data-categoria="Alimentos">Alimentos</a></li>
+            <li><a href="#" data-categoria="Bebidas">Bebidas</a></li>
+            <li><a href="#" data-categoria="Eletrônicos">Eletrônicos</a></li>
+            <li><a href="#" data-categoria="Casa">Casa</a></li>
+            <li><a href="#" data-categoria="Hiegiene">Higiene</a></li>
+            <li><a href="#" data-categoria="Livros">Livros</a></li>
+            <li><a href="#" data-categoria="Roupas">Roupas</a></li>
+            <li><a href="#" data-categoria="Outros">Outros</a></li>
+        </ul>
     </nav>
     <main>
 
@@ -228,9 +238,9 @@
             $codigoProduto = $row['codigoProduto'];
             $linkComprar = "comprar.php?produto=" . $codigoProduto;
            
-            echo "<div class='product'>
-                <img src='../produtos/imagens/" . $row['fotoProduto'] . "' />
-                " . $row['nomeProduto'] . "
+            echo "<div class='product' data-categoria='" . $row['categoriaProduto'] . "'>
+            <img src='../produtos/imagens/" . $row['fotoProduto'] . "' />
+            " . $row['nomeProduto'] .  "
                 <table>
                     <tr>
                         <h4>R$" . $row['precoProduto'] . "</h4>
@@ -254,5 +264,25 @@
     <br>
     <a href='../produtos/index.php'>Editar produtos</a>  
     </main>
+    <script>
+    document.querySelectorAll('#menu-categorias a').forEach(item => {
+    item.addEventListener('click', function(event) {
+        event.preventDefault();
+        const categoria = this.getAttribute('data-categoria');
+        const produtos = document.querySelectorAll('.product');
+
+        produtos.forEach(produto => {
+            // Exibir todos se a categoria for 'todos'
+            if (categoria === 'todos' || produto.getAttribute('data-categoria') === categoria) {
+                produto.style.display = 'block';
+            } else {
+                produto.style.display = 'none';
+            }
+        });
+    });
+    });
+
+    </script>
+
 </body>
 </html>
