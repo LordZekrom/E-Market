@@ -71,5 +71,6 @@
    <br/>
         <button type='submit'>Salvar</button>
     </form>
+    <br><a href='pesquisa.php'>Voltar</a> 
 </body>
 </html>

@@ -11,7 +11,6 @@
     $numero = $_POST['numeroUsuario'];
     $complemento = $_POST['complementoUsuario'];
     $tipo = $_POST['tipoUsuario'];
-    $foto = $_POST['fotoPerfil'];
    
     # Conecta com BD
     $ds = "mysql:host=localhost;dbname=e_market";

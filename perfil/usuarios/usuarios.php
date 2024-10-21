@@ -27,7 +27,7 @@
     </header>
     <nav>
         <ul>
-            <li><a href="../usuarios/usuarios.php" style="background-color: #2c3e50; color:white;">Inicial</a></li>
+            <li><a href="../usuarios/usuarios.php" style="background-color: #2c3e50; color:white;">Cadastro</a></li>
             <li><a href="../usuarios/pesquisa.php" >Pesquisa</a></li>
         </ul>
     </nav>
@@ -60,13 +60,13 @@
         <input name='senhaUsuario'><br>
         <label>Tipo: </label>
         <select name='tipoUsuario'>
-            <option value='1'>Cliente</option>
-            <option value='2'>Adm</option>
+            <option value='cliente'>Cliente</option>
+            <option value='adm'>Adm</option>
         </select>    
         <br>        
-   Selecione uma imagem: <input name="fotoUsuario" type="file" />
+        Selecione uma imagem: <input name="fotoPerfil" type="file"   />
    <br/>
         <button type='submit'>Salvar</button><br><br>
-    <a href='../pedido/compra.php'>Voltar</a> 
+    <a href='../perfil.php'>Voltar</a> 
     </body>
     </html>

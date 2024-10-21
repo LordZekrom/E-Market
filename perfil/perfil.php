@@ -157,7 +157,8 @@ if ($stm->execute()) {
             <div class="sair">    
             </div>    
         </div>
-        <br><a href='logout.php'>Sair da conta</a>
+        <br><a href='usuarios/usuarios.php'>Editar Usuarios</a>
+        <br><br><a href='logout.php'>Sair da conta</a>
     </div>
 </body>
 </html>

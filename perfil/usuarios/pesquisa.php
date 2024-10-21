@@ -27,7 +27,7 @@
     </header>
     <nav>
         <ul>
-            <li><a href="../usuarios/usuarios.php" style="background-color: #2c3e50; color:white;">Inicial</a></li>
+            <li><a href="../usuarios/usuarios.php" style="background-color: #2c3e50; color:white;">Cadastro</a></li>
             <li><a href="../usuarios/pesquisa.php" >Pesquisa</a></li>
         </ul>
     </nav>
@@ -37,6 +37,7 @@
 			<label>Usuário:</label>
 			<input type="text" name="nomeUsuario" />
 			<button type="submit">Pesquisar</button>
+            <br><a href='../perfil.php'>Voltar</a> 
 		</form>
 		<h3>Listagem dos Produtos</h3>
 		<table border>
