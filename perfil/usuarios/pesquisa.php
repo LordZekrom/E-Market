@@ -1,6 +1,7 @@
 <?php
 //Inclui o arquivo de verifica��o de sess�o.
     include_once("../../perfil/verifica.php");
+    include_once("../../perfil/usuarios/verificaAdm.php");
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +18,7 @@
              <img src="../../imagens/logo2.png" alt="Logo">
         </div>
         <div class="edit">
-           <h4 style="color:white">Gerenciamento de Usuários  </h4>
+           <h4 style="color:white">Gerenciamento de Usuários</h4>
         </div>
         <div class="cart">
             
@@ -27,7 +28,7 @@
     </header>
     <nav>
         <ul>
-            <li><a href="../usuarios/usuarios.php" style="background-color: #2c3e50; color:white;">Inicial</a></li>
+            <li><a href="../usuarios/usuarios.php" style="background-color: #2c3e50; color:white;">Cadastro</a></li>
             <li><a href="../usuarios/pesquisa.php" >Pesquisa</a></li>
         </ul>
     </nav>
@@ -35,8 +36,9 @@
 		<h3>Pesquisa de Usuarios</h3>
 		<form method="post" action="pesquisa.php">
 			<label>Usuário:</label>
-			<input type="text" name="nomeProduto" />
+			<input type="text" name="nomeUsuario" />
 			<button type="submit">Pesquisar</button>
+            <br><a href='../perfil.php'>Voltar</a> 
 		</form>
 		<h3>Listagem dos Produtos</h3>
 		<table border>
@@ -49,26 +51,30 @@
             <th>Bairro</th>
             <th>Endereco</th>
             <th>Numero</th>
+            <th>Tipo Usuário</th>
             <th>Complemento</th>
             <th>Foto Usuário</th>
             <th>Ações</th>
         </tr>
 	<?php
-    // Recebe o cpf da sessão
-    $cpf = $_SESSION['cpf'];
+        $nome = '';
+        if (isset($_POST['nomeUsuario'])){
+            $nome = $_POST['nomeUsuario'];
+        }
         # Conecta com BD
         $ds = "mysql:host=localhost;dbname=e_market";
         $con = new PDO($ds, 'root', 'vertrigo');
     
         # Seleciona todos os registros
-        $sql = "SELECT * FROM usuario";
+        $sql = "SELECT * FROM usuario WHERE nomeUsuario LIKE '%$nome%'";
         $stm = $con->prepare($sql);
         $stm->execute();
     
         # Percorre os registros
         foreach($stm as $row){
+            $cpf = $row['cpfUsuario'];
             echo "<tr>";
-            echo "<td>" . $cpf . "</td>";
+            echo "<td>" . $row['cpfUsuario'] . "</td>";
             echo "<td>" . $row['nomeUsuario'] . "</td>";
             echo "<td>" . $row['emailUsuario'] . "</td>";
             echo "<td>" . $row['estadoUsuario'] . "</td>";
@@ -76,13 +82,14 @@
             echo "<td>" . $row['bairroUsuario'] . "</td>";
             echo "<td>" . $row['enderecoUsuario'] . "</td>";
             echo "<td>" . $row['numeroUsuario'] . "</td>";
+            echo "<td>" . $row['tipoUsuario'] . "</td>";
             echo "<td>" . $row['complementoUsuario'] . "</td>";
-/*Falte esse tbm*/            echo "<td><img src='imagens/" . $row['fotoProduto'] . "' width='60px'/></td>";
+            echo "<td><img src='../../perfil/imagens/" . $row['fotoPerfil'] . "' width='60px'/></td>";
             echo "<td>
-                    <a href='delete.php?codigoProduto=$codigoProduto'>Deletar</a>
+                    <a href='delete.php?cpfUsuario=$cpf'>Deletar</a>
                     |
-                    <a href='edita.php?codigoProduto=$codigoProduto'>Editar</a>
-                 </td>"; 
+                    <a href='edita.php?cpfUsuario=$cpf'>Editar</a>
+                </td>"; 
             echo "</tr>";
         }
     ?>

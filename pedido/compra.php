@@ -87,8 +87,22 @@
             color: #666;
         }
 
-        .product button {
+
+        .buy {
             padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #2c3e50;
+            color: white;
+            cursor: pointer;
+            width: 70%;
+            margin-bottom: 10px;
+            transition: background-color 0.3s;
+            width: 138px;
+        }
+
+        .car {
+            padding: 9px;
             border: none;
             border-radius: 5px;
             background-color: #2c3e50;
@@ -97,6 +111,11 @@
             width: 100%;
             margin-bottom: 10px;
             transition: background-color 0.3s;
+            width: 38px;
+        }
+
+        .buy:hover {
+            background-color: #21a3b4;
         }
 
         .product button:hover {
@@ -123,13 +142,38 @@
             width: 40px;
             text-align: center;
             margin: 0 5px;
+
         }
 
+        .car:hover {
+            background-color: #21a3b4;;
+        }
+
+        .product button{
+           display:inline-block;
+           margin-right: px; /* Espaço entre os botões */
+        }
         /* Flex container for products */
         .product-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
+        }
+        .button-container {
+            display: flex; /* Usa flexbox para alinhar os botões */
+            justify-content: center; /* Centraliza os botões */
+            gap: 4px; /* Espaço entre os botões */
+           
+        }
+        .button-container img{
+            border-radius: 0px;
+            
+           
+        }
+
+        .car img {
+            width: 100%; /* A imagem ocupa toda a largura do botão */
+         height: 100%; /* A imagem ocupa toda a altura do botão */
         }
 
         @media (max-width: 768px) {
@@ -141,7 +185,7 @@
     </style>
 </head>
 <body>
-    
+
     <header>
         <div class="logo">
             <img src="../imagens/logo2.png" alt="Logo">
@@ -163,46 +207,82 @@
             <li><a href="../comparacao/index.php">Comparação</a></li>
             <li><a href="../perfil/perfil.php">Perfil</a></li>
         </ul>
+        <ul id="menu-categorias">
+            <li><a href="#" data-categoria="Alimentos">Alimentos</a></li>
+            <li><a href="#" data-categoria="Bebidas">Bebidas</a></li>
+            <li><a href="#" data-categoria="Eletrônicos">Eletrônicos</a></li>
+            <li><a href="#" data-categoria="Casa">Casa</a></li>
+            <li><a href="#" data-categoria="Hiegiene">Higiene</a></li>
+            <li><a href="#" data-categoria="Livros">Livros</a></li>
+            <li><a href="#" data-categoria="Roupas">Roupas</a></li>
+            <li><a href="#" data-categoria="Outros">Outros</a></li>
+        </ul>
     </nav>
     <main>
-        <div class="product-container">
-            <?php
-                # Conecta com BD
-                $ds = "mysql:host=localhost;dbname=e_market";
-                $con = new PDO($ds, 'root', 'vertrigo');
-        
-                # Seleciona todos os registros
-                $sql = "SELECT * FROM produto";
-                $stm = $con->prepare($sql);
-                $stm->execute();
-        
-                # Percorre os registros
-                foreach($stm as $row){
-                    $codigoProduto = $row['codigoProduto'];
-                    echo "<div class='product'>
-                        <img src='../produtos/imagens/" . $row['fotoProduto'] . "' />
-                        " . $row['nomeProduto'] . "
-                        <table>
-                            <tr>
-                                <h4>R$" . $row['precoProduto'] . "</h4>
-                            </tr>
-                            <br>
-                            <tr>
-                                " . $row['descricaoProduto'] . "
-                            </tr>
-                        </table>
-                        <div class='quantity-controls'>
-                            <button onclick=\"this.parentNode.querySelector('input').stepDown()\">-</button>
-                            <input type='number' value='1' min='1' />
-                            <button onclick=\"this.parentNode.querySelector('input').stepUp()\">+</button>
-                        </div>
-                        <button onclick=\"window.location.href='addCarrinho.php?codigoProduto=$codigoProduto&quantidade=' + this.parentNode.querySelector('input').value\">Comprar</button>
-                    </div>";
-                }
-            ?>
-        </div>
-        <br>
-        <a href='../produtos/index.php'>Editar produtos</a> 
+
+    <div class="product-container">
+    <?php
+
+        $addcar=0;
+        # Conecta com BD
+        $ds = "mysql:host=localhost;dbname=e_market";
+        $con = new PDO($ds, 'root', 'vertrigo');
+    
+        # Seleciona todos os registros
+        $sql = "SELECT * FROM produto";
+        $stm = $con->prepare($sql);
+        $stm->execute();
+    
+        # Percorre os registros
+        foreach($stm as $row){
+            $codigoProduto = $row['codigoProduto'];
+            $linkComprar = "comprar.php?produto=" . $codigoProduto;
+           
+            echo "<div class='product' data-categoria='" . $row['categoriaProduto'] . "'>
+            <img src='../produtos/imagens/" . $row['fotoProduto'] . "' />
+            " . $row['nomeProduto'] .  "
+                <table>
+                    <tr>
+                        <h4>R$" . $row['precoProduto'] . "</h4>
+                    </tr>
+                    <br>
+                    <tr>
+                        " . $row['descricaoProduto'] . "
+                    </tr>
+                </table>
+                <div class='button-container'>
+                    <button onclick=\"window.location.href='addCarrinho.php?addcar=0&codigoProduto=$codigoProduto'\" class='buy'>Comprar</button>
+                    <button onclick=\"window.location.href='addCarrinho.php?addcar=1&codigoProduto=$codigoProduto'\" class='car'>
+                         <img src='../imagens/addcarao.png' alt='Adicionar ao Carrinho'>
+                    </button>
+
+                </div>
+            </div>";
+        }
+    ?>
+    </div>
+    <br>
+    <a href='../produtos/index.php'>Editar produtos</a>  
     </main>
+    <script>
+    document.querySelectorAll('#menu-categorias a').forEach(item => {
+    item.addEventListener('click', function(event) {
+        event.preventDefault();
+        const categoria = this.getAttribute('data-categoria');
+        const produtos = document.querySelectorAll('.product');
+
+        produtos.forEach(produto => {
+            // Exibir todos se a categoria for 'todos'
+            if (categoria === 'todos' || produto.getAttribute('data-categoria') === categoria) {
+                produto.style.display = 'block';
+            } else {
+                produto.style.display = 'none';
+            }
+        });
+    });
+    });
+
+    </script>
+
 </body>
 </html>

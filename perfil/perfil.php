@@ -27,6 +27,7 @@ if ($stm->execute()) {
     $endereco = $user['enderecoUsuario'];
     $numero = $user['numeroUsuario'];
     $complemento = $user['complementoUsuario'];
+    $tipoUsuario = $user['tipoUsuario'];
     $fotoPerfil = $user['fotoPerfil'] ?: 'Perfil.png'; // Usa 'default.png' se 'fotoPerfil' estiver vazio
 } else {
     echo '<br><p>Erro ao listar as informações pessoais</p>';
@@ -157,6 +158,11 @@ if ($stm->execute()) {
             <div class="sair">    
             </div>    
         </div>
+        <?PHP 
+            if($tipoUsuario == "adm"){
+            echo "<br><a href='usuarios/usuarios.php'>Editar Usuarios</a><br>";
+            }
+        ?>
         <br><a href='logout.php'>Sair da conta</a>
     </div>
 </body>
