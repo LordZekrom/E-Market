@@ -1,3 +1,18 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="salva.css"> <!-- Substitua pelo nome do arquivo CSS -->
+    <title>Mensagem Centralizada</title>
+</head>
+<body>
+    <div class="mensagem-centralizada">
+        <p>     </p>
+        <button>Voltar</button> <!-- Botão opcional -->
+    </div>
+</body>
+</html>
+
 <?php
 // Recebendo os dados do formulário
 $cpf = $_POST['cpf'];
