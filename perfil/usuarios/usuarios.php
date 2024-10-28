@@ -1,6 +1,7 @@
 <?php
 //Inclui o arquivo de verifica��o de sess�o.
     include_once("../../perfil/verifica.php");
+    include_once("../../perfil/usuarios/verificaAdm.php");
 ?>
 
 <!DOCTYPE html>

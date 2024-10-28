@@ -1,21 +1,20 @@
 <?php
-    
+    $cpf = $_SESSION['cpf'];
+
+    # Conecta com BD
+    $ds = "mysql:host=localhost;dbname=e_market";
+    $con = new PDO($ds, 'root', 'vertrigo');
+
     # Buscar dados do registro
     $query = "SELECT * FROM usuario WHERE cpfUsuario = $cpf";
-    $stm = $db->prepare($query);
-
-    # Executa o SQL
+    $stm = $con->prepare($query);
     $stm->execute();
 
     # Pega o resultado
     $result = $stm->fetch();
-    $nome = $result['nomeUsuario'];
-    TNTANDO TERMINAR AINDA
-    if ($stm->execute()) {
-	//Verifica se há dados ativos na sessão
-	if(empty($_SESSION["cpf"]))
-	{
-		//Caso não exista dados registrados, exige login
-		header("Location:../perfil/login.php");
+    $tipoUsuario = $result['tipoUsuario'];
+
+	if($tipoUsuario == "cliente"){
+		header("Location:../../pedido/compra.php");
 	}
 ?>
