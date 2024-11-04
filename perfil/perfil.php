@@ -75,6 +75,7 @@ if ($stm->execute()) {
         <br><br>
         <table border="1">
         <tr>
+            <th>Campos</th>
             <th>Dados pessoais</th>
         </tr>
         <tr>    
@@ -117,7 +118,15 @@ if ($stm->execute()) {
         <button><a href='edita.php'>Alterar Informações</a></button>
     </div>
     <div class="pedidos-finalizados">
-        <!-- Histórico de compras -->
+    <h2>Histórico de Pedidos</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Data</th>
+            <th>Hora</th>
+            <th>Complemento</th>
+            <th>Preço</th>
+        </tr>
         <?php
             $query = "SELECT * FROM pedido WHERE cpfUsuario = :cpf";
             $stm = $db->prepare($query);
@@ -135,29 +144,27 @@ if ($stm->execute()) {
                     $complemento = $row['complementoUsuario'];
                     $encontrouPedido = true;
 
-                    if ($status == 'finalizado') { // Só vai aparecer os que estiverem finalizados
-                        print "<br><label>ID: $id</label><br>";
-                        print "<label>Data: $data</label><br>";
-                        print "<label>Hora: $hora</label><br>";
-                        print "<label>Complemento: $complemento</label><br>";
-                        print "<label>Preço: $preco</label><br>";
+                    if ($status == 'finalizado') {
+                        echo "<tr>
+                                <td>$id</td>
+                                <td>$data</td>
+                                <td>$hora</td>
+                                <td>$complemento</td>
+                                <td>R$ $preco</td>
+                              </tr>";
                     }
                 }
 
                 if (!$encontrouPedido) {
-                    print "<br><br><label>Não foi feita nenhuma compra</label><br>";
+                    echo "<tr><td colspan='5'>Não foi feita nenhuma compra</td></tr>";
                 }
-
+            } else {
+                echo '<tr><td colspan="5">Erro ao listar o histórico de compras</td></tr>';
             }
-                else {
-                print '<br><p>Erro ao listar o histórico de compras</p>';
-                }
         ?>
-            <!-- Dados de pagamento (Comentado, se necessário no futuro) -->
-            <!-- Opção de entrar e sair -->
-            <div class="sair">    
-            </div>    
-        </div>
+    </table>
+</div>
+
         <?PHP 
             if($tipoUsuario == "adm"){
             echo "<br><a href='usuarios/usuarios.php'>Editar Usuarios</a><br>";
