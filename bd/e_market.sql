@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 18-Out-2024 às 13:55
+-- Generation Time: 04-Nov-2024 às 12:01
 -- Versão do servidor: 5.7.25
 -- versão do PHP: 7.1.26
 
@@ -38,27 +38,6 @@ CREATE TABLE `itenspedido` (
   `precoProduto` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Extraindo dados da tabela `itenspedido`
---
-
-INSERT INTO `itenspedido` (`idItensPedido`, `idPedido`, `idProduto`, `quantidadeItensPedido`, `precoProduto`) VALUES
-(1, 1, 7, NULL, NULL),
-(2, 1, 4, NULL, NULL),
-(3, 1, 5, NULL, NULL),
-(4, 1, 6, NULL, NULL),
-(5, 1, 4, NULL, NULL),
-(6, 1, 4, NULL, NULL),
-(7, 1, 4, NULL, NULL),
-(8, 2, 5, 1, NULL),
-(9, 2, 6, 2, NULL),
-(10, 2, 8, 1, NULL),
-(11, 3, 9, 1, NULL),
-(12, 3, 5, 3, NULL),
-(13, 3, 8, 2, NULL),
-(14, 3, 6, 1, NULL),
-(15, 4, 7, 1, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -80,16 +59,6 @@ CREATE TABLE `pedido` (
   `precoFinal` decimal(10,2) DEFAULT NULL,
   `statusPedido` enum('carrinho','finalizado') NOT NULL DEFAULT 'carrinho'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Extraindo dados da tabela `pedido`
---
-
-INSERT INTO `pedido` (`idPedido`, `cpfUsuario`, `dataPedido`, `horaPedido`, `estadoUsuario`, `cidadeUsuario`, `bairroUsuario`, `enderecoUsuario`, `numeroUsuario`, `complementoUsuario`, `desconto`, `precoFinal`, `statusPedido`) VALUES
-(1, '12345678911', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'carrinho'),
-(2, '12345612344', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'carrinho'),
-(3, '1234', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'finalizado'),
-(4, '1234', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'carrinho');
 
 -- --------------------------------------------------------
 
@@ -151,21 +120,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`cpfUsuario`, `nomeUsuario`, `emailUsuario`, `estadoUsuario`, `cidadeUsuario`, `bairroUsuario`, `enderecoUsuario`, `numeroUsuario`, `complementoUsuario`, `senhaUsuario`, `fotoPerfil`, `tipoUsuario`) VALUES
-('10987654321', 'burno', 'aburno@gmail.com', '', '', '', '', '89', '', '2323', '172441254866c872845282c.jpg', 'cliente'),
-('111111111', 'lauany', 'g@gmail.com', 'Amazonas', 'Pouso Alegre', 'Cruz Alta', 'Rua do Dionisio', '64', 'apartamento', '1717', '1729258474671263ea51c18.png', 'adm'),
-('11111111111', 'teste', 'a@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, 'cliente'),
-('1234', 'Dio', 'dionisio@gmail.com', '', '', '', '', '', '', '1234', '172925235067124bfe99c53.png', 'cliente'),
-('12345612344', 'Rafael Moreira', 'rafael@gmail.com', '', '', '', '', '', '', '123', 'default.png', 'cliente'),
-('12345678911', 'Báh', 'b@gmail.com', 'Amazonas', 'Pouso Alegre', 'Cruz Alta', 'Roça', '89', 'Deu certo?', '1234', NULL, 'adm'),
-('22222222', 's', 's@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '1414', 'default.png', 'cliente'),
-('333333333', 'p', 'p@gmail.com', '', '', '', '', '', '', '14', '172441339466c875d282725.jpg', 'cliente'),
-('4321', 'teste', 'teste@gmil.com', '', '', '', '', '', '', '4321', '172441206466c870a0f27d1.jpg', 'cliente'),
-('54321', 'teste2', 'teste2@gmail.com', '', '', '', '', '', '', '54321', '172441220466c8712c1c02d.jpg', 'cliente'),
-('6543221', 'teste3', 'teste3@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '6543221', NULL, 'cliente'),
-('7654321', 'saci', 'saci@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '2626', NULL, 'cliente'),
-('87654321', 'l', 'l@gmil.com', NULL, NULL, NULL, NULL, NULL, NULL, '1414', 'default.png', 'cliente'),
-('98765432199', 'Simo', 'luis.tavares@ifsuldeminas.edu.br', NULL, NULL, NULL, NULL, NULL, NULL, '1234', NULL, 'cliente'),
-('99', 'adm', 'adm@gmail.com', 'Minas Gerais', 'Pouso Alegre', 'Cruz Alta', 'Rua do Dionisio', '89', 'apartamento', '1234', NULL, 'cliente');
+('1234', 'THIAGO', 'REIDELAS@GMAIL.COM', '', '', '', '', '', '', '81dc9bdb52d04dc20036dbd8313ed055', '17307216426728b76ae99ad.jpg', 'cliente');
 
 --
 -- Indexes for dumped tables
@@ -214,7 +169,7 @@ ALTER TABLE `itenspedido`
 -- AUTO_INCREMENT for table `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `idPedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idPedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `produto`
