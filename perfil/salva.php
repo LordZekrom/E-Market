@@ -19,6 +19,7 @@ $cpf = $_POST['cpf'];
 $nome = $_POST['nome'];
 $email = $_POST['email'];
 $senha = $_POST['senha'];
+$senha = md5($senha);
 
 // Conectando com o banco de dados
 $datasource = 'mysql:host=localhost;dbname=e_market';

@@ -5,6 +5,7 @@ session_start();
 // Pegando os dados de login enviados.
 $cpf = $_POST['cpf'];
 $senha = $_POST['senha'];
+$senha = md5($senha);
 
 /* Conectando com o banco de dados para cadastrar registros */
 $datasource = 'mysql:host=localhost;dbname=e_market';
