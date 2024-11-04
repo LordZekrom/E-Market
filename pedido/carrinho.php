@@ -130,7 +130,7 @@ else{
         echo "<tr>";
         echo "<td>" . htmlspecialchars($precoTotal, ENT_QUOTES, 'UTF-8') . " Reais</td>";
         echo "<td>
-                <a href='fecharPedido.php?idPedido=" . urlencode($idPedido) . "'>Fechar Pedido</a>
+                <a href='fecharPedido.php?idPedido=" . urlencode($idPedido) . "&preco=" . urlencode($precoTotal) . "'>Fechar Pedido</a>
             </td>";
         echo "</tr>";
 

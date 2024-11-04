@@ -7,6 +7,7 @@
 #Recebe o id pela URL
     $cpf = $_SESSION['cpf'];
     $idPedido = $_GET['idPedido'];
+    $precoTotal = $_GET['preco'];
 
     include_once "../bd/bd.php";
 
@@ -20,6 +21,23 @@
     $stm = $con->prepare($sql);
     $stm->bindParam(1, $cpf); 
     $r = $stm->execute();
+
+// Busca os dados do usuário
+$query = "SELECT * FROM usuario WHERE cpfUsuario = :cpf";
+$stm = $db->prepare($query);
+$stm->bindParam(':cpf', $cpf);
+
+if ($stm->execute()) {
+    $user = $stm->fetch(PDO::FETCH_ASSOC);
+
+    $estado = $user['estadoUsuario'];
+    $cidade = $user['cidadeUsuario'];
+    $bairro = $user['bairroUsuario'];
+    $endereco = $user['enderecoUsuario'];
+    $numero = $user['numeroUsuario'];
+    $complemento = $user['complementoUsuario'];
+} 
+
 
 $url = "";
 if($r){
