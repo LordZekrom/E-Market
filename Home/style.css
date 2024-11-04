@@ -74,9 +74,10 @@ nav ul li a:hover {
     color: white;
     padding: 10px 15px;
     cursor: pointer;
+    height: 100%;
 }
 
-search-bar button:hover {
+.search-bar button:hover {
     background-color: #2b89c0;
 }
 
