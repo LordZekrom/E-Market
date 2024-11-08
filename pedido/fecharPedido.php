@@ -8,6 +8,8 @@
     $cpf = $_SESSION['cpf'];
     $idPedido = $_GET['idPedido'];
     $precoTotal = $_GET['preco'];
+    $data = date('Y-m-d');
+    $hora = date('H:i:s');
 
     include_once "../bd/bd.php";
 
@@ -17,26 +19,15 @@
     $stm->bindParam(2, $cpf); 
     $stm->execute();
 
-    $sql = "INSERT INTO pedido (cpfUsuario, statusPedido) VALUES(?, 1)";
+// Incerção do pedido finalizado
+    $sql = "UPDATE pedido SET dataPedido = ?, horaPedido = ?, precoFinal = ? WHERE idPedido = ? AND cpfUsuario = ?";
     $stm = $con->prepare($sql);
-    $stm->bindParam(1, $cpf); 
+    $stm->bindParam(1, $data); 
+    $stm->bindParam(2, $hora); 
+    $stm->bindParam(3, $precoTotal); 
+    $stm->bindParam(4, $idPedido); 
+    $stm->bindParam(5, $cpf); 
     $r = $stm->execute();
-
-// Busca os dados do usuário
-$query = "SELECT * FROM usuario WHERE cpfUsuario = :cpf";
-$stm = $db->prepare($query);
-$stm->bindParam(':cpf', $cpf);
-
-if ($stm->execute()) {
-    $user = $stm->fetch(PDO::FETCH_ASSOC);
-
-    $estado = $user['estadoUsuario'];
-    $cidade = $user['cidadeUsuario'];
-    $bairro = $user['bairroUsuario'];
-    $endereco = $user['enderecoUsuario'];
-    $numero = $user['numeroUsuario'];
-    $complemento = $user['complementoUsuario'];
-} 
 
 
 $url = "";

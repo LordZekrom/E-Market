@@ -124,7 +124,6 @@ if ($stm->execute()) {
             <th>ID</th>
             <th>Data</th>
             <th>Hora</th>
-            <th>Complemento</th>
             <th>Preço</th>
         </tr>
         <?php
@@ -141,7 +140,6 @@ if ($stm->execute()) {
                     $hora = $row['horaPedido'];
                     $preco = $row['precoFinal'];
                     $status = $row['statusPedido'];
-                    $complemento = $row['complementoUsuario'];
                     $encontrouPedido = true;
 
                     if ($status == 'finalizado') {
@@ -149,7 +147,6 @@ if ($stm->execute()) {
                                 <td>$id</td>
                                 <td>$data</td>
                                 <td>$hora</td>
-                                <td>$complemento</td>
                                 <td>R$ $preco</td>
                               </tr>";
                     }
