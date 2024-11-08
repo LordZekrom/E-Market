@@ -59,41 +59,18 @@
     </ul>
 </nav>
 
+
+
 <div class="center">
     <div class="esquerdo">
         <div class="pesquisa1">
-            <input type="search" placeholder="Pesquisar...">
-            <button type="submit">Buscar</button>
+            <form method="post">
+                <label>Produto:</label>
+                <input type="text" name="nomeProduto" />
+                <button type="submit">Pesquisar</button>
+            </form>
         </div>
-        <?php
-            # Conecta com BD
-            $ds = "mysql:host=localhost;dbname=e_market";
-            $con = new PDO($ds, 'root', 'vertrigo');
-        
-            # Seleciona todos os registros
-            $sql = "SELECT * FROM produto";
-            $stm = $con->prepare($sql);
-            $stm->execute();
-        
-            # Percorre os registros
-            foreach($stm as $row){
-                $codigoProduto = $row['codigoProduto'];
-                echo "<div class='product listA' id='listA$codigoProduto'>
-                    <img src='../produtos/imagens/" . $row['fotoProduto'] . "' />
-                    " . $row['nomeProduto'] . "
-                    <table>
-                        <tr>
-                            <h4>R$" . $row['precoProduto'] . "</h4>
-                        </tr>
-                        <br>
-                        <tr>
-                            " . $row['descricaoProduto'] . "
-                        </tr>
-                    </table>
-                    <button onclick=\"selecionar('produtoA'," . $codigoProduto . ")\">Selecionar</button>
-                </div>";
-            }
-        ?>
+        <?php include("esquerda.php")?>
     </div>
  
     <div class="compare-button">
@@ -106,38 +83,13 @@
 
     <div class="direita">
         <div class="pesquisa2">
-            <input type="search" placeholder="Pesquisar...">
-            <button type="submit">Buscar</button>
+        <form method="post">
+                <label>Produto:</label>
+                <input type="text" name="nomeProduto2" />
+                <button type="submit">Pesquisar</button>
+            </form>
           </div>
-        <?php
-            # Conecta com BD
-            $ds = "mysql:host=localhost;dbname=e_market";
-            $con = new PDO($ds, 'root', 'vertrigo');
-        
-            # Seleciona todos os registros
-            $sql = "SELECT * FROM produto";
-            $stm = $con->prepare($sql);
-            $stm->execute();
-        
-            # Percorre os registros
-            foreach($stm as $row){
-                $codigoProduto = $row['codigoProduto'];
-                echo "<div class='product listB' id='listB$codigoProduto'>
-                    <img src='../produtos/imagens/" . $row['fotoProduto'] . "' />
-                    " . $row['nomeProduto'] . "
-                    <table>
-                        <tr>
-                            <h4>R$" . $row['precoProduto'] . "</h4>
-                        </tr>
-                        <br>
-                        <tr>
-                            " . $row['descricaoProduto'] . "
-                        </tr>
-                    </table>
-                    <button onclick=\"selecionar('produtoB', $codigoProduto)\">Selecionar</button>
-                </div>";
-            }
-        ?>
+          <?php include("direita.php")?>
     </div>
 
 </div>
