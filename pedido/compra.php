@@ -15,7 +15,37 @@
             margin: 0;
             padding: 0;
         }
+        #menu-categorias {
+            list-style-type: none; /* Remove os marcadores da lista */
+            padding: 0; /* Remove o padding */
+            display: flex; /* Usa flexbox para organizar os itens */
+            justify-content: center; /* Centraliza os itens */
+            margin: ;/* Margem reduzida para aproximar do menu principal */
+            background-color: #ffffff; /* Fundo branco */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para profundidade */
+        }
 
+        #menu-categorias li {
+            margin: 0 10px; /* Espaçamento entre os itens */
+        }
+
+        #menu-categorias a {
+            text-decoration: none; /* Remove o sublinhado */
+            color: #2c3e50; /* Cor do texto */
+            padding: 12px 15px; /* Espaçamento interno */
+            border: 1px solid transparent; /* Borda invisível para manter o layout */
+            border-radius: 5px; /* Bordas arredondadas */
+            transition: background-color 0.3s, color 0.3s, border 0.3s; /* Transição suave */
+            font-weight: 600; /* Fonte em negrito */
+            text-align: center; /* Centraliza o texto */
+            font-size: 16px; /* Tamanho da fonte */
+        }
+
+        #menu-categorias a:hover {
+            background-color: #21a3b4; /* Cor de fundo ao passar o mouse */
+            color: white; /* Cor do texto ao passar o mouse */
+            border: 1px solid #21a3b4; /* Borda ao passar o mouse */
+        }
         .product {
             border: 1px solid #ccc;
             padding: 10px;
