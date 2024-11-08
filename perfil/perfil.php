@@ -11,7 +11,7 @@ $user = 'root';
 $pass = 'vertrigo';
 $db = new PDO($datasource, $user, $pass);
 
-// Busca os dados do usuário
+// Busca os dados do usuárioo
 $query = "SELECT * FROM usuario WHERE cpfUsuario = :cpf";
 $stm = $db->prepare($query);
 $stm->bindParam(':cpf', $cpf);
