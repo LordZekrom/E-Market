@@ -72,6 +72,8 @@
             border-radius: 8px;
             margin-bottom: 2px;
             height: auto;
+            margin: auto;
+            display: block;
         }
 
         .product h3 {
@@ -187,7 +189,8 @@
         .product-container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-around;
+            justify-content: flex-start;
+            padding-left: 65px;
         }
         .button-container {
             display: flex; /* Usa flexbox para alinhar os botões */
