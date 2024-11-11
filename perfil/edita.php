@@ -33,13 +33,11 @@ $fotoPerfil = $result['fotoPerfil'];
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Mercado</title>
-    <link rel="stylesheet" href="perfil.css">
-    <link rel="stylesheet" type="text/css" href="login.css" />
+    <title>Editar Dados</title>
+    <link rel="stylesheet" href="edita.css">
 </head>
 <body>
 <header>
-<<<<<<< HEAD
         <div class="logo">
         <a href=" ../home/index.html">
              <img src="../imagens/logo2.png" alt="Logo">
@@ -50,42 +48,64 @@ $fotoPerfil = $result['fotoPerfil'];
             <button type="submit">Buscar</button>
         </div>
         <div class="cart">
-            <a href="  ">
+            <a href="../pedido/carrinho.php">
                 <img src="../imagens/carrinho.png" alt="Carrinho">
             </a>
         </div>
     </header>
-=======
-    <div class="logo">
-    <a href=" ../home/index.html">
-             <img src="../imagens/logo2.png" alt="Logo">
-            </a>
-    </div>
-</header>
->>>>>>> 6d5d089d51ab955af72928ebe174fe26f2bc59df
-<h3>Editar Perfil</h3>
-<img src="imagens/<?php echo htmlspecialchars($fotoPerfil); ?>" class="foto_perfil" alt="Foto de Perfil"><br><br>
-<form method='POST' action='atualiza.php' enctype="multipart/form-data">
-    <label>Nome: </label>
-    <input name='nomeUsuario' value='<?php echo htmlspecialchars($nome); ?>'><br>
-    <label>Email: </label>
-    <input name='emailUsuario' value='<?php echo htmlspecialchars($email); ?>'><br>
-    <label>Estado: </label>
-    <input name='estadoUsuario' value='<?php echo htmlspecialchars($estado); ?>'><br>
-    <label>Cidade: </label>
-    <input name='cidadeUsuario' value='<?php echo htmlspecialchars($cidade); ?>'><br>
-    <label>Bairro: </label>
-    <input name='bairroUsuario' value='<?php echo htmlspecialchars($bairro); ?>'><br>
-    <label>Endereco: </label>
-    <input name='enderecoUsuario' value='<?php echo htmlspecialchars($endereco); ?>'><br>
-    <label>Numero: </label>
-    <input name='numeroUsuario' value='<?php echo htmlspecialchars($numero); ?>'><br>
-    <label>Complemento: </label>
-    <input name='complementoUsuario' value='<?php echo htmlspecialchars($complemento); ?>'><br>
-    <label>Foto de Perfil: </label>
-    <input type="file" name='fotoPerfil'><br>
+
+
     
-    <button type='submit'>Salvar</button>
-</form>
+<img src="imagens/<?php echo htmlspecialchars($fotoPerfil); ?>" class="foto_perfil" alt="Foto de Perfil"><br>
+
+<div class="table-container">
+    <form method='POST' action='atualiza.php' enctype="multipart/form-data">
+        <table class="user-data-table">
+            <tr>
+                <th>Campo</th>
+                <th>Informação</th>
+            </tr>
+            <tr>
+                <td>Nome:</td>
+                <td><input name='nomeUsuario' value='<?php echo htmlspecialchars($nome); ?>'></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input name='emailUsuario' value='<?php echo htmlspecialchars($email); ?>'></td>
+            </tr>
+            <tr>
+                <td>Estado:</td>
+                <td><input name='estadoUsuario' value='<?php echo htmlspecialchars($estado); ?>'></td>
+            </tr>
+            <tr>
+                <td>Cidade:</td>
+                <td><input name='cidadeUsuario' value='<?php echo htmlspecialchars($cidade); ?>'></td>
+            </tr>
+            <tr>
+                <td>Bairro:</td>
+                <td><input name='bairroUsuario' value='<?php echo htmlspecialchars($bairro); ?>'></td>
+            </tr>
+            <tr>
+                <td>Endereço:</td>
+                <td><input name='enderecoUsuario' value='<?php echo htmlspecialchars($endereco); ?>'></td>
+            </tr>
+            <tr>
+                <td>Número:</td>
+                <td><input name='numeroUsuario' value='<?php echo htmlspecialchars($numero); ?>'></td>
+            </tr>
+            <tr>
+                <td>Complemento:</td>
+                <td><input name='complementoUsuario' value='<?php echo htmlspecialchars($complemento); ?>'></td>
+            </tr>
+            <tr>
+                <td>Foto de Perfil:</td>
+                <td><input type="file" name='fotoPerfil'></td>
+            </tr>
+        </table>
+        
+        <button type='submit' class="save-btn">Salvar</button>
+        <a href="logout.php" class="logout-btn">Sair da conta</a>
+    </form>
+</div>
 </body>
 </html>
