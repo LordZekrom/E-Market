@@ -33,7 +33,7 @@ $fotoPerfil = $result['fotoPerfil'];
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Mercado</title>
+    <title>Editar Dados</title>
     <link rel="stylesheet" href="edita.css">
 </head>
 <body>
