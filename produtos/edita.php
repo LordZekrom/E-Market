@@ -40,7 +40,7 @@
         <input name='nomeProduto' value='<?php print $nome ?>'><br>
         <label>Descrição: </label>
         <input name='descricaoProduto' value='<?php print $descricao ?>'><br>
-        <label>Preço </label>
+        <label>Preço:</label>
         <input name='precoProduto' value='<?php print $preco ?>'><br>
         <label>Quantidade </label>
         <input name='quantidadeProduto' value='<?php print $quantidade ?>'><br>
