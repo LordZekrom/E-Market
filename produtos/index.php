@@ -33,11 +33,11 @@
     ?>
         <h3>Cadastro de produtos</h3>
     <form method='POST' action='inserir.php' enctype="multipart/form-data">
-        <label>Código: </label>
+        <label>Código</label>
         <input name='codigoProduto'><br>
-        <label>Nome: </label>
+        <label>Nome </label>
         <input name='nomeProduto'><br>
-        <label>Descrição: </label>
+        <label>Descrição </label>
         <input name='descricaoProduto'><br>
         <label>Preço </label>
         <input name='precoProduto'><br>
