@@ -1,5 +1,5 @@
 <html>
-	<head><title>E-Market</title>
+	<head><title>Cadastrar</title>
     	<link rel="stylesheet" href="../perfil.css">
 		<link rel="stylesheet" type="text/css" href="cadastra.css" />
 	</head>

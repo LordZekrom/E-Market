@@ -115,7 +115,7 @@ if ($stm->execute()) {
             <td><?php echo htmlspecialchars($complemento); ?></td>
         </tr>
         </table>
-        <button><a href='edita.php'>Alterar Informações</a></button>
+        <button><a href='edita.php' >Alterar Informações</a></button>
     </div>
     <div class="pedidos-finalizados">
     <h2>Histórico de Pedidos</h2>
