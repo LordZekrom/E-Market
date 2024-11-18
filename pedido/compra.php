@@ -315,7 +315,11 @@
     ?>
     </div>
     <br>
-    <a href='../produtos/index.php' class="logout-btn">Editar produtos</a>  
+    <?php
+        if($tipoUsuario == "adm"){
+            echo "<a href='../produtos/index.php' class='logout-btn'>Editar produtos</a>";
+        }  
+    ?>
     </main>
     <script>
     document.querySelectorAll('#menu-categorias a').forEach(item => {
