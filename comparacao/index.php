@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="compar.css" />
     <title>Comparação de Produtos</title>
+    <style>
+       .bota {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2c3e50;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+}          /* Alinha a margem à direita automaticamente */
+
+
+
+    </style>
 </head>
 <body>
 <header>
@@ -84,7 +100,7 @@ function gerarTabelaProduto($conn, $categoria, $inputNamePrefix) {
                 <h2>Comparar</h2>
                 <p>Veja as melhores comparações</p>
                     <p>Encontre grandes comparações em diversos produtos.</p>
-                    <a href="comparar.php">Comparar</a>
+                    <button class="bota" onclick="window.location.href='comparar.php';">Comparar</button>
                 </div>
 </div>
   </div>
