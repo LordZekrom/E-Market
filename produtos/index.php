@@ -102,6 +102,6 @@
         }
     ?>
     </table>
-    <a href='../pedido/compra.php'>Voltar</a> 
+    <a href='../pedido/compra.php' class="logout-btn">Voltar</a> 
     </body>
     </html>
