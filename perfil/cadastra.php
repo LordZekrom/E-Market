@@ -1,5 +1,5 @@
 <html>
-	<head><title>Cadastrar</title>
+	<head><title>Cadastrar Usuário</title>
     	<link rel="stylesheet" href="../perfil.css">
 		<link rel="stylesheet" type="text/css" href="cadastra.css" />
 	</head>

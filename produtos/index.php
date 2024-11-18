@@ -33,17 +33,17 @@
     ?>
         <h3>Cadastro de produtos</h3>
     <form method='POST' action='inserir.php' enctype="multipart/form-data">
-        <label>Código: </label>
+        <label>Código:</label>
         <input name='codigoProduto'><br>
         <label>Nome: </label>
         <input name='nomeProduto'><br>
         <label>Descrição: </label>
         <input name='descricaoProduto'><br>
-        <label>Preço </label>
+        <label>Preço: </label>
         <input name='precoProduto'><br>
-        <label>Quantidade </label>
+        <label>Quantidade: </label>
         <input name='quantidadeProduto'><br>
-        <label>Categoria </label>
+        <label>Categoria: </label>
         <select name='categoriaProduto'>
             <option value='1'>Eletrônicos</option>
             <option value='2'>Roupas</option>
@@ -102,6 +102,6 @@
         }
     ?>
     </table>
-    <a href='../pedido/compra.php'>Voltar</a> 
+    <a href='../pedido/compra.php' class="logout-btn">Voltar</a> 
     </body>
     </html>

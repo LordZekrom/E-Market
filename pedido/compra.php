@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <title>Comprar no E-Market</title> 
+    <title>Comprar</title> 
     <style>
         * {
             box-sizing: border-box;
@@ -206,8 +206,28 @@
 
         .car img {
             width: 100%; /* A imagem ocupa toda a largura do botão */
-         height: 100%; /* A imagem ocupa toda a altura do botão */
+             height: 100%; /* A imagem ocupa toda a altura do botão */
         }
+        .logout-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+    .logout-btn:hover {
+        background-color: #34495e;
+        color: #f1f1f1;
+    }
+
 
         @media (max-width: 768px) {
             .product {
@@ -295,7 +315,7 @@
     ?>
     </div>
     <br>
-    <a href='../produtos/index.php'>Editar produtos</a>  
+    <a href='../produtos/index.php' class="logout-btn">Editar produtos</a>  
     </main>
     <script>
     document.querySelectorAll('#menu-categorias a').forEach(item => {
