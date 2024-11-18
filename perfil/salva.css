@@ -88,24 +88,21 @@ nav ul li a:hover {
     margin: 10px;
 }
 
-/* Estilo da div centralizada para a mensagem */
-.mensagem-centralizada {
-    width: 80%;
-    max-width: 600px; /* Limite de largura da div */
-    padding: 20px;
+.voltar {
+    max-width: 600px;
+    margin: 30px auto; /* Centraliza horizontalmente */
     text-align: center;
     background-color: #ffffff;
     border: 2px solid #2c3e50; /* Borda azul escuro */
-    border-radius: 10px; /* Bordas arredondadas */
+    border-radius: 10px;
+    padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
     color: #333;
-    font-size: 18px; /* Tamanho do texto */
-    margin: 500px;
-    margin-bottom: 100px;
+    font-size: 18px;
 }
 
-/* Botão de ação opcional */
-.mensagem-centralizada button {
+/* Botão de "Voltar" */
+.voltar button {
     display: inline-block;
     padding: 10px 20px;
     margin-top: 15px;
@@ -115,10 +112,20 @@ nav ul li a:hover {
     border-radius: 5px;
     border: none;
     cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
 }
 
-.mensagem-centralizada button:hover {
+.voltar button:hover {
     background-color: #34495e; /* Escurece ao passar o mouse */
+    color: #f1f1f1;
+}
+
+/* Para mensagens adicionais dentro da div */
+.voltar p {
+    margin: 0 0 10px;
+    font-size: 16px;
+    color: #555;
 }
 
 /* Estilo atualizado para a seção de pedidos */

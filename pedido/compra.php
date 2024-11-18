@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <title>Comprar no E-Market</title> 
+    <title>Comprar</title> 
     <style>
         * {
             box-sizing: border-box;
