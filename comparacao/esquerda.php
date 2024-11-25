@@ -1,9 +1,5 @@
 <?php
-        $nome = '';
-        if (isset($_POST['nomeProduto'])){
-            $nome = $_POST['nomeProduto'];
-        }
-        
+               
            # Conecta com BD
            $ds = "mysql:host=localhost;dbname=e_market";
            $con = new PDO($ds, 'root', 'vertrigo');
