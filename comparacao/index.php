@@ -6,17 +6,18 @@
     <link rel="stylesheet" type="text/css" href="compar.css" />
     <title>Comparação de Produtos</title>
     <style>
-       .bota {
+      .bota {
     padding: 10px;
     border: none;
     border-radius: 5px;
     background-color: #2c3e50;
     color: white;
     cursor: pointer;
-    width: 100%;
+    width: 100%;  /* O botão ocupa toda a largura do contêiner */
+    margin: 0 auto;  /* Centraliza o botão horizontalmente */
     margin-bottom: 10px;
     transition: background-color 0.3s;
-}          /* Alinha a margem à direita automaticamente */
+}
 
 
 
