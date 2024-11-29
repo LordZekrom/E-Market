@@ -1,65 +1,5 @@
 <?php
-// Conexão com o banco de dados
-    $datasource = 'mysql:host=localhost;dbname=e_market';
-    $user = 'root';
-    $pass = 'vertrigo';
-    $db = new PDO($datasource, $user, $pass);
 
-// Inicializa a mensagem como vazia
-$mensagem = "";
-
-// Recebe os dados do formulário
-$cpf = $_POST['cpf'] ?? null;
-$nome = $_POST['nome'] ?? null;
-$email = $_POST['email'] ?? null;
-$senha = $_POST['senha'] ?? null;
-// Converte a senha para hash MD5
-$senha = md5($senha);
-// Verifica se os campos obrigatórios estão preenchidos
-if (empty($cpf) || empty($nome) || empty($email) || empty($senha)) {
-    $mensagem = "Todos os campos são obrigatórios.";
-
-    $query = "INSERT INTO usuario (cpfUsuario, nomeUsuario, emailUsuario, senhaUsuario, fotoPerfil) VALUES ($cpf, $nome, $email, $senha,";
-
-    if ($_FILES['fotoPerfil']['name']) {
-    // Se uma nova imagem foi enviada
-    $fotoPerfil = $_FILES['fotoPerfil']['name'];
-    $extensao = pathinfo($fotoPerfil, PATHINFO_EXTENSION);
-    $extensao = strtolower($extensao);
-
-    // Verifica a extensão do arquivo
-    if (in_array($extensao, ['jpg', 'jpeg', 'gif', 'png'])) {
-        $novoNome = uniqid(time()) . '.' . $extensao;
-        $destino = 'imagens/' . $novoNome;
-        
-        if (move_uploaded_file($_FILES['fotoPerfil']['tmp_name'], $destino)) {
-            $query .= ":fotoPerfil)";
-        } else {
-            echo "Erro ao enviar a imagem.";
-            exit;
-        }
-    } else {
-        echo "Tipo de arquivo não permitido.";
-        exit;
-    }
-}
-
-    $query .= " WHERE cpfUsuario = :cpf";
-
-    $stm = $db->prepare($query);
-    if (isset($novoNome)) {
-    $stm->bindParam(':fotoPerfil', $novoNome);
-    }
-
-    if ($stm->execute()) {
-    header("Location: perfil.php");
-    } else {
-    echo "<p>Erro ao atualizar</p>";
-    print_r($stm->errorInfo());
-    }
-}
-
-/*
     // Conexão com o banco de dados
     $datasource = 'mysql:host=localhost;dbname=e_market';
     $user = 'root';
@@ -121,7 +61,7 @@ if (empty($cpf) || empty($nome) || empty($email) || empty($senha)) {
             $mensagem = "Não foi possível realizar o cadastro.";
         }
     }
-}*/
+}
 ?>
 
 <!DOCTYPE html>
