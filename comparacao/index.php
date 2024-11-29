@@ -91,7 +91,7 @@ function gerarTabelaProduto($conn, $categoria, $inputNamePrefix) {
 }
 ?>
 
-<
+
 </div>
     </form>
     </div>
