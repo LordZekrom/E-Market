@@ -9,7 +9,6 @@
         * {
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
             margin: 0;
@@ -24,11 +23,9 @@
             background-color: #ffffff; /* Fundo branco */
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para profundidade */
         }
-
         #menu-categorias li {
             margin: 0 10px; /* Espaçamento entre os itens */
         }
-
         #menu-categorias a {
             text-decoration: none; /* Remove o sublinhado */
             color: #2c3e50; /* Cor do texto */
@@ -40,7 +37,6 @@
             text-align: center; /* Centraliza o texto */
             font-size: 16px; /* Tamanho da fonte */
         }
-
         #menu-categorias a:hover {
             background-color: #21a3b4; /* Cor de fundo ao passar o mouse */
             color: white; /* Cor do texto ao passar o mouse */
@@ -61,11 +57,9 @@
             transition: box-shadow 0.3s;
             align-items: center;
         }
-
         .product:hover {
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-
         .product img {
             max-width: 65%;
             object-fit: cover;
@@ -75,51 +69,41 @@
             margin: auto;
             display: block;
         }
-
         .product h3 {
             color: #333;
             margin: 10px 0;
         }
-
         .product h4 {
             font-size: 1.2em;
             color: #00991f;
             margin: 10px 0;
         }
-
         .product h5 {
             font-size: 1em;
             color: #666;
             margin: 5px 0;
         }
-
         .product h6 {
             color: #333;
             margin: 10px 0;
             font-size: 0.9em;
         }
-
         .product table {
             width: 100%;
             margin-bottom: 20px;
         }
-
         table, th, td {
             border: none;
         }
-
         th {
             text-align: left;
             color: #333;
             font-weight: bold;
         }
-
         td {
             text-align: right;
             color: #666;
         }
-
-
         .buy {
             padding: 10px;
             border: none;
@@ -132,7 +116,6 @@
             transition: background-color 0.3s;
             width: 138px;
         }
-
         .car {
             padding: 9px;
             border: none;
@@ -145,22 +128,18 @@
             transition: background-color 0.3s;
             width: 38px;
         }
-
         .buy:hover {
             background-color: #21a3b4;
         }
-
         .product button:hover {
             background-color: #21a3b4;
         }
-
         .quantity-controls {
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 10px;
         }
-
         .quantity-controls button {
             width: 30px;
             height: 30px;
@@ -169,18 +148,15 @@
             border: none;
             cursor: pointer;
         }
-
         .quantity-controls input {
             width: 40px;
             text-align: center;
             margin: 0 5px;
 
         }
-
         .car:hover {
             background-color: #21a3b4;;
         }
-
         .product button{
            display:inline-block;
            margin-right: px; /* Espaço entre os botões */
@@ -203,7 +179,6 @@
             
            
         }
-
         .car img {
             width: 100%; /* A imagem ocupa toda a largura do botão */
              height: 100%; /* A imagem ocupa toda a altura do botão */
@@ -222,13 +197,10 @@
             font-size: 16px;
             transition: background-color 0.3s;
         }
-
     .logout-btn:hover {
         background-color: #34495e;
         color: #f1f1f1;
     }
-
-
         @media (max-width: 768px) {
             .product {
                 width: 100%;
@@ -238,7 +210,6 @@
     </style>
 </head>
 <body>
-
     <header>
         <div class="logo">
             <img src="../imagens/logo2.png" alt="Logo">
@@ -272,25 +243,20 @@
         </ul>
     </nav>
     <main>
-
     <div class="product-container">
     <?php
-
         $addcar=0;
         # Conecta com BD
         $ds = "mysql:host=localhost;dbname=e_market";
         $con = new PDO($ds, 'root', 'vertrigo');
-    
         # Seleciona todos os registros
         $sql = "SELECT * FROM produto";
         $stm = $con->prepare($sql);
         $stm->execute();
-    
         # Percorre os registros
         foreach($stm as $row){
             $codigoProduto = $row['codigoProduto'];
             $linkComprar = "comprar.php?produto=" . $codigoProduto;
-           
             echo "<div class='product' data-categoria='" . $row['categoriaProduto'] . "'>
             <img src='../produtos/imagens/" . $row['fotoProduto'] . "' />
             " . $row['nomeProduto'] .  "
@@ -308,7 +274,6 @@
                     <button onclick=\"window.location.href='addCarrinho.php?addcar=1&codigoProduto=$codigoProduto'\" class='car'>
                          <img src='../imagens/addcarao.png' alt='Adicionar ao Carrinho'>
                     </button>
-
                 </div>
             </div>";
         }
@@ -316,9 +281,28 @@
     </div>
     <br>
     <?php
-        if($tipoUsuario == "adm"){
+        // Inclui o arquivo de verificação de sessão.
+        include_once("verifica.php");
+        // Recebe o CPF da sessão
+        $cpf = $_SESSION['cpf'];
+        // Conecta com o banco de dados
+        $ds = "mysql:host=localhost;dbname=e_market";
+        $con = new PDO($ds, 'root', 'vertrigo');
+        // Seleciona os dados do usuário
+        $sql = "SELECT tipoUsuario FROM usuario WHERE cpfUsuario = :cpf"; // Usando prepared statement para segurança
+        $stm = $con->prepare($sql);
+        $stm->bindParam(':cpf', $cpf);  // Previne SQL Injection
+        $stm->execute();
+        // Verifica se o usuário existe
+        if ($row = $stm->fetch(PDO::FETCH_ASSOC)) {
+            $tipoUsuario = $row['tipoUsuario'];  // Obtém o tipo de usuário
+        } else {
+            $tipoUsuario = "";  // Caso não encontre o usuário
+        }
+        // Exibe o botão apenas para administradores
+        if ($tipoUsuario == "adm") {
             echo "<a href='../produtos/index.php' class='logout-btn'>Editar produtos</a>";
-        }  
+        }
     ?>
     </main>
     <script>
@@ -327,7 +311,6 @@
         event.preventDefault();
         const categoria = this.getAttribute('data-categoria');
         const produtos = document.querySelectorAll('.product');
-
         produtos.forEach(produto => {
             // Exibir todos se a categoria for 'todos'
             if (categoria === 'todos' || produto.getAttribute('data-categoria') === categoria) {
@@ -338,8 +321,6 @@
         });
     });
     });
-
     </script>
-
 </body>
 </html>
