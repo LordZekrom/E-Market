@@ -215,8 +215,10 @@
             <img src="../imagens/logo2.png" alt="Logo">
         </div>
         <div class="search-bar">
-            <input type="search" placeholder="Pesquisar...">
-            <button type="submit">Buscar</button>
+            <form method="get" action="compra.php">
+                <input type="search" name="search" placeholder="Pesquisar...">
+                <button type="submit">Buscar</button>
+            </form>
         </div>
         <div class="cart">
             <a href="../pedido/carrinho.php">
@@ -245,39 +247,48 @@
     <main>
     <div class="product-container">
     <?php
-        $addcar=0;
-        # Conecta com BD
-        $ds = "mysql:host=localhost;dbname=e_market";
-        $con = new PDO($ds, 'root', 'vertrigo');
-        # Seleciona todos os registros
-        $sql = "SELECT * FROM produto";
-        $stm = $con->prepare($sql);
-        $stm->execute();
-        # Percorre os registros
-        foreach($stm as $row){
-            $codigoProduto = $row['codigoProduto'];
-            $linkComprar = "comprar.php?produto=" . $codigoProduto;
-            echo "<div class='product' data-categoria='" . $row['categoriaProduto'] . "'>
-            <img src='../produtos/imagens/" . $row['fotoProduto'] . "' />
-            " . $row['nomeProduto'] .  "
-                <table>
-                    <tr>
-                        <h4>R$" . $row['precoProduto'] . "</h4>
-                    </tr>
-                    <br>
-                    <tr>
-                        " . $row['descricaoProduto'] . "
-                    </tr>
-                </table>
-                <div class='button-container'>
-                    <button onclick=\"window.location.href='addCarrinho.php?addcar=0&codigoProduto=$codigoProduto'\" class='buy'>Comprar</button>
-                    <button onclick=\"window.location.href='addCarrinho.php?addcar=1&codigoProduto=$codigoProduto'\" class='car'>
-                         <img src='../imagens/addcarao.png' alt='Adicionar ao Carrinho'>
-                    </button>
-                </div>
-            </div>";
-        }
+            $addcar = 0;
+            $searchQuery = isset($_GET['search']) ? $_GET['search'] : ''; // Captura o termo de pesquisa, se existir
+
+            # Conecta com o banco de dados
+            $ds = "mysql:host=localhost;dbname=e_market";
+            $con = new PDO($ds, 'root', 'vertrigo');
+
+            # SQL com filtro de pesquisa, se houver
+            $sql = "SELECT * FROM produto WHERE nomeProduto LIKE :search OR descricaoProduto LIKE :search";
+            $stm = $con->prepare($sql);
+
+            # Parametriza a pesquisa para evitar injeção de SQL
+            $stm->bindValue(':search', '%' . $searchQuery . '%');
+
+            $stm->execute();
+
+            # Percorre os registros e exibe os produtos
+            foreach ($stm as $row) {
+                $codigoProduto = $row['codigoProduto'];
+                $linkComprar = "comprar.php?produto=" . $codigoProduto;
+                echo "<div class='product' data-categoria='" . $row['categoriaProduto'] . "'>
+                <img src='../produtos/imagens/" . $row['fotoProduto'] . "' />
+                " . $row['nomeProduto'] .  "
+                    <table>
+                        <tr>
+                            <h4>R$" . $row['precoProduto'] . "</h4>
+                        </tr>
+                        <br>
+                        <tr>
+                            " . $row['descricaoProduto'] . "
+                        </tr>
+                    </table>
+                    <div class='button-container'>
+                        <button onclick=\"window.location.href='addCarrinho.php?addcar=0&codigoProduto=$codigoProduto'\" class='buy'>Comprar</button>
+                        <button onclick=\"window.location.href='addCarrinho.php?addcar=1&codigoProduto=$codigoProduto'\" class='car'>
+                            <img src='../imagens/addcarao.png' alt='Adicionar ao Carrinho'>
+                        </button>
+                    </div>
+                </div>";
+            }
     ?>
+
     </div>
     <br>
     <?php
