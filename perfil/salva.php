@@ -7,6 +7,7 @@ $cpf = $_POST['cpf'] ?? null;
 $nome = $_POST['nome'] ?? null;
 $email = $_POST['email'] ?? null;
 $senha = $_POST['senha'] ?? null;
+$fotoPerfil = $_POST['fotoPerfil'] ?? null;
 
 // Verifica se os campos obrigatórios estão preenchidos
 if (empty($cpf) || empty($nome) || empty($email) || empty($senha)) {
