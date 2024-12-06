@@ -1,3 +1,23 @@
+<?php
+        $nome = '';
+        if (isset($_POST['nomeProduto'])){
+            $nome = $_POST['nomeProduto'];
+        }
+        $nome2 = '';
+        if (isset($_POST['nomeProduto2'])){
+            $nome2 = $_POST['nomeProduto2'];
+        }
+
+        $idProduto1 = '';
+        if (isset($_POST['idProduto1'])){
+            $idProduto1 = $_POST['idProduto1'];
+        }
+        $idProduto2 = '';
+        if (isset($_POST['idProduto2'])){
+            $idProduto2 = $_POST['idProduto2'];
+        }
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -65,9 +85,12 @@
     <div class="esquerdo">
         <div class="pesquisa1">
             <form method="post">
+                <input type='hidden' name="nomeProduto2" value="<?php print $nome2 ?>">
+                <input type='hidden' name="idProduto1" value="<?php print $idProduto1 ?>">
+                <input type='hidden' name="idProduto2" value="<?php print $idProduto2 ?>">
                 <label>Produto:</label>
-                <input type="text" name="nomeProduto" />
-                <button type="submit">Pesquisar</button>
+                <input type="text" name="nomeProduto" value="<?php print $nome ?>"/>
+                                <button type="submit">Pesquisar</button>
             </form>
         </div>
         <?php include("esquerda.php")?>
@@ -84,8 +107,11 @@
     <div class="direita">
         <div class="pesquisa2">
         <form method="post">
+                <input type='hidden' name="nomeProduto" value="<?php print $nome ?>">
+                <input type='hidden' id="idProduto1" name="idProduto1" value="<?php print $idProduto1 ?>">
+                <input type='hidden' id="idProduto2" name="idProduto2" value="<?php print $idProduto2 ?>">
                 <label>Produto:</label>
-                <input type="text" name="nomeProduto2" />
+                <input type="text" name="nomeProduto2" value="<?php print $nome2 ?>"/>
                 <button type="submit">Pesquisar</button>
             </form>
           </div>
@@ -100,6 +126,7 @@
     function selecionar(campoProduto, codigoProduto) {
         if (campoProduto == "produtoA"){
             document.getElementById('produtoA').value = codigoProduto;
+            document.getElementById('idProduto1').value = codigoProduto;
             let div_list = document.querySelectorAll(".listA");
             let div_array = [...div_list]; // converts NodeList to Array
             div_array.forEach(el => {
@@ -109,6 +136,7 @@
         }
         else {
             document.getElementById('produtoB').value = codigoProduto;
+            document.getElementById('idProduto2').value = codigoProduto;
             let div_list = document.querySelectorAll(".listB");
             let div_array = [...div_list]; // converts NodeList to Array
             div_array.forEach(el => {
@@ -126,6 +154,16 @@
         alert('Comparando por ' + tipo); // Ação para a comparação
        
     }
+
+<?php    
+    if ($idProduto1){
+        print "selecionar('produtoA', $idProduto1);";
+    }
+   
+    if ($idProduto2){
+        print "selecionar('produtoB', $idProduto2);";
+    }   
+?>
 </script>
 
 <button onclick="window.location.href='http://localhost/inf22/E-Market/comparacao/index.php'">Voltar para Comparação</button>

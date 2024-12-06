@@ -11,7 +11,7 @@
             </a>
         </div>
     </header>
-		<form method="post" action="salva.php">
+		<form method="post" action="salva.php" enctype="multipart/form-data">
   			<div class="login-box">
 				<h3 class="form-title">Cadastro</h3>
     				<div class="input-container">

@@ -11,6 +11,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css" />
     <title>Pesquisa</title>
+    <style>
+        .logout-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+    .logout-btn:hover {
+        background-color: #34495e;
+        color: #f1f1f1;
+    }
+    </style>
 </head>
 <body>
 <header>
@@ -28,8 +49,8 @@
     </header>
     <nav>
         <ul>
-            <li><a href="../usuarios/usuarios.php" style="background-color: #2c3e50; color:white;">Cadastro</a></li>
-            <li><a href="../usuarios/pesquisa.php" >Pesquisa</a></li>
+            <li><a href="../usuarios/usuarios.php">Cadastro</a></li>
+            <li><a href="../usuarios/pesquisa.php" style="background-color: #2c3e50; color:white;">Pesquisa</a></li>
         </ul>
     </nav>
 		<br>
@@ -38,7 +59,7 @@
 			<label>Usuário:</label>
 			<input type="text" name="nomeUsuario" />
 			<button type="submit">Pesquisar</button>
-            <br><a href='../perfil.php'>Voltar</a> 
+            <br><a href='../perfil.php' class="logout-btn">Voltar</a> 
 		</form>
 		<h3>Listagem dos Produtos</h3>
 		<table border>

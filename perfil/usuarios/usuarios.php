@@ -11,6 +11,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css" />
     <title>Edita</title>
+    <style>
+        .logout-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+    .logout-btn:hover {
+        background-color: #34495e;
+        color: #f1f1f1;
+    }
+    </style>
 </head>
 <body>
 <header>
@@ -68,6 +89,6 @@
         Selecione uma imagem: <input name="fotoPerfil" type="file"   />
    <br/>
         <button type='submit'>Salvar</button><br><br>
-    <a href='../perfil.php'>Voltar</a> 
+    <a href='../perfil.php' class="logout-btn">Voltar</a> 
     </body>
     </html>

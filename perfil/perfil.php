@@ -42,6 +42,29 @@ if ($stm->execute()) {
     <link rel="stylesheet" type="text/css" href="login.css" />
     <link rel="stylesheet" href="perfil.css">
     <title> Perfil E-Market</title>
+    <style>
+        .logout-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            position: relative;
+            right: 45%;
+        }
+
+    .logout-btn:hover {
+        background-color: #34495e;
+        color: #f1f1f1;
+    }
+    </style>
 </head>
 <body>
     <header>
@@ -164,7 +187,7 @@ if ($stm->execute()) {
 
         <?PHP 
             if($tipoUsuario == "adm"){
-            echo "<br><a href='usuarios/usuarios.php'>Editar Usuarios</a><br>";
+            echo "<br><a href='usuarios/usuarios.php' class='logout-btn'>Editar Usuarios</a><br>";
             }
         ?>
         <br><a href="logout.php" class="logout-btn">Sair da conta</a>
