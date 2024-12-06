@@ -1,3 +1,7 @@
+<?php
+        // Inclui o arquivo de verificação de sessão.
+        include_once("verifica.php");
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -292,8 +296,7 @@
     </div>
     <br>
     <?php
-        // Inclui o arquivo de verificação de sessão.
-        include_once("verifica.php");
+        
         // Recebe o CPF da sessão
         $cpf = $_SESSION['cpf'];
         // Conecta com o banco de dados
