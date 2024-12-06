@@ -70,33 +70,6 @@ nav ul li a:hover {
     color: #ffffff;
 }
 
-.search-bar {
-    display: flex;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-.search-bar input[type="search"] {
-    border: none;
-    padding: 5px;
-    outline: none;
-    width: 300px;
-}
-
-.search-bar button {
-    background-color: #21a3b4;
-    border: none;
-    color: white;
-    padding: 10px 15px;
-    cursor: pointer;
-    height: 100%;
-}
-
-.search-bar button:hover {
-    background-color: #2b89c0;
-}
-
 /* Estilo para o botão de logout */
 .logout-btn {
     display: inline-block;

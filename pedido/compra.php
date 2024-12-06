@@ -205,6 +205,11 @@
         background-color: #34495e;
         color: #f1f1f1;
     }
+
+    .simo-morceguinho {
+        margin-left: -5px;
+    }
+
         @media (max-width: 768px) {
             .product {
                 width: 100%;
@@ -221,7 +226,7 @@
         <div class="search-bar">
             <form method="get" action="compra.php">
                 <input type="search" name="search" placeholder="Pesquisar...">
-                <button type="submit">Buscar</button>
+                <button type="submit" class="simo-morceguinho">Buscar</button>
             </form>
         </div>
         <div class="cart">

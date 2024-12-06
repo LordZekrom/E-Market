@@ -73,9 +73,8 @@ if ($stm->execute()) {
              <img src="../imagens/logo2.png" alt="Logo">
             </a>
         </div>
-        <div class="search-bar">
-            <input type="search" placeholder="Pesquisar...">
-            <button type="submit">Buscar</button>
+        <div class="edit">
+           <h3 style="color:white">Comparação de produtos </h3>
         </div>
         <div class="cart">
         <a href="../pedido/carrinho.php">
