@@ -209,6 +209,17 @@
     .simo-morceguinho {
         margin-left: -5px;
     }
+    .hidden {
+    display: none;
+}
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding-left: 65px;
+}
+
+
 
         @media (max-width: 768px) {
             .product {
@@ -333,13 +344,16 @@
         produtos.forEach(produto => {
             // Exibir todos se a categoria for 'todos'
             if (categoria === 'todos' || produto.getAttribute('data-categoria') === categoria) {
-                produto.style.display = 'block';
+                //produto.style.display = 'block';
+                produto.classList.remove('hidden');
             } else {
-                produto.style.display = 'none';
+                //produto.style.display = 'none';
+                produto.classList.add('hidden');
             }
         });
     });
     });
     </script>
+    
 </body>
 </html>
