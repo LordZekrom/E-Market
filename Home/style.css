@@ -100,7 +100,9 @@ header h1 {
     color: white;
 }
 
-
+.btnaa {
+    margin-left: -5px;
+}
 
 
 /* Ajuste para garantir que as imagens ocupem 100% da div */
@@ -113,7 +115,7 @@ header h1 {
 
 /* Configuração do contêiner */
 .home-container {
-    margin-top: 20px ;
+    margin-top: 30px ;
     margin-left: 20px;
     margin-right: 20px;
     display: flex;
@@ -125,7 +127,7 @@ header h1 {
 /* Definindo as divs como blocos flexíveis */
 .ofertas, .cupons, .categorias, .maisvendidos {
     width: 48%;  /* Define a largura das divs para caberem duas por linha */
-    height: 200px;  /* Ajuste a altura das divs conforme necessário */
+    height: 250px;  /* Ajuste a altura das divs conforme necessário */
     position: relative;  /* Necessário para o overflow */
     overflow: hidden;  /* Impede que a imagem ultrapasse os limites da div */
     border-radius: 8px;  /* (opcional) Arredonda os cantos da div */

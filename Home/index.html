@@ -14,8 +14,11 @@
             </a>
         </div>
         <div class="search-bar">
-            <input type="search" placeholder="Pesquisar...">
-            <button type="submit">Buscar</button>
+            <form method="get" action="../pedido/compra.php"> <!-- Definindo a ação para a página de resultados -->
+                <input type="search" name="search" placeholder="Pesquisar produtos...">
+                <button type="submit" class="btnaa">Buscar</button>
+            </form>
+            
         </div>
         <div class="cart">
             <a href="../pedido/carrinho.php">

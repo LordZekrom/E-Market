@@ -46,7 +46,6 @@
             <li><a href="../perfil/perfil.php"  >Perfil</a></li> 
         </ul>
     </nav>
-    <h3>Pedido</h3>
     <table border>
         
         <?php

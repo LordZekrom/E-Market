@@ -1,6 +1,8 @@
 <?php
         // Inclui o arquivo de verificação de sessão.
         include_once("verifica.php");
+
+        $searchQuery = isset($_GET['search']) ? $_GET['search'] : ''; // Captura o termo de pesquisa, se existir
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

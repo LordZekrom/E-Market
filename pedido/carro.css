@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: rgb(255, 255, 255);
+    background-color:  #f4f4f4;
     margin: 0;
     padding: 0
 }
@@ -96,10 +96,12 @@ form input[name="cpfUsuario"] {
     border-radius: 5px;
 }
 
+
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
+    width: 80%;                 /* Define uma largura para a tabela (pode ajustar conforme necessário) */
+    margin: 50px auto;             /* Centraliza a tabela horizontalmente */
+    border-collapse: collapse;  /* Remove o espaço entre as bordas das células */
+    margin-bottom: 20px;        /* Adiciona um espaçamento de 20px abaixo da tabela */
 }
 
 table, th, td {
